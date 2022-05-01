@@ -32,17 +32,16 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          <span role="img" aria-label="shopping bag">
-            🛍️
-          </span>
-          -Shop-Shop
-        </Link>
-      </h1>
+    <header className="flex-row px-1 navbar-light bg-light">
+      <Link to="/">
+        <img
+          className="navbar-brand"
+          src="/images/houseshow-logo-small.png"
+          height="60"
+        ></img>
+      </Link>
 
-      <nav>{showNavigation()}</nav>
+      <nav className="">{showNavigation()}</nav>
     </header>
   );
 }

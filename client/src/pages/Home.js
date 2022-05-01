@@ -4,13 +4,7 @@ import CategoryMenu from "../components/CategoryMenu";
 import Cart from "../components/Cart";
 
 const Home = () => {
-  return (
-    <div className="container">
-      <CategoryMenu />
-      <ProductList />
-      <Cart />
-    </div>
-  );
+  return <div className="container">Hello</div>;
 };
 
 export default Home;
