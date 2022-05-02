@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom"; //add in route
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,7 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 import Navigation from "./components/Nav/Navigation";
 import { StoreProvider } from "./utils/GlobalState";
 import Header from "./components/Header/Header";
-
+import Home from "./pages/Home";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -34,11 +34,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div className="d-flex">
           <StoreProvider>
             <Header />
             <Navigation />
-            <Switch>{/*<Route exact path="/" component={Home} />*/}</Switch>
+            <Switch>{<Route exact path="/" component={Home} />}</Switch>
           </StoreProvider>
         </div>
       </Router>
