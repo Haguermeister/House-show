@@ -1,4 +1,16 @@
-body {
-  padding-top: 93px;
-  padding-bottom: 62px;
+body,
+html,
+#root {
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid red;
+}
+.main {
+  flex-grow: 1;
+  overflow: hidden;
+  overflow-y: auto;
 }

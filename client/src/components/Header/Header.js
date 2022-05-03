@@ -5,7 +5,7 @@ import "./header.css";
 
 const Header = (props) => {
   return (
-    <div className="navbar fixed-top navbar-light">
+    <div className="navbar  navbar-light">
       <Nav className="w-100 d-flex flex-row w-100">
         <NavLink
           to={"/"}

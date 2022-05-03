@@ -38,19 +38,22 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="d-flex">
-          <StoreProvider>
+        <StoreProvider>
+          <div className="wrapper">
             <Header />
+            <main className="main">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/account" component={Account} />
+                <Route exact path="/bookings" component={Bookings} />
+                <Route exact path="/explore" component={Explore} />
+                <Route exact path="/Saved" component={Saved} />
+              </Switch>
+            </main>
+
             <Navigation />
-            <Switch>
-              {<Route exact path="/" component={Home} />}
-              {<Route exact path="/account" component={Account} />}
-              {<Route exact path="/bookings" component={Bookings} />}
-              {<Route exact path="/explore" component={Explore} />}
-              {<Route exact path="/Saved" component={Saved} />}
-            </Switch>
-          </StoreProvider>
-        </div>
+          </div>
+        </StoreProvider>
       </Router>
     </ApolloProvider>
   );
