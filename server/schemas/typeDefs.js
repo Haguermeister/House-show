@@ -1,25 +1,19 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Category {
-    _id: ID
-    name: String
-  }
-
-  type Product {
+  type Vemue {
     _id: ID
     name: String
     description: String
     image: String
-    quantity: Int
-    price: Float
-    category: Category
+    cost: INT
   }
 
-  type Order {
+  type Artist {
     _id: ID
-    purchaseDate: String
-    products: [Product]
+    name: String
+    type: String
+    email: String
   }
 
   type User {
@@ -27,32 +21,32 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    orders: [Order]
-  }
-
-  type Checkout {
-    session: ID
+    artists: [Artist]
+    venues: [Venue]
   }
 
   type Auth {
     token: ID
-    user: User
+    artist: [Artist]
+    host: [Host]
   }
 
   type Query {
-    categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
-    user: User
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
+    artist: Artist
+    artists: [Artist]
+    host: Host
+    hosts: [Host]
+    venue: Venue
+    venues: [Venue]
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
+    addHost(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    updateHost(firstName: String, lastName: String, email: String, password: String): Host
+    addArtist(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    updateArtist(name: String, email: String, password: String): Artist
+    addVenue(name: String!, description: String!, cost: INT!): Auth
+    updateVenue(name: String, description: String, cost: INT): Venue
     login(email: String!, password: String!): Auth
   }
 `;

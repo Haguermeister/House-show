@@ -9,6 +9,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import "./navigation.css";
+
 const tabs = [
   {
     route: "/explore",
