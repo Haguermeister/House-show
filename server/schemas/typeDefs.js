@@ -5,6 +5,9 @@ const typeDefs = gql`
     _id: ID
     name: String
     description: String
+    owner: String
+    occupancy: Int
+    city: String
     image: String
     cost: Int
   }
@@ -12,7 +15,9 @@ const typeDefs = gql`
   type Artist {
     _id: ID
     name: String
-    type: String
+    musicType: String
+    bandSize: Int
+    rate: Int
     email: String
     venues: [Venue]
   }

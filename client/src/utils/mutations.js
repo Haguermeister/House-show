@@ -99,7 +99,6 @@ export const UPDATE_ARTIST = gql`
 export const ADD_VENUE = gql`
   mutation addVenue($name: String!, $description: String!, $cost: INT!) {
     addVenue(name: $name, description: $description, cost: $cost)
-    token
     host {
       _id
     }
@@ -109,7 +108,6 @@ export const ADD_VENUE = gql`
 export const UPDATE_VENUE = gql`
   mutation updateVenue($name: String!, $description: String!, $cost: INT!) {
     updateVenue(name: $name, description: $description, cost: $cost)
-    token
     host {
       _id
     }

@@ -1,122 +1,130 @@
-// const { AuthenticationError } = require('apollo-server-express');
-// const { Artist, Host, Venue } = require('../models');
-// const { signToken } = require('../utils/auth');
-// const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const { AuthenticationError } = require("apollo-server-express");
+const { Artist, Host, Venue } = require("../models");
+const { signToken } = require("../utils/auth");
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
-// const resolvers = {
-//   Query: {
-//     user: async (parent, args, context) => {
-//       if (context.user) {
-//         const user = await User.findById(context.user._id).populate({
-//           path: 'orders.products',
-//           populate: 'category'
-//         });
+const resolvers = {
+  Query: {
+    artist: async (parent, { name }) => {
+      return Artist.findOne({ name }).select("-__v -password");
+      // .populate("venues");
+    },
+    artist: async () => {
+      return Artist.find().select("-__v -password").populate("venues");
+    },
+    host: async (parent, { email }) => {
+      return Host.findOne({ email }).select("-__v -password");
+      // .populate("artists")
+      // .populate("venues");
+    },
+    hosts: async () => {
+      return Host.find().select("-__v -password");
+      // .populate("artists")
+      // .populate("venues");
+    },
+    venue: async (parent, { name }) => {
+      return Venue.findOne({ name });
+    },
+    venues: async () => {
+      return Venue.find();
+    },
+  },
 
-//         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+  Mutation: {
+    loginHost: async (parent, { email, password }) => {
+      const host = await host.findOne({ email });
 
-//         return user;
-//       }
+      if (!host) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
 
-//       throw new AuthenticationError('Not logged in');
-//     },
-//     order: async (parent, { _id }, context) => {
-//       if (context.user) {
-//         const user = await User.findById(context.user._id).populate({
-//           path: 'orders.products',
-//           populate: 'category'
-//         });
+      const correctPw = await host.isCorrectPassword(password);
 
-//         return user.orders.id(_id);
-//       }
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
 
-//       throw new AuthenticationError('Not logged in');
-//     },
-//     checkout: async (parent, args, context) => {
-//       const url = new URL(context.headers.referer).origin;
-//       const order = new Order({ products: args.products });
-//       const line_items = [];
+      const token = signToken(host);
 
-//       const { products } = await order.populate('products').execPopulate();
+      return { token, user };
+    },
+    addHost: async (parent, args) => {
+      const host = await Host.create(args);
+      const token = signToken(host);
 
-//       for (let i = 0; i < products.length; i++) {
-//         const product = await stripe.products.create({
-//           name: products[i].name,
-//           description: products[i].description,
-//           images: [`${url}/images/${products[i].image}`]
-//         });
+      return { token, host };
+    },
+    updateHost: async (parent, args, context) => {
+      if (context.host) {
+        return await Host.findByIdAndUpdate(context.host._id, args, {
+          new: true,
+        });
+      }
 
-//         const price = await stripe.prices.create({
-//           product: product.id,
-//           unit_amount: products[i].price * 100,
-//           currency: 'usd',
-//         });
+      throw new AuthenticationError("Not logged in");
+    },
+    loginArtist: async (parent, { email, password }) => {
+      const artist = await artist.findOne({ email });
 
-//         line_items.push({
-//           price: price.id,
-//           quantity: 1
-//         });
-//       }
+      if (!artist) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
 
-//       const session = await stripe.checkout.sessions.create({
-//         payment_method_types: ['card'],
-//         line_items,
-//         mode: 'payment',
-//         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-//         cancel_url: `${url}/`
-//       });
+      const correctPw = await artist.isCorrectPassword(password);
 
-//       return { session: session.id };
-//     }
-//   },
-//   Mutation: {
-//     addUser: async (parent, args) => {
-//       const user = await User.create(args);
-//       const token = signToken(user);
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
 
-//       return { token, user };
-//     },
-//     addOrder: async (parent, { products }, context) => {
-//       console.log(context);
-//       if (context.user) {
-//         const order = new Order({ products });
+      const token = signToken(artist);
 
-//         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+      return { token, artist };
+    },
+    addArtist: async (parent, args) => {
+      const artist = await Artist.create(args);
+      const token = signToken(artist);
 
-//         return order;
-//       }
+      return { token, artist };
+    },
+    updateArtist: async (parent, args, context) => {
+      if (context.artist) {
+        return await Artist.findByIdAndUpdate(context.artist._id, args, {
+          new: true,
+        });
+      }
 
-//       throw new AuthenticationError('Not logged in');
-//     },
-//     updateUser: async (parent, args, context) => {
-//       if (context.user) {
-//         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
-//       }
+      throw new AuthenticationError("Not logged in");
+    },
+    addVenue: async (parent, args, context) => {
+      if (context.host) {
+        const venue = await Venue.create({
+          ...args,
+          hostId: context.host._id,
+        });
 
-//       throw new AuthenticationError('Not logged in');
-//     },
-//     updateProduct: async (parent, { _id, quantity }) => {
-//       const decrement = Math.abs(quantity) * -1;
+        const updatedHost = await Host.findByIdAndUpdate(
+          { _id: context.host._id },
+          { $push: { venues: venue._id } },
+          { new: true }
+        );
 
-//       return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
-//     },
-//     login: async (parent, { email, password }) => {
-//       const user = await User.findOne({ email });
+        return updatedHost;
+      }
+    },
+    updateVenue: async (parent, args, context) => {
+      if (context.host) {
+        const venue = await Venue.findByIdAndUpdate(id, args, { new: true });
 
-//       if (!user) {
-//         throw new AuthenticationError('Incorrect credentials');
-//       }
+        const updatedHost = await Host.findByIdAndUpdate(
+          { _id: context.host._id },
+          { $push: { venues: venue._id } },
+          { new: true }
+        );
 
-//       const correctPw = await user.isCorrectPassword(password);
+        return updatedHost;
+      }
+    },
+  },
+};
 
-//       if (!correctPw) {
-//         throw new AuthenticationError('Incorrect credentials');
-//       }
-
-//       const token = signToken(user);
-
-//       return { token, user };
-//     }
-//   }
-// };
-
-// module.exports = resolvers;
+module.exports = resolvers;
