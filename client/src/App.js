@@ -35,6 +35,38 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const { UserType, SetUserType } = useState();
+
+  const venues = [
+    {
+      Owner: "Austin",
+      City: "Richmond",
+      musicType: "Country",
+      Ocuupancy: "50-75",
+      pictures: [
+        "/images/artist.png",
+        "/images/artist.png",
+        "/images/artist.png",
+        "/images/artist.png",
+      ],
+      id: 0.123,
+    },
+  ];
+  const artists = [
+    {
+      Name: "Austin",
+      Rate: "50 per Hour",
+      musicType: "Pop",
+      bandSize: "2-4",
+      pictures: [
+        "/images/artist.png",
+        "/images/artist.png",
+        "/images/artist.png",
+        "/images/artist.png",
+      ],
+      id: 0.123,
+    },
+  ];
   return (
     <ApolloProvider client={client}>
       <Router>

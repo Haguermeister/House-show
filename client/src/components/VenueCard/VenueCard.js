@@ -8,21 +8,21 @@ const VenueCard = (props) => {
     <div>
       {props.VenuesData.map((venue) => {
         return (
-          <div key={artist.id}>
+          <div key={venue.id}>
             <Carousel showThumbs={false} showStatus={false}>
-              {artist.pictures.map((picture) => {
+              {venue.pictures.map((picture) => {
                 return (
                   <div>
-                    <img alt="artist pictures" src={picture} />
+                    <img alt="venue pictures" src={picture} />
                     {/*"./images/venue2.png"*/}
                   </div>
                 );
               })}
             </Carousel>
-            <h2>{artist.Name}</h2>
-            <h3>$ {artist.Rate}</h3>
-            <h3>{artist.musicType}</h3>
-            <h3>{artist.bandSize}</h3>
+            <h2>{venue.Owner}</h2>
+            <h3>{venue.City}</h3>
+            <h3>{venue.musicType}</h3>
+            <h3>{venue.Occupancy}</h3>
           </div>
         );
       })}
@@ -30,4 +30,4 @@ const VenueCard = (props) => {
   );
 };
 
-export default ArtistCard;
+export default VenueCard;
