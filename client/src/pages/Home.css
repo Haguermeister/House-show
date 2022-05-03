@@ -1,0 +1,19 @@
+.button {
+  background-color: #f37180;
+  border: 1, #f37180;
+  color: #fefbef;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 1.5rem;
+  width: 15rem; /* Large, mobile-friendly touch target */
+
+  /* Media Queries */
+  @media (min-width: 37.5em) {
+    width: auto; /* Smaller buttons on larger screens */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
