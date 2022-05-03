@@ -1,5 +1,5 @@
 .button {
-  background-color: #f37180;
+  background-color: #fd6258;
   color: #fefbef;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -9,12 +9,12 @@
 }
 .button:hover {
   background-color: #fff;
-  color: #f37180;
+  color: #fd6258;
 }
 .signIn-Link {
-  color: #f37180;
+  color: #fd6258;
   background-color: #fff;
-  border: 1px solid #f37180;
+  border: 1px solid #fd6258;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   line-height: 1;
@@ -23,5 +23,5 @@
 }
 .signIn-Link:hover {
   color: #fff;
-  background-color: #f37180;
+  background-color: #fd6258;
 }

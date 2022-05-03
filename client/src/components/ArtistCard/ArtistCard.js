@@ -2,19 +2,30 @@ import React from "react";
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import './ArtistCard.css';
+import "./ArtistCard.css";
 
 const ArtistCard = (props) => {
   return (
-    <div className="d-flex justify-content-center flex-column aligin-items-center px-2 pt-2">
+    <div className="">
       {props.artistsData.map((artist) => {
         return (
-          <div className="mh-100" key={artist.id}>
-            <Carousel className="carousel h-50" showThumbs={false} showStatus={false}>
+          <div
+            className="d-flex justify-content-center flex-column aligin-items-center  pt-2"
+            key={artist.id}
+          >
+            <Carousel
+              className="carousel mx-auto"
+              showThumbs={false}
+              showStatus={false}
+            >
               {artist.pictures.map((picture) => {
                 return (
                   <div>
-                    <img alt="artist pictures" src={picture} />
+                    <img
+                      className="imgCarousel"
+                      alt="artist pictures"
+                      src={picture}
+                    />
                     {/*"./images/venue2.png"*/}
                   </div>
                 );
