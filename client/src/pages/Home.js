@@ -9,6 +9,14 @@ const Home = () => {
       <Link className="btn button" to={{ pathname: "/explore" }}>
         Explore
       </Link>
+      <div className="w-100 d-flex flex-row align-items-center my-auto">
+        <Link className="btn mx-auto" to={{ pathname: "/login" }}>
+          Sign in as Host
+        </Link>
+        <Link className="btn mx-auto" to={{ pathname: "/login" }}>
+          Sign in as Artist
+        </Link>
+      </div>
       <div className="w-100 d-flex flex-row align-items-center">
         <Link className="btn button mx-auto" to={{ pathname: "/login" }}>
           I want to Host
