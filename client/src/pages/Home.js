@@ -1,20 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import VideoLoop from "../components/VideoLoop/VideoLoop";
-import "./Home.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Auth from "../utils/auth"
 const Home = () => {
   return (
-    <div className="d-flex  justify-content-around">
+    <div className="">
       <VideoLoop />
-      <Link className="btn button" to={{ pathname: "/explore" }}>
-        Explore
-      </Link>
-      <Link className="btn button" to={{ pathname: "/login" }}>
-        I want to Host
-      </Link>
-      <Link className="btn button" to={{ pathname: "/login" }}>
-        I want to Perform
-      </Link>
+      {Auth.loggedIn() && (<Link to={{ pathname: "/explore" }}>Explore</Link>)}
+      <Link to={{ pathname: "/login" }}>I want to Host</Link>
+      <Link to={{ pathname: "/login" }}>I want to Perform</Link>
     </div>
   );
 };
