@@ -9,7 +9,7 @@ const resolvers = {
       return Artist.findOne({ name }).select("-__v -password");
       // .populate("venues");
     },
-    artist: async () => {
+    artists: async () => {
       return Artist.find().select("-__v -password").populate("venues");
     },
     host: async (parent, { email }) => {
