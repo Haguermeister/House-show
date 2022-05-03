@@ -5,12 +5,18 @@ export const GET_ARTIST = gql`
     artist(name: $name) {
       _id
       name
-      type
+      musicType
+      rate
+      bandSize
+      pictures
       email
       venues {
         _id
         name
+        owner
+        city
         description
+        occupancy
         cost
       }
     }
@@ -21,12 +27,18 @@ export const GET_ARTISTS = gql`
   query artists {
     _id
     name
-    type
+    musicType
+    rate
+    bandSize
+    pictures
     email
     venues {
       _id
       name
+      owner
+      city
       description
+      occupancy
       cost
     }
   }
@@ -42,13 +54,17 @@ export const GET_HOST = gql`
       artists {
         _id
         name
-        description
+        musicType
+        rate
         email
       }
       venues {
         _id
         name
+        owner
+        city
         description
+        occupancy
         cost
       }
     }
@@ -64,13 +80,17 @@ export const GET_HOSTS = gql`
     artists {
       _id
       name
-      description
+      musicType
+      rate
       email
     }
     venues {
       _id
       name
+      owner
+      city
       description
+      occupancy
       cost
     }
   }
@@ -81,8 +101,11 @@ export const GET_VENUE = gql`
     venue(name: $name) {
       _id
       name
+      owner
       description
-      image
+      city
+      occupancy
+      pictures
       cost
     }
   }
@@ -92,8 +115,11 @@ export const GET_VENUES = gql`
   query venues {
     _id
     name
+    owner
     description
-    image
+    city
+    occupancy
+    pictures
     const
   }
 `;
