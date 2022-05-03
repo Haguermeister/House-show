@@ -67,11 +67,22 @@ export const LOGIN_ARTIST = gql`
 export const ADD_ARTIST = gql`
   mutation addArtist(
     $name: String!
-    $type: String!
+    $musicType: String!
+    $pictures: [String]!
+    $bandSize: INT!
+    $rate: INT!
     $email: String!
     $password: String!
   ) {
-    addArtist(name: $name, type: $type, email: $email, password: $password) {
+    addArtist(
+      name: $name
+      musicType: $musicType
+      pictures: $pictures
+      bandSize: $bandSize
+      rate: $rate
+      email: $email
+      password: $password
+    ) {
       token
       artist {
         _id
@@ -83,11 +94,22 @@ export const ADD_ARTIST = gql`
 export const UPDATE_ARTIST = gql`
   mutation updateArtist(
     $name: String!
-    $type: String!
+    $musicType: String!
+    $pictures: [String]!
+    $bandSize: INT!
+    $rate: INT!
     $email: String!
     $password: String!
   ) {
-    updateArtist(name: $name, type: $type, email: $email, password: $password) {
+    updateArtist(
+      name: $name
+      musicType: $musicType
+      pictures: $pictures
+      bandSize: $bandSize
+      rate: $rate
+      email: $email
+      password: $password
+    ) {
       token
       artist {
         _id
@@ -97,9 +119,22 @@ export const UPDATE_ARTIST = gql`
 `;
 
 export const ADD_VENUE = gql`
-  mutation addVenue($name: String!, $description: String!, $cost: INT!) {
-    addVenue(name: $name, description: $description, cost: $cost)
-    token
+  mutation addVenue(
+    $name: String!
+    $description: String!
+    $occupancy: INT!
+    $city: String!
+    $pictures: [String]!
+    $cost: INT!
+  ) {
+    addVenue(
+      name: $name
+      description: $description
+      occupancy: $occupancy
+      city: $city
+      pictures: $pictures
+      cost: $cost
+    )
     host {
       _id
     }
@@ -107,9 +142,22 @@ export const ADD_VENUE = gql`
 `;
 
 export const UPDATE_VENUE = gql`
-  mutation updateVenue($name: String!, $description: String!, $cost: INT!) {
-    updateVenue(name: $name, description: $description, cost: $cost)
-    token
+  mutation updateVenue(
+    $name: String!
+    $description: String!
+    $occupancy: INT!
+    $city: String!
+    $pictures: [String]!
+    $cost: INT!
+  ) {
+    updateVenue(
+      name: $name
+      description: $description
+      occupancy: $occupancy
+      city: $city
+      pictures: $pictures
+      cost: $cost
+    )
     host {
       _id
     }
