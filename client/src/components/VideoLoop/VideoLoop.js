@@ -1,10 +1,13 @@
 import React from "react";
-//import backgroundVideo from "./backgroundVideo.mp4";
-const VideoLoop = () => {
+import backgroundVideo from "./videoBackground.mp4";
+import "./VideoLoop.css";
+const VideoLoop = (props) => {
   return (
-    <video autoplay loop muted id="video">
-      {/* <source src={backgroundVideo} type="video/mp4" /> */}
-    </video>
+    <div className="videoContainer">
+      <video loop muted autoPlay controls="" className="videoFrame">
+        <source src={backgroundVideo} />
+      </video>
+    </div>
   );
 };
 export default VideoLoop;
