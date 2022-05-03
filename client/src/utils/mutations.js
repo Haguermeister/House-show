@@ -1,51 +1,117 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const LOGIN = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+export const LOGIN_HOST = gql`
+  mutation loginHost($email: String!, $password: String!) {
+    loginHost(email: $email, password: $password) {
       token
-      user {
+      host {
         _id
       }
     }
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder($products: [ID]!) {
-    addOrder(products: $products) {
-      purchaseDate
-      products {
-        _id
-        name
-        description
-        price
-        quantity
-        category {
-          name
-        }
-      }
-    }
-  }
-`;
-
-export const ADD_USER = gql`
-  mutation addUser(
+export const ADD_HOST = gql`
+  mutation addHost(
     $firstName: String!
     $lastName: String!
     $email: String!
     $password: String!
   ) {
-    addUser(
+    addHost(
       firstName: $firstName
       lastName: $lastName
       email: $email
       password: $password
     ) {
       token
-      user {
+      host {
         _id
       }
+    }
+  }
+`;
+
+export const UPDATE_HOST = gql`
+  mutation updateHost(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    updateHost(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+    ) {
+      token
+      host {
+        _id
+      }
+    }
+  }
+`;
+
+export const LOGIN_ARTIST = gql`
+  mutation loginArtist($email: String!, $password: String!) {
+    loginArtist(email: $email, password: $password) {
+      token
+      artist {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_ARTIST = gql`
+  mutation addArtist(
+    $name: String!
+    $type: String!
+    $email: String!
+    $password: String!
+  ) {
+    addArtist(name: $name, type: $type, email: $email, password: $password) {
+      token
+      artist {
+        _id
+      }
+    }
+  }
+`;
+
+export const UPDATE_ARTIST = gql`
+  mutation updateArtist(
+    $name: String!
+    $type: String!
+    $email: String!
+    $password: String!
+  ) {
+    updateArtist(name: $name, type: $type, email: $email, password: $password) {
+      token
+      artist {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_VENUE = gql`
+  mutation addVenue($name: String!, $description: String!, $cost: INT!) {
+    addVenue(name: $name, description: $description, cost: $cost)
+    token
+    host {
+      _id
+    }
+  }
+`;
+
+export const UPDATE_VENUE = gql`
+  mutation updateVenue($name: String!, $description: String!, $cost: INT!) {
+    updateVenue(name: $name, description: $description, cost: $cost)
+    token
+    host {
+      _id
     }
   }
 `;
