@@ -9,6 +9,7 @@ export const GET_ARTIST = gql`
       rate
       bandSize
       pictures
+      spotifyLink
       email
       venues {
         _id
@@ -31,6 +32,7 @@ export const GET_ARTISTS = gql`
     rate
     bandSize
     pictures
+    spotifyLink
     email
     venues {
       _id

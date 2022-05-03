@@ -69,6 +69,7 @@ const typeDefs = gql`
       pictures: [String]!
       bandSize: Int!
       rate: Int!
+      spotifyLink: String!
       email: String!
       password: String!
     ): Auth
@@ -78,6 +79,7 @@ const typeDefs = gql`
       pictures: [String]!
       bandSize: Int!
       rate: Int!
+      spotifyLink: String!
       email: String!
       password: String!
     ): Artist
