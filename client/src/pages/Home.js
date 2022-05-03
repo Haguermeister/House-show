@@ -10,7 +10,6 @@ const Home = () => {
       {Auth.loggedIn() && <Link to={{ pathname: "/explore" }}>Explore</Link>}
       <Link to={{ pathname: "/login" }}>I want to Host</Link>
       <Link to={{ pathname: "/login" }}>I want to Perform</Link>
-      <Link to={{ pathname: "./SignIn" }}>Sign in</Link>
     </div>
   );
 };
