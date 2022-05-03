@@ -1,19 +1,27 @@
 .button {
   background-color: #f37180;
-  border: 1, #f37180;
   color: #fefbef;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   line-height: 1;
   margin-top: 1.5rem;
-  width: 15rem; /* Large, mobile-friendly touch target */
-
-  /* Media Queries */
-  @media (min-width: 37.5em) {
-    width: auto; /* Smaller buttons on larger screens */
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
+  width: 10rem; /* Large, mobile-friendly touch target */
+}
+.button:hover {
+  background-color: #fff;
+  color: #f37180;
+}
+.signIn-Link {
+  color: #f37180;
+  background-color: #fff;
+  border: 1px solid #f37180;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 1.5rem;
+  width: 10rem; /* Large, mobile-friendly touch target */
+}
+.signIn-Link:hover {
+  color: #fff;
+  background-color: #f37180;
 }
