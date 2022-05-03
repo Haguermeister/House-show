@@ -1,12 +1,12 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Vemue {
+  type Venue {
     _id: ID
     name: String
     description: String
     image: String
-    cost: INT
+    cost: Int
   }
 
   type Artist {
@@ -48,8 +48,8 @@ const typeDefs = gql`
     loginArtist(email: String!, password: String!): Auth
     addArtist(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateArtist(name: String, email: String, password: String): Artist
-    addVenue(name: String!, description: String!, cost: INT!): Auth
-    updateVenue(name: String, description: String, cost: INT): Venue
+    addVenue(name: String!, description: String!, cost: Int!): Auth
+    updateVenue(name: String, description: String, cost: Int): Venue
   }
 `;
 
