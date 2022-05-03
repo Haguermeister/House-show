@@ -24,8 +24,8 @@ const venueSchema = new Schema({
     type: String,
     required: true,
   },
-  image: {
-    type: String,
+  pictures: {
+    type: Array,
     required: false,
   },
   cost: {

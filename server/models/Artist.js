@@ -23,6 +23,14 @@ const artistSchema = new Schema({
     type: Number,
     required: true,
   },
+  pictures: {
+    type: Array,
+    required: false,
+  },
+  spotifyLink: {
+    type: String,
+    required: false,
+  },
   email: {
     type: String,
     required: true,

@@ -8,6 +8,7 @@ export const GET_ARTIST = gql`
       musicType
       rate
       bandSize
+      pictures
       email
       venues {
         _id
@@ -29,6 +30,7 @@ export const GET_ARTISTS = gql`
     musicType
     rate
     bandSize
+    pictures
     email
     venues {
       _id
@@ -103,7 +105,7 @@ export const GET_VENUE = gql`
       description
       city
       occupancy
-      image
+      pictures
       cost
     }
   }
@@ -117,7 +119,7 @@ export const GET_VENUES = gql`
     description
     city
     occupancy
-    image
+    pictures
     const
   }
 `;

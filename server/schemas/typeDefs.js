@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Venue {
@@ -8,7 +8,7 @@ const typeDefs = gql`
     owner: String
     occupancy: Int
     city: String
-    image: String
+    pictures: [String]
     cost: Int
   }
 
@@ -18,6 +18,8 @@ const typeDefs = gql`
     musicType: String
     bandSize: Int
     rate: Int
+    spotifyLink: String
+    pictures: [String]
     email: String
     venues: [Venue]
   }
@@ -48,13 +50,46 @@ const typeDefs = gql`
 
   type Mutation {
     loginHost(email: String!, password: String!): Auth
-    addHost(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    updateHost(firstName: String, lastName: String, email: String, password: String): Host
+    addHost(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+    ): Auth
+    updateHost(
+      firstName: String
+      lastName: String
+      email: String
+      password: String
+    ): Host
     loginArtist(email: String!, password: String!): Auth
-    addArtist(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    updateArtist(name: String, email: String, password: String): Artist
+    addArtist(
+      name: String!
+      musicType: String!
+      pictures: [String]!
+      bandSize: Int!
+      rate: Int!
+      email: String!
+      password: String!
+    ): Auth
+    updateArtist(
+      name: String!
+      musicType: String!
+      pictures: [String]!
+      bandSize: Int!
+      rate: Int!
+      email: String!
+      password: String!
+    ): Artist
     addVenue(name: String!, description: String!, cost: Int!): Auth
-    updateVenue(name: String, description: String, cost: Int): Venue
+    updateVenue(
+      name: String
+      description: String
+      occupancy: Int!
+      city: String
+      pictures: [String]!
+      cost: Int
+    ): Venue
   }
 `;
 
