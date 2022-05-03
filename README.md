@@ -6,6 +6,8 @@ A booking application for venue owners and artists.
 
 ## Webpage Link : https://houseshownow.com
 
+## Heroku Deployment: https://house-show.herokuapp.com/
+
 ## Screenshot Below :
 
 ![alt text](/public/images/ScreenShot.png)
