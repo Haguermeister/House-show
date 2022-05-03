@@ -10,7 +10,7 @@ const artistSchema = new Schema({
     required: true,
     trim: true,
   },
-  musticType: {
+  musicType: {
     type: String,
     required: true,
     trim: true,
