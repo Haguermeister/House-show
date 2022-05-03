@@ -3,10 +3,10 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
-const ArtistCard = (props) => {
+const VenueCard = (props) => {
   return (
     <div>
-      {props.artistsData.map((artist) => {
+      {props.VenuesData.map((venue) => {
         return (
           <div key={artist.id}>
             <Carousel showThumbs={false} showStatus={false}>
