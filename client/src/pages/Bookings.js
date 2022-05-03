@@ -18,7 +18,7 @@ const Bookings = (props) => {
   ];
   return (
     <div className="">
-      <ArtistCard artistsData={artists}></ArtistCard>
+      <ArtistCard artistsData={artists}></ArtistCard>;
     </div>
   );
 };
