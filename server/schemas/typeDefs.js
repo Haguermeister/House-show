@@ -14,9 +14,10 @@ const typeDefs = gql`
     name: String
     type: String
     email: String
+    venues: [Venue]
   }
 
-  type User {
+  type Host {
     _id: ID
     firstName: String
     lastName: String
