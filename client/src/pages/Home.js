@@ -4,15 +4,15 @@ import VideoLoop from "../components/VideoLoop/VideoLoop";
 import "./Home.css";
 const Home = () => {
   return (
-    <div className="">
+    <div className="d-flex  justify-content-around">
       <VideoLoop />
-      <Link className="btn button p-2" to={{ pathname: "/explore" }}>
+      <Link className="btn button" to={{ pathname: "/explore" }}>
         Explore
       </Link>
-      <Link className="btn button p-2" to={{ pathname: "/login" }}>
+      <Link className="btn button" to={{ pathname: "/login" }}>
         I want to Host
       </Link>
-      <Link className="btn button p-2" to={{ pathname: "/login" }}>
+      <Link className="btn button" to={{ pathname: "/login" }}>
         I want to Perform
       </Link>
     </div>
