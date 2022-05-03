@@ -42,13 +42,14 @@ const typeDefs = gql`
   }
 
   type Mutation {
+    loginHost(email: String!, password: String!): Auth
     addHost(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateHost(firstName: String, lastName: String, email: String, password: String): Host
+    loginArtist(email: String!, password: String!): Auth
     addArtist(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateArtist(name: String, email: String, password: String): Artist
     addVenue(name: String!, description: String!, cost: INT!): Auth
     updateVenue(name: String, description: String, cost: INT): Venue
-    login(email: String!, password: String!): Auth
   }
 `;
 
