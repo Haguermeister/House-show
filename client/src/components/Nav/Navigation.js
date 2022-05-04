@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
-  faSave,
   faBook,
   faUser,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import "./navigation.css";
 
@@ -18,7 +18,7 @@ const tabs = [
   },
   {
     route: "/saved",
-    icon: faSave,
+    icon: faHeart,
     label: "Saved",
   },
   {
