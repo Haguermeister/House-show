@@ -4,6 +4,7 @@ export const GET_ARTIST = gql`
   query artist($name: Sring!) {
     artist(name: $name) {
       _id
+      username
       name
       musicType
       rate
@@ -27,6 +28,7 @@ export const GET_ARTIST = gql`
 export const GET_ARTISTS = gql`
   query artists {
     _id
+    username
     name
     musicType
     rate
@@ -50,6 +52,7 @@ export const GET_HOST = gql`
   query host($email: String!) {
     host(email: $email) {
       _id
+      username
       firstName
       lastName
       email
@@ -76,6 +79,7 @@ export const GET_HOST = gql`
 export const GET_HOSTS = gql`
   query hosts {
     _id
+    username
     firstName
     lastName
     email

@@ -6,7 +6,7 @@ const venueSchema = new Schema({
   name: {
     type: String,
     required: true,
-    trim: true,
+    unique: false,
   },
   owner: {
     type: String,

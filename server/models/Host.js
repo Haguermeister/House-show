@@ -6,6 +6,12 @@ const Artist = require("./Artist");
 const Venue = require("./Venue");
 
 const hostSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
   firstName: {
     type: String,
     required: true,

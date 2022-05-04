@@ -6,21 +6,24 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 const resolvers = {
   Query: {
     artist: async (parent, { name }) => {
-      return Artist.findOne({ name }).select("-__v -password");
-      // .populate("venues");
+      return Artist.findOne({ name })
+        .select("-__v -password")
+        .populate("venues");
     },
     artists: async () => {
       return Artist.find().select("-__v -password").populate("venues");
     },
     host: async (parent, { email }) => {
-      return Host.findOne({ email }).select("-__v -password");
-      // .populate("artists")
-      // .populate("venues");
+      return Host.findOne({ email })
+        .select("-__v -password")
+        .populate("artists")
+        .populate("venues");
     },
     hosts: async () => {
-      return Host.find().select("-__v -password");
-      // .populate("artists")
-      // .populate("venues");
+      return Host.find()
+        .select("-__v -password")
+        .populate("artists")
+        .populate("venues");
     },
     venue: async (parent, { name }) => {
       return Venue.findOne({ name });
@@ -62,6 +65,19 @@ const resolvers = {
       }
 
       throw new AuthenticationError("Not logged in");
+    },
+    hireArtist: async (parent, { artistId }, context) => {
+      if (context.host) {
+        const updatedHost = await Host.findOneAndUpdate(
+          { _id: context.host._id },
+          { $addToSet: { artists: artistId } },
+          { new: true }
+        ).populate("artists");
+
+        return updatedHost;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
     loginArtist: async (parent, { email, password }) => {
       const artist = await artist.findOne({ email });
