@@ -51,19 +51,23 @@ const typeDefs = gql`
   type Mutation {
     loginHost(email: String!, password: String!): Auth
     addHost(
+      userName: String!
       firstName: String!
       lastName: String!
       email: String!
       password: String!
     ): Auth
     updateHost(
+      username: String!
       firstName: String
       lastName: String
       email: String
       password: String
     ): Host
-    loginArtist(email: String!, password: String!): Auth
+    hireArtist(artistId: ID!): Artist
+    loginArtist(email: String!, password: String): Auth
     addArtist(
+      username: String!
       name: String!
       musicType: String!
       pictures: [String]!
@@ -74,6 +78,7 @@ const typeDefs = gql`
       password: String!
     ): Auth
     updateArtist(
+      username: String!
       name: String!
       musicType: String!
       pictures: [String]!
@@ -83,7 +88,7 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): Artist
-    addVenue(name: String!, description: String!, cost: Int!): Auth
+    addVenue(name: String, description: String, cost: Int): Auth
     updateVenue(
       name: String
       description: String
