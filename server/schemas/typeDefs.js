@@ -88,6 +88,7 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): Artist
+    bookVenue(venueId: ID!): Venue
     addVenue(name: String, description: String, cost: Int): Auth
     updateVenue(
       name: String

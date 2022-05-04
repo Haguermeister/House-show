@@ -141,6 +141,18 @@ export const UPDATE_ARTIST = gql`
   }
 `;
 
+export const BOOK_VENUE = gql`
+  mutation bookVenue($id: ID!) {
+    bookVenue(venueId: $id) {
+      _id
+      venue {
+        _id
+        name
+      }
+    }
+  }
+`
+
 export const ADD_VENUE = gql`
   mutation addVenue(
     $name: String!
