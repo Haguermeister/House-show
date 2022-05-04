@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import musician from "../../../public/images/musician";
 
 const Login = () => {
-  return <div> Hello</div>;
+  return (
+    <section>
+      <div className="Hello">Hello World.</div>
+      <div>Hello</div>
+    </section>
+  );
 };
 
 export default Login;
