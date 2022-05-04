@@ -1,0 +1,22 @@
+.media {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto; 
+    width: 500px  
+}
+
+img {
+    max-width: 100%;
+}
+
+.media .overlayText {
+    position: absolute;
+    top: 6rem;
+    right: 230px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    text-decoration: underline;
+}
+
