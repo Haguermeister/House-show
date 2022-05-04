@@ -6,11 +6,11 @@ import "./ArtistCard.css";
 
 const ArtistCard = (props) => {
   return (
-    <div className="">
+    <div>
       {props.artistsData.map((artist) => {
         return (
           <div
-            className="d-flex justify-content-center flex-column aligin-items-center  pt-2"
+            className="d-flex justify-content-center flex-column aligin-items-center pt-2"
             key={artist.id}
           >
             <Carousel
@@ -32,15 +32,15 @@ const ArtistCard = (props) => {
               })}
             </Carousel>
 
-            <div className="d-flex justify-content-around pt-3">
+            <div className="d-flex justify-content-around pt-3 bookings-text">
               <div>
-                <h2>{artist.Name}</h2>
-                <h3>$ {artist.Rate}</h3>
+                <h2 className="h2">{artist.Name}</h2>
+                <h3 className="h3">${artist.Rate}</h3>
               </div>
 
               <div>
-                <h3>{artist.musicType}</h3>
-                <h3>{artist.bandSize}</h3>
+                <h2 className="h2">{artist.musicType}</h2>
+                <h3 className="h3">{artist.bandSize}</h3>
               </div>
             </div>
           </div>

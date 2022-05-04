@@ -15,6 +15,7 @@ import Account from "./pages/Account";
 import Bookings from "./pages/Bookings";
 import Explore from "./pages/Explore";
 import Saved from "./pages/Saved";
+import Login from "./pages/Login";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -47,6 +48,7 @@ function App() {
                 <Route exact path="/account" component={Account} />
                 <Route exact path="/bookings" component={Bookings} />
                 <Route exact path="/explore" component={Explore} />
+                <Route exact path="/login" component={Login} />
                 <Route exact path="/Saved" component={Saved} />
               </Switch>
             </main>
