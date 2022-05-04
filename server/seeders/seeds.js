@@ -9,7 +9,7 @@ db.once("open", async () => {
 
   // // create venue data
   let venueData = [];
-  for (let i = 0; i < 25; i += 1) {
+  for (let i = 0; i < 10; i += 1) {
     const data = {
       // _id: faker.database.mongodbObjectId(),
       name: faker.random.words(),
@@ -29,18 +29,18 @@ db.once("open", async () => {
   // // create artist data
   const artistData = [];
 
-  for (let i = 0; i < 25; i += 1) {
+  for (let i = 0; i < 10; i += 1) {
     const data = {
-      username: faker.unique(faker.internet.userName),
-      name: faker.unique(faker.name.findName),
+      username: faker.internet.userName(),
+      name: faker.name.findName(),
       musicType: faker.music.genre(),
       bandSize: faker.datatype.number(),
       rate: faker.datatype.number(),
       pictures: faker.image.imageUrl(),
       spotifyLink: faker.internet.url(),
-      email: faker.unique(faker.internet.email),
+      email: faker.internet.email(),
       password: faker.internet.password(),
-      venues: createdVenues,
+      // venues: createdVenues,
     };
 
     artistData.push(data);
@@ -51,15 +51,15 @@ db.once("open", async () => {
   // create host data
   const hostData = [];
 
-  for (let i = 0; i < 25; i += 1) {
+  for (let i = 0; i < 10; i += 1) {
     const data = {
-      username: faker.unique(faker.internet.userName),
+      username: faker.internet.userName(),
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
-      email: faker.unique(faker.internet.email),
+      email: faker.internet.email(),
       password: faker.internet.password(),
-      artists: createdArtists,
-      venues: createdVenues,
+      // artists: createdArtists,
+      // venues: createdVenues,
     };
 
     hostData.push(data);
