@@ -111,6 +111,19 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+    bookVenue: async (parent, { venueId }, context) => {
+      if (context.artist) {
+        const updatedArtist = await Artist.findOneAndUpdate(
+          { _id: context.artist._id },
+          { $addToSet: { venues: venueId } },
+          { new: true }
+        ).populate("venues");
+
+        return updatedArtist;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
     addVenue: async (parent, args, context) => {
       if (context.host) {
         const venue = await Venue.create({
