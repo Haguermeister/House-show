@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@faker-js/faker": "^6.3.1",
     "graphql": "^16.4.0",
     "node-sass": "^7.0.1"
   }
