@@ -31,8 +31,8 @@ db.once("open", async () => {
 
   for (let i = 0; i < 25; i += 1) {
     const data = {
-      username: faker.unique(faker.internet.userName),
-      name: faker.unique(faker.name.findName),
+      username: faker.internet.userName(),
+      name: faker.name.findName(),
       musicType: faker.music.genre(),
       bandSize: faker.datatype.number(),
       rate: faker.datatype.number(),
@@ -53,7 +53,7 @@ db.once("open", async () => {
 
   for (let i = 0; i < 25; i += 1) {
     const data = {
-      username: faker.unique(faker.internet.userName),
+      username: faker.internet.userName(),
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
       email: faker.unique(faker.internet.email),
