@@ -40,7 +40,7 @@ db.once("open", async () => {
       spotifyLink: faker.internet.url(),
       email: faker.internet.email(),
       password: faker.internet.password(),
-      venues: createdVenues,
+      // venues: createdVenues,
     };
 
     artistData.push(data);
@@ -58,8 +58,8 @@ db.once("open", async () => {
       lastName: faker.name.lastName(),
       email: faker.internet.email(),
       password: faker.internet.password(),
-      artists: createdArtists,
-      venues: createdVenues,
+      // artists: createdArtists,
+      // venues: createdVenues,
     };
 
     hostData.push(data);
