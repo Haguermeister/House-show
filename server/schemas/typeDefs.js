@@ -15,6 +15,7 @@ const typeDefs = gql`
   type Artist {
     _id: ID
     name: String
+    rating: Int
     musicType: String
     bandSize: Int
     rate: Int
