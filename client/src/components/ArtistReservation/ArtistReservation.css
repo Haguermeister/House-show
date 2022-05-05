@@ -1,0 +1,14 @@
+.carouselReservation {
+  border-radius: 10px;
+  width: auto;
+  height: 100%;
+}
+.imgReservation {
+  height: 400px;
+}
+.btnReservation {
+  background-color: #fd6258;
+  color: #fff;
+  width: 6rem;
+  padding: 0.5rem;
+}

@@ -7,17 +7,15 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Nav from "./components/Nav";
+import Navigation from "./components/Nav/Navigation";
 import { StoreProvider } from "./utils/GlobalState";
-import Success from "./pages/Success";
-import OrderHistory from "./pages/OrderHistory";
-
+import Header from "./components/Header/Header";
+import Home from "./pages/Home";
+import Account from "./pages/Account";
+import Bookings from "./pages/Bookings";
+import Explore from "./pages/Explore";
+import Saved from "./pages/Saved";
+import Login from "./pages/Login";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -41,20 +39,23 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
-          <StoreProvider>
-            <Nav />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/success" component={Success} />
-              <Route exact path="/orderHistory" component={OrderHistory} />
-              <Route exact path="/products/:id" component={Detail} />
-              <Route component={NoMatch} />
-            </Switch>
-          </StoreProvider>
-        </div>
+        <StoreProvider>
+          <div className="wrapper">
+            <Header />
+            <main className="main">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/account" component={Account} />
+                <Route exact path="/bookings" component={Bookings} />
+                <Route exact path="/explore" component={Explore} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/Saved" component={Saved} />
+              </Switch>
+            </main>
+
+            <Navigation />
+          </div>
+        </StoreProvider>
       </Router>
     </ApolloProvider>
   );

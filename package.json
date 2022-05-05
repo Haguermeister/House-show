@@ -1,5 +1,5 @@
 {
-  "name": "mern-shopping",
+  "name": "house-show",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -15,5 +15,13 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@faker-js/faker": "^6.3.1",
+    "@mui/material": "^5.6.4",
+    "graphql": "^16.4.0",
+    "node-sass": "^7.0.1"
   }
 }

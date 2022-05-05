@@ -1,51 +1,200 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const LOGIN = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+export const LOGIN_HOST = gql`
+  mutation loginHost($email: String!, $password: String!) {
+    loginHost(email: $email, password: $password) {
       token
-      user {
+      host {
         _id
+        username
       }
     }
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder($products: [ID]!) {
-    addOrder(products: $products) {
-      purchaseDate
-      products {
-        _id
-        name
-        description
-        price
-        quantity
-        category {
-          name
-        }
-      }
-    }
-  }
-`;
-
-export const ADD_USER = gql`
-  mutation addUser(
+export const ADD_HOST = gql`
+  mutation addHost(
+    $username: String!
     $firstName: String!
     $lastName: String!
     $email: String!
     $password: String!
   ) {
-    addUser(
+    addHost(
+      username: $username
       firstName: $firstName
       lastName: $lastName
       email: $email
       password: $password
     ) {
       token
-      user {
+      host {
         _id
       }
+    }
+  }
+`;
+
+export const UPDATE_HOST = gql`
+  mutation updateHost(
+    $username: String!
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    updateHost(
+      username: $username
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+    ) {
+      token
+      host {
+        _id
+      }
+    }
+  }
+`;
+
+export const HIRE_ARTIST = gql`
+  mutation hireArtist($id: ID!) {
+    hireArtist(artistId: $id) {
+      _id
+      username
+      artists {
+        _id
+        name
+      }
+    }
+  }
+`
+
+export const LOGIN_ARTIST = gql`
+  mutation loginArtist($email: String!, $password: String!) {
+    loginArtist(email: $email, password: $password) {
+      token
+      artist {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_ARTIST = gql`
+  mutation addArtist(
+    $username: String!
+    $name: String!
+    $musicType: String!
+    $pictures: [String]!
+    $bandSize: INT!
+    $rate: INT!
+    $email: String!
+    $password: String!
+  ) {
+    addArtist(
+      username: $username
+      name: $name
+      musicType: $musicType
+      pictures: $pictures
+      bandSize: $bandSize
+      rate: $rate
+      email: $email
+      password: $password
+    ) {
+      token
+      artist {
+        _id
+      }
+    }
+  }
+`;
+
+export const UPDATE_ARTIST = gql`
+  mutation updateArtist(
+    $username: String!
+    $name: String!
+    $musicType: String!
+    $pictures: [String]!
+    $bandSize: INT!
+    $rate: INT!
+    $email: String!
+    $password: String!
+  ) {
+    updateArtist(
+      username: $username
+      name: $name
+      musicType: $musicType
+      pictures: $pictures
+      bandSize: $bandSize
+      rate: $rate
+      email: $email
+      password: $password
+    ) {
+      token
+      artist {
+        _id
+      }
+    }
+  }
+`;
+
+export const BOOK_VENUE = gql`
+  mutation bookVenue($id: ID!) {
+    bookVenue(venueId: $id) {
+      _id
+      venue {
+        _id
+        name
+      }
+    }
+  }
+`
+
+export const ADD_VENUE = gql`
+  mutation addVenue(
+    $name: String!
+    $description: String!
+    $occupancy: INT!
+    $city: String!
+    $pictures: [String]!
+    $cost: INT!
+  ) {
+    addVenue(
+      name: $name
+      description: $description
+      occupancy: $occupancy
+      city: $city
+      pictures: $pictures
+      cost: $cost
+    )
+    host {
+      _id
+    }
+  }
+`;
+
+export const UPDATE_VENUE = gql`
+  mutation updateVenue(
+    $name: String!
+    $description: String!
+    $occupancy: INT!
+    $city: String!
+    $pictures: [String]!
+    $cost: INT!
+  ) {
+    updateVenue(
+      name: $name
+      description: $description
+      occupancy: $occupancy
+      city: $city
+      pictures: $pictures
+      cost: $cost
+    )
+    host {
+      _id
     }
   }
 `;

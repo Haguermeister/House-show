@@ -1,0 +1,20 @@
+.carousel {
+  border-radius: 10px;
+  width: 400px;
+}
+.imgCarousel {
+  height: 400px;
+}
+
+.h2 {
+  color: black;
+  text-decoration: bold;
+}
+
+.h3 {
+  color: gray;
+}
+
+.bookings-text {
+  margin: auto;
+}

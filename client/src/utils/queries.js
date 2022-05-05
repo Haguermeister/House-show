@@ -1,70 +1,131 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const QUERY_PRODUCTS = gql`
-  query getProducts($category: ID) {
-    products(category: $category) {
+export const GET_ARTIST = gql`
+  query artist($name: Sring!) {
+    artist(name: $name) {
       _id
+      username
       name
-      description
-      price
-      quantity
-      image
-      category {
+      musicType
+      rate
+      bandSize
+      pictures
+      spotifyLink
+      email
+      venues {
         _id
-      }
-    }
-  }
-`;
-
-export const QUERY_CHECKOUT = gql`
-  query getCheckout($products: [ID]!) {
-    checkout(products: $products) {
-      session
-    }
-  }
-`;
-
-export const QUERY_ALL_PRODUCTS = gql`
-  {
-    products {
-      _id
-      name
-      description
-      price
-      quantity
-      category {
         name
+        owner
+        city
+        description
+        occupancy
+        cost
       }
     }
   }
 `;
 
-export const QUERY_CATEGORIES = gql`
-  {
-    categories {
+export const GET_ARTISTS = gql`
+  query artists {
+    _id
+    username
+    name
+    musicType
+    rate
+    bandSize
+    pictures
+    spotifyLink
+    email
+    venues {
       _id
       name
+      owner
+      city
+      description
+      occupancy
+      cost
     }
   }
 `;
 
-export const QUERY_USER = gql`
-  {
-    user {
+export const GET_HOST = gql`
+  query host($email: String!) {
+    host(email: $email) {
+      _id
+      username
       firstName
       lastName
-      orders {
+      email
+      artists {
         _id
-        purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
-        }
+        name
+        musicType
+        rate
+        email
+      }
+      venues {
+        _id
+        name
+        owner
+        city
+        description
+        occupancy
+        cost
       }
     }
+  }
+`;
+
+export const GET_HOSTS = gql`
+  query hosts {
+    _id
+    username
+    firstName
+    lastName
+    email
+    artists {
+      _id
+      name
+      musicType
+      rate
+      email
+    }
+    venues {
+      _id
+      name
+      owner
+      city
+      description
+      occupancy
+      cost
+    }
+  }
+`;
+
+export const GET_VENUE = gql`
+  query venue($name: String!) {
+    venue(name: $name) {
+      _id
+      name
+      owner
+      description
+      city
+      occupancy
+      pictures
+      cost
+    }
+  }
+`;
+
+export const GET_VENUES = gql`
+  query venues {
+    _id
+    name
+    owner
+    description
+    city
+    occupancy
+    pictures
+    const
   }
 `;

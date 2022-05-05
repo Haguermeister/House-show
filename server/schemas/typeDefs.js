@@ -1,59 +1,103 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type Category {
-    _id: ID
-    name: String
-  }
-
-  type Product {
+  type Venue {
     _id: ID
     name: String
     description: String
-    image: String
-    quantity: Int
-    price: Float
-    category: Category
+    owner: String
+    occupancy: Int
+    city: String
+    pictures: [String]
+    cost: Int
   }
 
-  type Order {
+  type Artist {
     _id: ID
-    purchaseDate: String
-    products: [Product]
+    name: String
+    musicType: String
+    bandSize: Int
+    rate: Int
+    spotifyLink: String
+    pictures: [String]
+    email: String
+    venues: [Venue]
   }
 
-  type User {
+  type Host {
     _id: ID
     firstName: String
     lastName: String
     email: String
-    orders: [Order]
-  }
-
-  type Checkout {
-    session: ID
+    artists: [Artist]
+    venues: [Venue]
   }
 
   type Auth {
     token: ID
-    user: User
+    artist: [Artist]
+    host: [Host]
   }
 
   type Query {
-    categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
-    user: User
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
+    artist: Artist
+    artists: [Artist]
+    host: Host
+    hosts: [Host]
+    venue: Venue
+    venues: [Venue]
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!, password: String!): Auth
+    loginHost(email: String!, password: String!): Auth
+    addHost(
+      userName: String!
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+    ): Auth
+    updateHost(
+      username: String!
+      firstName: String
+      lastName: String
+      email: String
+      password: String
+    ): Host
+    hireArtist(artistId: ID!): Artist
+    loginArtist(email: String!, password: String): Auth
+    addArtist(
+      username: String!
+      name: String!
+      musicType: String!
+      pictures: [String]!
+      bandSize: Int!
+      rate: Int!
+      spotifyLink: String!
+      email: String!
+      password: String!
+    ): Auth
+    updateArtist(
+      username: String!
+      name: String!
+      musicType: String!
+      pictures: [String]!
+      bandSize: Int!
+      rate: Int!
+      spotifyLink: String!
+      email: String!
+      password: String!
+    ): Artist
+    bookVenue(venueId: ID!): Venue
+    addVenue(name: String, description: String, cost: Int): Auth
+    updateVenue(
+      name: String
+      description: String
+      occupancy: Int!
+      city: String
+      pictures: [String]!
+      cost: Int
+    ): Venue
   }
 `;
 
