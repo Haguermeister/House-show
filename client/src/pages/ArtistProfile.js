@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect, useParams } from 'react-router-dom';
 
-import UpdateArtist from '../components/UpdateArtist';
+// import UpdateArtist from '../components/UpdateArtist';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ARTIST, GET_MEARTIST } from '../utils/queries';
