@@ -59,7 +59,7 @@ const HostProfile = (props) => {
         )}
       </div>
 
-      <div className="flex-row justify-space-between mb-3">
+      {/* <div className="flex-row justify-space-between mb-3">
         <div className="col-12 col-lg-3 mb-3">
           <HostList
             username={host.username}
@@ -68,7 +68,7 @@ const HostProfile = (props) => {
           />
         </div>
       </div>
-      {/* <div className="mb-3">{!userParam && <UpdateHost />}</div> */}
+      <div className="mb-3">{!userParam && <UpdateHost />}</div> */}
     </div>
   );
 };

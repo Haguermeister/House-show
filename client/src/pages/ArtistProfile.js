@@ -59,7 +59,7 @@ const ArtistProfile = (props) => {
         )}
       </div>
 
-      <div className="flex-row justify-space-between mb-3">
+      {/* <div className="flex-row justify-space-between mb-3">
         <div className="col-12 col-lg-3 mb-3">
           <ArtistList
             username={artist.username}
@@ -68,7 +68,7 @@ const ArtistProfile = (props) => {
           />
         </div>
       </div>
-      {/* <div className="mb-3">{!userParam && <UpdateArtist />}</div> */}
+      <div className="mb-3">{!userParam && <UpdateArtist />}</div> */}
     </div>
   );
 };
