@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import "./ArtistReservation.css";
 
 const ArtistReservation = (props) => {
+  const spotify = "www.spotify.com/" + props.artist.spotify;
   return (
     <div
       className="d-flex justify-content-center flex-column aligin-items-center "
@@ -28,15 +29,21 @@ const ArtistReservation = (props) => {
           );
         })}
       </Carousel>
-
-      <h2 className="p-2">{props.artist.Name}</h2>
-      <span>stars</span>
-      <span>spotify link</span>
-      <h3 className="h3">${props.artist.Rate}</h3>
-      <span>Description</span>
-      <h2 className="h2">{props.artist.musicType}</h2>
-      <h3 className="h3">{props.artist.bandSize}</h3>
-      <button className="btn btnReservation">Reserve</button>
+      <div className="d-flex justify-content-around">
+        <h2 className="col-3 p-2 display-4">{props.artist.Name}</h2>
+        <span className="col-3 text-warning">{props.artist.rating}</span>
+        <a href={spotify} className="col-3 p-1">
+          <img className="mt-1 h-75" alt="" src="./images/spotify.png" />
+        </a>
+      </div>
+      <div className="d-flex justify-content-around">
+        <h3 className="h3 col-3">${props.artist.rate}</h3>
+        <h2 className="h3 col-3">{props.artist.musicType}</h2>
+        <h3 className="h3 col-3"> Band Size: {props.artist.bandSize}</h3>
+      </div>
+      <p>{props.artist.description}</p>
+      <button className=" mt-1 mx-auto btn btnReservation">Reserve</button>
+      {/* //link to stripe */}
     </div>
   );
 };
