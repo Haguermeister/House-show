@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect, useParams } from 'react-router-dom';
 
-import UpdateHost from '../components/UpdateHost';
+// import UpdateHost from '../components/UpdateHost';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_HOST, GET_MEHOST } from '../utils/queries';
