@@ -40,6 +40,8 @@ const typeDefs = gql`
   }
 
   type Query {
+    meArtist: Artist
+    meHost: Host
     artist: Artist
     artists: [Artist]
     host: Host
