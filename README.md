@@ -1,20 +1,34 @@
 # House Show
 
-A booking application for venue owners and artists.
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-## Github Repo Link : https://github.com/Haguermeister/House-show
+---
 
-## Webpage Link : https://houseshownow.com
+### A booking application for venue owners and artists.
 
-## Heroku Deployment: https://house-show.herokuapp.com/
+---
 
-## Screenshot Below :
+## Table of Contents
+
+- [Description](#description)
+
+- [Usage](#usage)
+
+- [Repository](#repository)
+
+- [Deployment](#deployment)
+
+- [Usage](#usage)
+
+- [Questions](#questions)
+
+- [License](#license)
 
 ![alt text](/public/images/ScreenShot.png)
 
 ---
 
-## User Story :
+<!-- ## User Story :
 
 ---
 
@@ -22,9 +36,17 @@ A booking application for venue owners and artists.
 
 #### I WANT AN application to provide me an intuitive mobile user interface for booking artists or reserving venues
 
-#### SO THAT I can show case my talents and or attract customers to me space
+#### SO THAT I can show case my talents and or attract customers to me space -->
 
 ---
+
+## Description
+
+This application provides performing artists with a platform for seeking out and reserving venues, and provides venue hosts with a platform for booking artists.
+
+---
+
+## Usage
 
 #### GIVEN a booking service between artists and hosts
 
@@ -47,3 +69,30 @@ A booking application for venue owners and artists.
 #### WHEN Im not loggedIn
 
 #### THEN I'm presented w/ login option in NAV with auth but when loggedIn logout is in nav
+
+---
+
+## Repository 
+### [GitHub](https://github.com/Haguermeister/House-show)
+
+<!-- ## Webpage Link : https://houseshownow.com -->
+
+---
+
+## Deployment
+### [House-Show](https://house-show.herokuapp.com/)
+
+---
+
+## Questions
+
+- GitHub: [Haguermeister](https://github.com/Haguermeister) || [sora64](https://github.com/sora64/) || [whosshazo](https://github.com/whosshazo) || [jreese8](https://github.com/jreese8)
+
+- Email: If you have any other questions, please reach us at [houseshowinformation@gmail.com
+](mailto:houseshowinformation@gmail.com).
+
+---
+
+## License
+
+This application is covered under the [ISC](https://opensource.org/licenses/ISC) license.
