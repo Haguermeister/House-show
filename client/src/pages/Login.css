@@ -17,6 +17,28 @@ img {
     text-align: center;
     font-size: 3rem;
     color: white;
+}
+
+.userLogin {
+    position: absolute;
+    bottom: 5rem;
+    right: 230px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
     text-decoration: underline;
+}
+
+.userCheck {
+    position: absolute;
+    top: 20rem;
+    right: 230px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: underline;
+    text-shadow: 10px;
 }
 
