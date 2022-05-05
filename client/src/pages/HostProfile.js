@@ -68,8 +68,8 @@ const HostProfile = (props) => {
           />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <UpdateHost />}</div>
-    </div>
+      {/* <div className="mb-3">{!userParam && <UpdateHost />}</div>
+    </div> */}
   );
 };
 

@@ -68,8 +68,8 @@ const ArtistProfile = (props) => {
           />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <UpdateArtist />}</div>
-    </div>
+      {/* <div className="mb-3">{!userParam && <UpdateArtist />}</div>
+    </div> */}
   );
 };
 
