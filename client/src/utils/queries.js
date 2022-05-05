@@ -1,5 +1,30 @@
 import { gql } from "@apollo/client";
 
+export const GET_MEARTIST = gql`
+  {
+    meArtist {
+      _id
+      username
+      name
+      musicType
+      rate
+      bandSize
+      pictures
+      spotifyLink
+      email
+      venues {
+        _id
+        name
+        owner
+        city
+        description
+        occupancy
+        cost
+      }
+    }
+  }
+`;
+
 export const GET_ARTIST = gql`
   query artist($name: Sring!) {
     artist(name: $name) {
@@ -44,6 +69,34 @@ export const GET_ARTISTS = gql`
       description
       occupancy
       cost
+    }
+  }
+`;
+
+export const GET_MEHOST = gql`
+  {
+    meHost {
+      _id
+      username
+      firstName
+      lastName
+      email
+      artists {
+        _id
+        name
+        musicType
+        rate
+        email
+      }
+      venues {
+        _id
+        name
+        owner
+        city
+        description
+        occupancy
+        cost
+      }
     }
   }
 `;

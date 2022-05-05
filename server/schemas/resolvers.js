@@ -5,6 +5,17 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
+    meArtist: async (parent, args, context) => {
+      if (context.artist) {
+        const artistData = await Artist.findOne({ _id: context.artist._id })
+          .select("-__v -password")
+          .populate("venues");
+
+        return artistData;
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
     artist: async (parent, { name }) => {
       return Artist.findOne({ name })
         .select("-__v -password")
@@ -12,6 +23,18 @@ const resolvers = {
     },
     artists: async () => {
       return Artist.find().select("-__v -password").populate("venues");
+    },
+    meHost: async (parent, args, context) => {
+      if (context.host) {
+        const hostData = await Host.findOne({ _id: context.host._id })
+          .select("-__v -password")
+          .populate("artists")
+          .populate("venues");
+
+        return hostData;
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
     host: async (parent, { email }) => {
       return Host.findOne({ email })
@@ -35,13 +58,13 @@ const resolvers = {
 
   Mutation: {
     loginHost: async (parent, { email, password }) => {
-      const host = await host.findOne({ email });
+      const host = await Host.findOne({ email });
 
       if (!host) {
         throw new AuthenticationError("Incorrect credentials");
       }
 
-      const correctPw = await host.isCorrectPassword(password);
+      const correctPw = await Host.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
@@ -80,13 +103,13 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     loginArtist: async (parent, { email, password }) => {
-      const artist = await artist.findOne({ email });
+      const artist = await Artist.findOne({ email });
 
       if (!artist) {
         throw new AuthenticationError("Incorrect credentials");
       }
 
-      const correctPw = await artist.isCorrectPassword(password);
+      const correctPw = await Artist.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
