@@ -26,7 +26,7 @@ const Home = () => {
         <Link className="btn button mx-auto" to={{ pathname: "/login" }}>
           I want to Host
         </Link>
-        <Link className="btn button mx-auto" to={{ pathname: "/login" }}>
+        <Link className="btn button mx-auto" to={{ pathname: "/artistSignup" }}>
           I want to Perform
         </Link>
       </div>
