@@ -218,8 +218,8 @@ export const UPDATE_VENUE = gql`
 `;
 
 export const DELETE_VENUE = gql`
-  mutation deleteVenye($id: ID!) {
-    deleteVenue(id: $id) {
+  mutation deleteVenue($name: String!) {
+    deleteVenue(name: $name) {
       _id
       name
     }
