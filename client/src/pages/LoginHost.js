@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Form from "react-bootstrap/Form";
-import Musician from "../assets/music.jpg";
-import { LOGIN_ARTIST } from "../utils/mutations";
+import Host from "../assets/hostPic.jpeg";
+import { LOGIN_HOST } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
-import "./Login.css";
+import "./LoginHost.css";
 
-const Login = () => {
+const LoginHost = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN_ARTIST);
+  const [login, { error }] = useMutation(LOGIN_HOST);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ const Login = () => {
       <div className="media ">
         <img
           className="backgroundImage"
-          src={Musician}
+          src={Host}
           alt="folk singer"
           style={{ width: "100%", height: "100%" }}
         />
@@ -95,4 +95,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginHost;

@@ -6,13 +6,13 @@
 }
 
 img {
-    background: no-repeat center center fixed;
+background: no-repeat center center fixed;
 }
 
 .media .overlayText {
     position: absolute;
-    top: 6rem;
-    right: 230px;
+    top: 2rem;
+    right: center   ;
     font-weight: bold;
     text-align: center;
     font-size: 3rem;
@@ -21,8 +21,8 @@ img {
 
 .userLogin {
     position: absolute;
-    bottom: 5rem;
-    right: 230px;
+    bottom: 8rem;
+    right: 200px;
     font-weight: bold;
     text-align: center;
     font-size: 1.5rem;
@@ -49,7 +49,7 @@ border: 1px solid #eee;
 border-radius: 20px;
 box-shadow: 5px 5px 5px #eee;
 text-shadow: none;
-
+margin-top: 1rem;
 }
 
 button:hover {
