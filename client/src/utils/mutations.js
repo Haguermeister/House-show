@@ -58,6 +58,15 @@ export const UPDATE_HOST = gql`
   }
 `;
 
+export const DELETE_HOST = gql`
+  mutation deleteHost($id: ID!) {
+    deleteHost(id: $id) {
+      _id
+      username
+    }
+  }
+`;
+
 export const HIRE_ARTIST = gql`
   mutation hireArtist($id: ID!) {
     hireArtist(artistId: $id) {
@@ -69,7 +78,7 @@ export const HIRE_ARTIST = gql`
       }
     }
   }
-`
+`;
 
 export const LOGIN_ARTIST = gql`
   mutation loginArtist($email: String!, $password: String!) {
@@ -141,6 +150,15 @@ export const UPDATE_ARTIST = gql`
   }
 `;
 
+export const DELETE_ARTIST = gql`
+  mutation deleteArtst($id: ID!) {
+    deleteArtist(id: $id) {
+      _id
+      username
+    }
+  }
+`;
+
 export const BOOK_VENUE = gql`
   mutation bookVenue($id: ID!) {
     bookVenue(venueId: $id) {
@@ -151,7 +169,7 @@ export const BOOK_VENUE = gql`
       }
     }
   }
-`
+`;
 
 export const ADD_VENUE = gql`
   mutation addVenue(
@@ -195,6 +213,15 @@ export const UPDATE_VENUE = gql`
     )
     host {
       _id
+    }
+  }
+`;
+
+export const DELETE_VENUE = gql`
+  mutation deleteVenye($id: ID!) {
+    deleteVenue(id: $id) {
+      _id
+      name
     }
   }
 `;
