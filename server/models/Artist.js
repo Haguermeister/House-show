@@ -17,6 +17,10 @@ const artistSchema = new Schema({
     trim: true,
     unique: true,
   },
+  rating: {
+    type: Number,
+    required: false,
+  },
   musicType: {
     type: String,
     required: true,
