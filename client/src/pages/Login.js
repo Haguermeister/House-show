@@ -81,7 +81,12 @@ const Login = () => {
               </div>
             ) : null}
             <div className="flex-row flex-end submitButton">
-              <button type="submit">Sign in</button>
+              <Link
+                className="btn button mx-auto"
+                to={{ pathname: "/explore" }}
+              >
+                Sign in
+              </Link>
             </div>
           </>
         </div>
