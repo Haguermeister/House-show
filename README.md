@@ -54,11 +54,11 @@ This application provides performing artists with a platform for seeking out and
 
 #### WHEN I sign up for the application and click either the become host or artist buttom
 
-#### THEN I fill in my information in a questionaire.
+#### THEN I fill in my information in a questionaire;
 
 #### WHEN I filter for artists (for hosts) or venues (for artists) by type / location / availibility
 
-#### THEN I'm presented with a dynamic list of cards of potential options of artists or venues.
+#### THEN I'm presented with a dynamic list of cards of potential options of artists or venues;
 
 <!-- #### WHEN I check out
 
@@ -66,11 +66,11 @@ This application provides performing artists with a platform for seeking out and
 
 #### WHEN I go to the website's homepage
 
-#### THEN I see a background video loop and am presented with options to login and sign up, and see a navigation bar at the bottom of the page.
+#### THEN I see a background video loop and am presented with options to login and sign up, and see a navigation bar at the bottom of the page;
 
 #### WHEN I'm not logged into the application
 
-#### THEN I'm presented with a login option in the navigation bar that uses authentication.
+#### THEN I'm presented with a login option in the navigation bar that uses authentication;
 
 #### WHEN I'm logged into the application
 
