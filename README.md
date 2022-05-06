@@ -20,6 +20,8 @@
 
 - [Usage](#usage)
 
+- [Technologies Used](#technologies-used)
+
 - [Questions](#questions)
 
 - [License](#license)
@@ -69,6 +71,19 @@ This application provides performing artists with a platform for seeking out and
 #### WHEN Im not loggedIn
 
 #### THEN I'm presented w/ login option in NAV with auth but when loggedIn logout is in nav
+
+---
+
+## Technologies Used
+
+* React
+* GraphQL
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose ODM
+* Heroku
+* Faker
 
 ---
 
