@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Form from "react-bootstrap/Form";
-import Musician from "../assets/musician.jpg";
+import Musician from "../assets/music.jpg";
 import { LOGIN_ARTIST } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";

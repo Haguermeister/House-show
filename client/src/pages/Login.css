@@ -11,7 +11,7 @@ img {
 
 .media .overlayText {
     position: absolute;
-    top: 1rem;
+    top: 6rem;
     right: 230px;
     font-weight: bold;
     text-align: center;
@@ -49,7 +49,7 @@ border: 1px solid #eee;
 border-radius: 20px;
 box-shadow: 5px 5px 5px #eee;
 text-shadow: none;
-margin-top: 1rem;
+
 }
 
 button:hover {
