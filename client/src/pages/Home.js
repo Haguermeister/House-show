@@ -12,7 +12,10 @@ const Home = () => {
         Explore
       </Link>
       <div className="w-100 d-flex flex-row align-items-center">
-        <Link className="signIn-Link btn mx-auto" to={{ pathname: "/login" }}>
+        <Link
+          className="signIn-Link btn mx-auto"
+          to={{ pathname: "/loginHost" }}
+        >
           Sign in as Host
         </Link>
         <Link className=" signIn-Link btn mx-auto" to={{ pathname: "/login" }}>

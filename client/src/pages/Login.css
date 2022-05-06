@@ -6,13 +6,13 @@
 }
 
 img {
-background: no-repeat center center fixed;
+    background: no-repeat center center fixed;
 }
 
 .media .overlayText {
     position: absolute;
-    top: 2rem;
-    right: center   ;
+    top: 1rem;
+    right: 230px;
     font-weight: bold;
     text-align: center;
     font-size: 3rem;
@@ -21,8 +21,8 @@ background: no-repeat center center fixed;
 
 .userLogin {
     position: absolute;
-    bottom: 8rem;
-    right: 200px;
+    bottom: 5rem;
+    right: 230px;
     font-weight: bold;
     text-align: center;
     font-size: 1.5rem;

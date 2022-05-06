@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Form from "react-bootstrap/Form";
-import Host from "../assets/hostPic.jpg";
+import Host from "../assets/hostPic.jpeg";
 import { LOGIN_HOST } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
-import "./Login.css";
+import "./LoginHost.css";
 
 const LoginHost = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN_ARTIST);
+  const [login, { error }] = useMutation(LOGIN_HOST);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
