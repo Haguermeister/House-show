@@ -56,7 +56,6 @@ const ArtistProfile = (props) => {
           </button>
         )}
       </div>
-
     </div>
   );
 };

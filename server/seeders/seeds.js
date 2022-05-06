@@ -26,13 +26,26 @@ db.once("open", async () => {
 
   const createdVenues = await Venue.collection.insertMany(venueData);
 
+  const randomRating = faker.datatype.number({
+    min: 1,
+    max: 5,
+    precision: 0.01,
+  });
+
   // // create artist data
   const artistData = [];
 
   for (let i = 0; i < 10; i += 1) {
+    const randomRating = faker.datatype.number({
+      min: 1,
+      max: 5,
+      precision: 0.01,
+    });
+
     const data = {
       username: faker.internet.userName(),
       name: faker.name.findName(),
+      rating: randomRating,
       musicType: faker.music.genre(),
       bandSize: faker.datatype.number(),
       rate: faker.datatype.number(),

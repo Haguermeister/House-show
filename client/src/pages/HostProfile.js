@@ -2,7 +2,6 @@ import React from "react";
 import { Redirect, useParams } from 'react-router-dom';
 
 import VenueList from '../components/VenueList';
-
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_HOST, GET_MEHOST } from '../utils/queries';
 import { ADD_VENUE } from '../utils/mutations';

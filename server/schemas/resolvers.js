@@ -89,6 +89,13 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+    deleteHost: async (parent, context) => {
+      if (context.host) {
+        return await Host.findByIdAndDelete(context.host._id);
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
     hireArtist: async (parent, { artistId }, context) => {
       if (context.host) {
         const updatedHost = await Host.findOneAndUpdate(
@@ -134,6 +141,13 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+    deleteArtist: async (parent, context) => {
+      if (context.Artist) {
+        return await Host.findByIdAndDelete(context.artist._id);
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
     bookVenue: async (parent, { venueId }, context) => {
       if (context.artist) {
         const updatedArtist = await Artist.findOneAndUpdate(
@@ -175,6 +189,13 @@ const resolvers = {
 
         return updatedHost;
       }
+    },
+    deleteVenue: async (parent, { name }, context) => {
+      if (context.host) {
+        return await Venue.findOneAndDelete(name);
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
   },
 };

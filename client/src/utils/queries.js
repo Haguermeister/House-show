@@ -6,6 +6,7 @@ export const GET_MEARTIST = gql`
       _id
       username
       name
+      rating
       musicType
       rate
       bandSize
@@ -31,6 +32,7 @@ export const GET_ARTIST = gql`
       _id
       username
       name
+      rating
       musicType
       rate
       bandSize
@@ -55,6 +57,7 @@ export const GET_ARTISTS = gql`
     _id
     username
     name
+    rating
     musicType
     rate
     bandSize
@@ -84,6 +87,7 @@ export const GET_MEHOST = gql`
       artists {
         _id
         name
+        rating
         musicType
         rate
         email
@@ -112,6 +116,7 @@ export const GET_HOST = gql`
       artists {
         _id
         name
+        rating
         musicType
         rate
         email
@@ -139,6 +144,7 @@ export const GET_HOSTS = gql`
     artists {
       _id
       name
+      rating
       musicType
       rate
       email
