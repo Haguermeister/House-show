@@ -50,44 +50,49 @@ This application provides performing artists with a platform for seeking out and
 
 ## Usage
 
-#### GIVEN a booking service between artists and hosts
+#### GIVEN a booking service between artists and hosts,
 
-#### WHEN I sign up for application and click host or artist buttom
+#### WHEN I sign up for the application and click either the become host or artist buttom
 
-#### THEN I fill in my information and fill out questionaire for filters
+#### THEN I fill in my information in a questionaire.
 
-#### WHEN I filter for hosts or venue by type / location / availibility
+#### WHEN I filter for artists (for hosts) or venues (for artists) by type / location / availibility
 
-#### THEN im presented with a dynamic list of cards of potential options of artists or venues
+#### THEN I'm presented with a dynamic list of cards of potential options of artists or venues.
 
-#### WHEN I check out
+<!-- #### WHEN I check out
 
-#### THEN I confirm dates, artist/venue and continue with stripe deposit
+#### THEN I confirm dates, artist/venue and continue with stripe deposit. -->
 
-#### WHEN I go to website
+#### WHEN I go to the website's homepage
 
-#### THEN I see a clip fade in and fade out and am presented with become host / artist / login and NAV on bottom
+#### THEN I see a background video loop and am presented with options to login and sign up, and see a navigation bar at the bottom of the page.
 
-#### WHEN Im not loggedIn
+#### WHEN I'm not logged into the application
 
-#### THEN I'm presented w/ login option in NAV with auth but when loggedIn logout is in nav
+#### THEN I'm presented with a login option in the navigation bar that uses authentication.
+
+#### WHEN I'm logged into the application
+
+#### THEN I'm presented with a logout option in the navigation bar.
 
 ---
 
 ## Technologies Used
 
-* React
-* GraphQL
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose ODM
-* Heroku
-* Faker
+- React
+- GraphQL
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose ODM
+- Heroku
+- Faker
 
 ---
 
-## Repository 
+## Repository
+
 ### [GitHub](https://github.com/Haguermeister/House-show)
 
 <!-- ## Webpage Link : https://houseshownow.com -->
@@ -95,6 +100,7 @@ This application provides performing artists with a platform for seeking out and
 ---
 
 ## Deployment
+
 ### [House-Show](https://house-show.herokuapp.com/)
 
 ---
@@ -104,7 +110,7 @@ This application provides performing artists with a platform for seeking out and
 - GitHub: [Haguermeister](https://github.com/Haguermeister) || [sora64](https://github.com/sora64/) || [whosshazo](https://github.com/whosshazo) || [jreese8](https://github.com/jreese8)
 
 - Email: If you have any other questions, please reach us at [houseshowinformation@gmail.com
-](mailto:houseshowinformation@gmail.com).
+  ](mailto:houseshowinformation@gmail.com).
 
 ---
 
