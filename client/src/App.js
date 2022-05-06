@@ -11,8 +11,9 @@ import Navigation from "./components/Nav/Navigation";
 import { StoreProvider } from "./utils/GlobalState";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home";
-import HostProfile from "./pages/HostProfile";
-import ArtistProfile from "./pages/ArtistProfile";
+// import HostProfile from "./pages/HostProfile";
+// import ArtistProfile from "./pages/ArtistProfile";
+import Account from "./pages/Account";
 import Bookings from "./pages/Bookings";
 import Explore from "./pages/Explore";
 import Saved from "./pages/Saved";
@@ -46,8 +47,9 @@ function App() {
             <main className="main">
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/HostProfile" component={HostProfile} />
-                <Route exact path="/ArtistProfile" component={ArtistProfile} />
+                <Route exact path="/account" component={Account} />
+                {/* <Route exact path="/HostProfile" component={HostProfile} />
+                <Route exact path="/ArtistProfile" component={ArtistProfile} /> */}
                 <Route exact path="/bookings" component={Bookings} />
                 <Route exact path="/explore" component={Explore} />
                 <Route exact path="/login" component={Login} />
