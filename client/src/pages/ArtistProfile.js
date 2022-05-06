@@ -1,17 +1,15 @@
 import React from "react";
 import { Redirect, useParams } from 'react-router-dom';
 
-// import UpdateArtist from '../components/UpdateArtist';
-
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ARTIST, GET_MEARTIST } from '../utils/queries';
-import { ADD_ARTIST } from '../utils/mutations';
+import { DELETE_ARTIST } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const ArtistProfile = (props) => {
   const { username: userParam } = useParams();
 
-  const [addArtist] = useMutation(ADD_ARTIST);
+  const [deleteArtist] = useMutation(DELETE_ARTIST);
   const { loading, data } = useQuery(userParam ? GET_ARTIST : GET_MEARTIST, {
     variables: { username: userParam },
   });
@@ -20,7 +18,7 @@ const ArtistProfile = (props) => {
 
   // redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to="/profile" />;
+    return <Redirect to="/account" />;
   }
 
   if (loading) {
@@ -37,7 +35,7 @@ const ArtistProfile = (props) => {
 
   const handleClick = async () => {
     try {
-      await addArtist({
+      await deleteArtist({
         variables: { id: artist._id },
       });
     } catch (e) {
@@ -49,26 +47,15 @@ const ArtistProfile = (props) => {
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${artist.username}'s` : 'your'} profile.
+          Viewing {userParam ? `${artist.username}'s` : 'your'} account.
         </h2>
 
         {userParam && (
           <button className="btn ml-auto" onClick={handleClick}>
-            Add Artist
+            Delete Artist
           </button>
         )}
       </div>
-
-      {/* <div className="flex-row justify-space-between mb-3">
-        <div className="col-12 col-lg-3 mb-3">
-          <ArtistList
-            username={artist.username}
-            artistCount={artist.artistCount}
-            artists={artist.artists}
-          />
-        </div>
-      </div>
-      <div className="mb-3">{!userParam && <UpdateArtist />}</div> */}
     </div>
   );
 };
