@@ -190,9 +190,9 @@ const resolvers = {
         return updatedHost;
       }
     },
-    deleteVenue: async (parent, { id }, context) => {
+    deleteVenue: async (parent, { name }, context) => {
       if (context.host) {
-        return await Venue.findByIdAndDelete(id);
+        return await Venue.findOneAndDelete(name);
       }
 
       throw new AuthenticationError("Not logged in");
