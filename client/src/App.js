@@ -17,6 +17,7 @@ import Bookings from "./pages/Bookings";
 import Explore from "./pages/Explore";
 import Saved from "./pages/Saved";
 import Login from "./pages/Login";
+import LoginHost from "./pages/LoginHost";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
