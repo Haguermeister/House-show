@@ -42,3 +42,22 @@ img {
     text-shadow: 10px;
 }
 
+button {
+    background: #0089f9;
+color: #fff;
+border: 1px solid #eee;
+border-radius: 20px;
+box-shadow: 5px 5px 5px #eee;
+text-shadow: none;
+margin-top: 1rem;
+}
+
+button:hover {
+    background: #75ccfe;
+color: #fff;
+border: 1px solid #eee;
+border-radius: 20px;
+box-shadow: 2px 2px 2px rgb(2, 2, 2);
+text-shadow: none;
+
+}
