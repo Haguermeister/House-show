@@ -18,6 +18,8 @@
 
 - [Deployment](#deployment)
 
+- [Presentation](#presentation)
+
 - [Usage](#usage)
 
 - [Technologies Used](#technologies-used)
@@ -26,9 +28,9 @@
 
 - [License](#license)
 
-![alt text](/public/images/ScreenShot.png)
-
 ---
+
+![House Show screenshot](/client/public/houseShowScreenshot.png)
 
 <!-- ## User Story :
 
@@ -39,7 +41,6 @@
 #### I WANT AN application to provide me an intuitive mobile user interface for booking artists or reserving venues
 
 #### SO THAT I can show case my talents and or attract customers to me space -->
-
 ---
 
 ## Description
@@ -101,7 +102,13 @@ This application provides performing artists with a platform for seeking out and
 
 ## Deployment
 
-### [House-Show](https://house-show.herokuapp.com/)
+### [House Show](https://house-show.herokuapp.com/)
+
+---
+
+## Presentation
+
+### [Google Slides](https://docs.google.com/presentation/d/1JnMvJOU8otgqiLw-s8nGMdICkh52yot_uD2qQHlBkI0/edit?usp=sharing)
 
 ---
 
