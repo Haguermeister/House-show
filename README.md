@@ -18,6 +18,8 @@
 
 - [Deployment](#deployment)
 
+- [Presentation](#presentation)
+
 - [Usage](#usage)
 
 - [Technologies Used](#technologies-used)
@@ -101,7 +103,13 @@ This application provides performing artists with a platform for seeking out and
 
 ## Deployment
 
-### [House-Show](https://house-show.herokuapp.com/)
+### [House Show](https://house-show.herokuapp.com/)
+
+---
+
+## Presentation
+
+### [Google Slides](https://docs.google.com/presentation/d/1JnMvJOU8otgqiLw-s8nGMdICkh52yot_uD2qQHlBkI0/edit?usp=sharing)
 
 ---
 
