@@ -15,6 +15,7 @@ const typeDefs = gql`
   type Artist {
     _id: ID
     name: String
+    rating: Int
     musicType: String
     bandSize: Int
     rate: Int
@@ -66,6 +67,7 @@ const typeDefs = gql`
       email: String
       password: String
     ): Host
+    deleteHost(id: ID!): Host
     hireArtist(artistId: ID!): Artist
     loginArtist(email: String!, password: String): Auth
     addArtist(
@@ -90,6 +92,7 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): Artist
+    deleteArtist(id: ID!): Artist
     bookVenue(venueId: ID!): Venue
     addVenue(name: String, description: String, cost: Int): Auth
     updateVenue(
@@ -100,6 +103,7 @@ const typeDefs = gql`
       pictures: [String]!
       cost: Int
     ): Venue
+    deleteVenue(name: String!): Venue
   }
 `;
 
