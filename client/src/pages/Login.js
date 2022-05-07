@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import AuthService from "../utils/auth";
-
-const Login = () => {
-  console.log("Login : !!!", AuthService.loggedIn());
-  return <p>Hello Ryan</p>;
-=======
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Form from "react-bootstrap/Form";
@@ -101,7 +93,6 @@ const Login = () => {
       </div>
     </section>
   );
->>>>>>> develop
 };
 
 export default Login;
