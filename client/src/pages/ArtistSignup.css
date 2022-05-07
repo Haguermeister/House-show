@@ -6,15 +6,43 @@
 
 .greyBack{
     background-color:#33475b;
-    height: 20rem;
+    height: 27rem;
     margin-top: 2rem;
     position: relative;
 }
 
 .backgroundImage {
-    position: absolute;
+    position: absolute; 
     top: 8rem;
     right: 2rem;
     z-index: 10;
-    height: 20rem;
+    height: 25rem;
+    border-radius: 25px;
+    border: solid white 3px;
 }
+
+.infoBlock {
+    background-color: #fd6258;
+    position: absolute;
+    z-index: 20;
+    height: 12rem;
+    width: 12rem;
+    top: 28rem;
+    right: 10rem;
+    border-radius: 15px;
+    border: solid white 3px;
+}
+
+.infoBlock {
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artistInfo {
+    display: flex;
+    padding: 1rem;
+}
+

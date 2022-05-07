@@ -12,6 +12,13 @@ const ArtistSignup = () => {
 
         <div className="coralBack"></div>
         <div className="greyBack"></div>
+
+        <div className="infoBlock">
+          <p className="artistInto">
+            Become an Artist and have access to thousands of venues at your
+            fingertips.
+          </p>
+        </div>
       </div>
     </section>
   );
