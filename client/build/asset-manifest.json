@@ -1,31 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.01538141.chunk.css",
-    "main.js": "/static/js/main.e1243ee0.chunk.js",
-    "main.js.map": "/static/js/main.e1243ee0.chunk.js.map",
+    "main.css": "/static/css/main.03a59d6c.chunk.css",
+    "main.js": "/static/js/main.657e5a80.chunk.js",
+    "main.js.map": "/static/js/main.657e5a80.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e719b823.js",
     "runtime-main.js.map": "/static/js/runtime-main.e719b823.js.map",
     "static/css/2.b9e10862.chunk.css": "/static/css/2.b9e10862.chunk.css",
-    "static/js/2.251e767b.chunk.js": "/static/js/2.251e767b.chunk.js",
-    "static/js/2.251e767b.chunk.js.map": "/static/js/2.251e767b.chunk.js.map",
+    "static/js/2.fd790d12.chunk.js": "/static/js/2.fd790d12.chunk.js",
+    "static/js/2.fd790d12.chunk.js.map": "/static/js/2.fd790d12.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.b9e10862.chunk.css.map": "/static/css/2.b9e10862.chunk.css.map",
-    "static/css/main.01538141.chunk.css.map": "/static/css/main.01538141.chunk.css.map",
-    "static/js/2.251e767b.chunk.js.LICENSE.txt": "/static/js/2.251e767b.chunk.js.LICENSE.txt",
-    "static/media/musician.47d944c1.jpg": "/static/media/musician.47d944c1.jpg",
+    "static/css/main.03a59d6c.chunk.css.map": "/static/css/main.03a59d6c.chunk.css.map",
+    "static/js/2.fd790d12.chunk.js.LICENSE.txt": "/static/js/2.fd790d12.chunk.js.LICENSE.txt",
+    "static/media/hostPic.57bdcfaa.jpeg": "/static/media/hostPic.57bdcfaa.jpeg",
+    "static/media/juanArtist.4c52594d.jpeg": "/static/media/juanArtist.4c52594d.jpeg",
+    "static/media/music.47d944c1.jpg": "/static/media/music.47d944c1.jpg",
     "static/media/videoBackground.fcee9df6.mp4": "/static/media/videoBackground.fcee9df6.mp4"
   },
   "entrypoints": [
     "static/js/runtime-main.e719b823.js",
     "static/css/2.b9e10862.chunk.css",
-<<<<<<< HEAD
-    "static/js/2.67bd0802.chunk.js",
-    "static/css/main.991cf692.chunk.css",
-    "static/js/main.6f886080.chunk.js"
-=======
-    "static/js/2.251e767b.chunk.js",
-    "static/css/main.01538141.chunk.css",
-    "static/js/main.e1243ee0.chunk.js"
->>>>>>> develop
+    "static/js/2.fd790d12.chunk.js",
+    "static/css/main.03a59d6c.chunk.css",
+    "static/js/main.657e5a80.chunk.js"
   ]
 }
