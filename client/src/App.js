@@ -16,7 +16,6 @@ import Home from "./pages/Home";
 import Account from "./pages/Account";
 import Bookings from "./pages/Bookings";
 import Explore from "./pages/Explore";
-import Saved from "./pages/Saved";
 import Login from "./pages/Login";
 import LoginHost from "./pages/LoginHost";
 import ArtistSignup from "./pages/ArtistSignup";
@@ -57,7 +56,8 @@ function App() {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/loginHost" component={LoginHost} />
                 <Route exact path="/artistSignup" component={ArtistSignup} />
-                <Route exact path="/Saved" component={Saved} />
+                {/*                 <Route exact path="/Saved" component={Saved} />
+                 */}
               </Switch>
             </main>
 

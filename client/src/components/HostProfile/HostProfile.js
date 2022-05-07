@@ -1,13 +1,13 @@
 import React from "react";
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useParams } from "react-router-dom";
 
-import VenueList from '../components/VenueList';
-import { useQuery, useMutation } from '@apollo/client';
-import { GET_HOST, GET_MEHOST } from '../utils/queries';
-import { ADD_VENUE } from '../utils/mutations';
-import { DELETE_HOST } from '../utils/mutations';
-import { DELETE_VENUE } from '../utils/mutations';
-import Auth from '../utils/auth';
+import VenueList from "../components/VenueList";
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_HOST, GET_MEHOST } from "../../utils/queries";
+import { ADD_VENUE } from "../../utils/mutations";
+import { DELETE_HOST } from "../../utils/mutations";
+import { DELETE_VENUE } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 const HostProfile = (props) => {
   const { username: userParam } = useParams();
@@ -31,11 +31,7 @@ const HostProfile = (props) => {
   }
 
   if (!host?.username) {
-    return (
-      <h4>
-        You must be logged in to see this.
-      </h4>
-    );
+    return <h4>You must be logged in to see this.</h4>;
   }
 
   const clickVenue = async () => {
@@ -46,7 +42,7 @@ const HostProfile = (props) => {
     } catch (e) {
       console.error(e);
     }
-  }
+  };
 
   const clickDelHost = async () => {
     try {
@@ -56,7 +52,7 @@ const HostProfile = (props) => {
     } catch (e) {
       console.error(e);
     }
-  }
+  };
 
   const clickDelVenue = async () => {
     try {
@@ -66,13 +62,13 @@ const HostProfile = (props) => {
     } catch (e) {
       console.error(e);
     }
-  }
+  };
 
   return (
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${host.username}'s` : 'your'} account.
+          Viewing {userParam ? `${host.username}'s` : "your"} account.
         </h2>
 
         {userParam && (
@@ -92,8 +88,6 @@ const HostProfile = (props) => {
             Add Venue
           </button>
         )}
-
-
       </div>
 
       <div className="flex-row justify-space-between mb-3">

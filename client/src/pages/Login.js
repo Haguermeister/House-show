@@ -4,21 +4,23 @@ import Form from "react-bootstrap/Form";
 import Musician from "../assets/music.jpg";
 import { LOGIN_ARTIST } from "../utils/mutations";
 import Auth from "../utils/auth";
-import { Link } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
+  const [userType, loggedIn] = Auth.loggedIn();
+
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_ARTIST);
-
+  const user = "artist";
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
       const mutationResponse = await login({
         variables: { email: formState.email, password: formState.password },
       });
+
       const token = mutationResponse.data.login.token;
-      Auth.login(token);
+      Auth.login(token, user);
     } catch (e) {
       console.log(e);
     }
@@ -72,6 +74,9 @@ const Login = () => {
                 onChange={handleChange}
                 aria-describedby="passwordHelpBlock"
               />
+              <btn className="btn button mx-auto" to={{ pathname: "/explore" }}>
+                Sign in
+              </btn>
             </Form>
             {error ? (
               <div>
@@ -80,14 +85,7 @@ const Login = () => {
                 </p>
               </div>
             ) : null}
-            <div className="flex-row flex-end submitButton">
-              <Link
-                className="btn button mx-auto"
-                to={{ pathname: "/explore" }}
-              >
-                Sign in
-              </Link>
-            </div>
+            <div className="flex-row flex-end submitButton"></div>
           </>
         </div>
       </div>

@@ -4,12 +4,14 @@ import Form from "react-bootstrap/Form";
 import Host from "../assets/hostPic.jpeg";
 import { LOGIN_HOST } from "../utils/mutations";
 import Auth from "../utils/auth";
-import { Link } from "react-router-dom";
 import "./LoginHost.css";
 
 const LoginHost = () => {
+  const [userType, loggedIn] = Auth.loggedIn();
+
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_HOST);
+  const user = "host";
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +20,7 @@ const LoginHost = () => {
         variables: { email: formState.email, password: formState.password },
       });
       const token = mutationResponse.data.login.token;
-      Auth.login(token);
+      Auth.login(token, user);
     } catch (e) {
       console.log(e);
     }
@@ -72,7 +74,11 @@ const LoginHost = () => {
                 onChange={handleChange}
                 aria-describedby="passwordHelpBlock"
               />
+              <btn className="btn button mx-auto" to={{ pathname: "/explore" }}>
+                Sign in
+              </btn>
             </Form>
+
             {error ? (
               <div>
                 <p className="error-text">
@@ -80,14 +86,7 @@ const LoginHost = () => {
                 </p>
               </div>
             ) : null}
-            <div className="flex-row flex-end submitButton">
-              <Link
-                className="btn button mx-auto"
-                to={{ pathname: "/explore" }}
-              >
-                Sign in
-              </Link>
-            </div>
+            <div className="flex-row flex-end submitButton"></div>
           </>
         </div>
       </div>

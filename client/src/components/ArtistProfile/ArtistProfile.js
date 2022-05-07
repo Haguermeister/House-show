@@ -1,10 +1,10 @@
 import React from "react";
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useParams } from "react-router-dom";
 
-import { useQuery, useMutation } from '@apollo/client';
-import { GET_ARTIST, GET_MEARTIST } from '../utils/queries';
-import { DELETE_ARTIST } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_ARTIST, GET_MEARTIST } from "../../utils/queries";
+import { DELETE_ARTIST } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 const ArtistProfile = (props) => {
   const { username: userParam } = useParams();
@@ -26,11 +26,7 @@ const ArtistProfile = (props) => {
   }
 
   if (!artist?.username) {
-    return (
-      <h4>
-        You must be logged in to see this.
-      </h4>
-    );
+    return <h4>You must be logged in to see this.</h4>;
   }
 
   const handleClick = async () => {
@@ -47,7 +43,7 @@ const ArtistProfile = (props) => {
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${artist.username}'s` : 'your'} account.
+          Viewing {userParam ? `${artist.username}'s` : "your"} account.
         </h2>
 
         {userParam && (

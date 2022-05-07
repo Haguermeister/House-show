@@ -1,37 +1,27 @@
 import React from "react";
 import ArtistCard from "../components/ArtistCard/ArtistCard";
+import auth from "../utils/auth";
+import { useQuery } from "@apollo/client";
+import { GET_MEARTIST, GET_MEHOST } from "../utils/queries";
+import VenueCard from "../components/VenueCard/VenueCard";
 const Bookings = (props) => {
-  const artists = [
-    {
-      Name: "Austin",
-      Rate: "50 per Hour",
-      musicType: "Pop",
-      bandSize: "2-4",
-      pictures: [
-        "/images/artist.png",
-        "/images/artist.png",
-        "/images/artist.png",
-        "/images/artist.png",
-      ],
-      id: 0.123,
-    },
-    {
-      Name: "Austin",
-      Rate: "50 per Hour",
-      musicType: "Pop",
-      bandSize: "2-4",
-      pictures: [
-        "/images/artist.png",
-        "/images/artist.png",
-        "/images/artist.png",
-        "/images/artist.png",
-      ],
-      id: 0.124,
-    },
-  ];
+  const [userType, loggedIn] = auth.loggedIn();
+  let artistTrue, hostTrue;
+  if (userType === "artist") {
+    artistTrue = true;
+  } else {
+    hostTrue = true;
+  }
+  const { data: artist } = useQuery(GET_MEARTIST, { enabled: artistTrue });
+  const { data: host } = useQuery(GET_MEHOST, { enabled: hostTrue });
   return (
     <div className="">
-      <ArtistCard artistsData={artists}></ArtistCard>;
+      {loggedIn && artist ? (
+        <VenueCard venuesData={artist.venues}></VenueCard>
+      ) : null}
+      {loggedIn && host ? (
+        <ArtistCard artistsData={host.artists}></ArtistCard>
+      ) : null}
     </div>
   );
 };
