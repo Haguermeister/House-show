@@ -6,6 +6,7 @@ import { GET_ARTISTS, GET_HOSTS } from "../utils/queries";
 import DropDownFilterUserArtist from "../components/DropDownFilter/DropDownFilterUserArtist";
 import DropDownFilterUserHost from "../components/DropDownFilter/DropDownFilterUserHost";
 import VenueCard from "../components/VenueCard/VenueCard";
+import ArtistCard from "../components/ArtistCard/ArtistCard";
 const Explore = () => {
   const [userType, loggedIn] = auth.loggedIn();
   let artistTrue, hostTrue;
@@ -21,6 +22,7 @@ const Explore = () => {
       <div>
         <DropDownFilterUserHost artists={artists} />
         <CalendarFilter />
+        <VenueCard venuesData={hosts.venues} />
       </div>
     );
   } else {
@@ -28,6 +30,7 @@ const Explore = () => {
       <div>
         <DropDownFilterUserArtist hosts={hosts} />
         <CalendarFilter />
+        <ArtistCard artistsData={artists} />
       </div>
     );
   }
