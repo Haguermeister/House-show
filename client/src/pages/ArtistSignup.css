@@ -39,10 +39,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: .5rem;
 }
 
 .artistInfo {
     display: flex;
-    padding: 1rem;
+    align-items: center;
+}
+
+.signupButton {
+    position: absolute;
+    z-index: 20;
+    top: 43rem;
+    right: 7.5rem;
 }
 

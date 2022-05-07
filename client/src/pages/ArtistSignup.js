@@ -1,6 +1,7 @@
 import React from "react";
 import "./ArtistSignup.css";
-import Artist from "../assets/juanArtist.PNG";
+import Artist from "../assets/juanArtist.jpeg";
+import { Link } from "react-router-dom";
 
 const ArtistSignup = () => {
   return (
@@ -18,6 +19,12 @@ const ArtistSignup = () => {
             Become an Artist and have access to thousands of venues at your
             fingertips.
           </p>
+        </div>
+
+        <div className="flex-row flex-end signupButton">
+          <Link className="btn button mx-auto" to={{ pathname: "/explore" }}>
+            Sign up
+          </Link>
         </div>
       </div>
     </section>
