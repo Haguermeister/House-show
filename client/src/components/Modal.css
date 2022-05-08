@@ -22,29 +22,34 @@
   .title {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
     font-size: 3rem;
-  color: #fd6258;
+    color: #fd6258;
   }
 
-
  .footer {
-     display: flex;
+    display: flex;
  }
 
  .cancelBtnArtist {
-     position: absolute;
-     top: 38rem;
-     left: 1rem;
-     background-color: crimson;
+    position: absolute;
+    top: 38rem;
+    left: 1rem;
+    background-color: #fd6258;
  }
 
  .continueBtnArtist {
-     position: absolute;
-     top: 38rem;
-     left: 12rem;
-     background-color: #4267B2
-     ;
+    position: absolute;
+    top: 38rem;
+    left: 14rem;
+    color: #fd6258;
+    background-color: #fff;
+    border: 2px solid #fd6258;
+    
+ }
+
+ .artistSignupForm {
+    padding: 1.5rem;
+    padding-bottom: 1.5rem;
  }
   
 

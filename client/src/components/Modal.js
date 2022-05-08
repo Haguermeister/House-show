@@ -12,7 +12,7 @@ function Modal({ closeModal }) {
         </div>
 
         <div className="body">
-          <Form>
+          <Form className="artistSignupForm">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" placeholder="Enter email" />
@@ -24,6 +24,16 @@ function Modal({ closeModal }) {
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPerformersName">
+              <Form.Label>Performers Name</Form.Label>
+              <Form.Control type="name" placeholder="Enter Name" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicMusic">
+              <Form.Label>Genre of Music</Form.Label>
+              <Form.Control type="musicGenre" placeholder="Genre" />
             </Form.Group>
           </Form>
         </div>
