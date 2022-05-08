@@ -80,7 +80,6 @@ const resolvers = {
       return { token, host };
     },
     updateHost: async (parent, args, context) => {
-      console.log(context.user);
       if (context.user) {
         return await Host.findByIdAndUpdate(context.user._id, args, {
           new: true,
