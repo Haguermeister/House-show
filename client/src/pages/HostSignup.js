@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../components/Modal";
+import Modal from "../components/ArtistModal";
 import Host from "../assets/davidHost.jpeg";
 import "./HostSignup.css";
 

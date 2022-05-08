@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ArtistSignup.css";
 import Artist from "../assets/juanArtist.jpeg";
-import Modal from "../components/Modal";
+import Modal from "../components/ArtistModal";
 
 const ArtistSignup = () => {
   const [openModal, setOpenModal] = useState(false);

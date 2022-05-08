@@ -4,9 +4,8 @@ import Auth from "../utils/auth";
 import { ADD_ARTIST } from "../utils/mutations";
 import { Link } from "react-router-dom";
 import Explore from "../pages/Explore";
-
 import { Form } from "react-bootstrap";
-import "./Modal.css";
+import "./ArtistModal.css";
 
 function Modal({ closeModal }) {
   const [formState, setFormState] = useState({ email: "", password: "" });
