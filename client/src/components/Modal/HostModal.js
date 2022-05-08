@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import Auth from "../utils/auth";
-import { ADD_ARTIST } from "../utils/mutations";
+import Auth from "../../utils/auth";
+import { ADD_ARTIST } from "../../utils/mutations";
+import { Link } from "react-router-dom";
+import Explore from "../../pages/Explore";
 import { Form } from "react-bootstrap";
-import "./Modal.css";
+import "../../components/Modal/HostModal.css";
 
 function Modal({ closeModal }) {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -36,64 +38,77 @@ function Modal({ closeModal }) {
   };
 
   return (
-    <div className="modalBackground">
-      <div className="modalContainer">
-        <div className="title">
-          <h1 className="artistSignup">Artist Signup</h1>
+    <div className="hostModalBackground">
+      <div className="hostModalContainer">
+        <div className="hostTitle">
+          <h1 className="hostSignup">Host Signup</h1>
         </div>
 
-        <div className="body">
-          <Form onSubmit={handleFormSubmit} className="artistSignupForm">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+        <div className="hostBody">
+          <Form onSubmit={handleFormSubmit} className="hostSignupForm">
+            <Form.Group className="mb-3" controlId="hostFormBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter email"
                 onChange={handleChange}
-                id="artistSignupEmail"
+                id="hostSignupEmail"
               />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" controlId="hostFormBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
                 onChange={handleChange}
-                id="artistSignupPassword"
+                id="hostSignupPassword"
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPerformersName">
-              <Form.Label>Performers Name</Form.Label>
+            <Form.Group className="mb-3" controlId="formBasicVenueName">
+              <Form.Label>Venue Name</Form.Label>
               <Form.Control
                 type="name"
                 placeholder="Enter Name"
                 onChange={handleChange}
-                id="artistSignupName"
+                id="hostSignupName"
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicMusic">
-              <Form.Label>Genre of Music</Form.Label>
+            <Form.Group className="mb-3" controlId="hostFormBasicMusic">
+              <Form.Label>Preferred Genre of Music</Form.Label>
               <Form.Control
                 type="musicGenre"
                 placeholder="Genre"
                 onChange={handleChange}
-                id="artistSignupGenre"
+                id="hostSignupGenre"
               />
             </Form.Group>
           </Form>
         </div>
 
-        <div className="footer">
-          <button className="cancelBtnArtist" onClick={() => closeModal(false)}>
+        {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
+
+        <div className="hostFooter">
+          <button className="cancelBtnHost" onClick={() => closeModal(false)}>
             Cancel
           </button>
-          <button className="continueBtnArtist">Continue</button>
+          <Link>
+            <button
+              className="continueBtnHost"
+              to={{ pathname: "../pages/explore" }}
+            >
+              Continue
+            </button>
+          </Link>
         </div>
       </div>
     </div>
