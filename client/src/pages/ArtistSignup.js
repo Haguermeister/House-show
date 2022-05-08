@@ -24,17 +24,15 @@ const ArtistSignup = () => {
           </p>
         </div>
 
-        <div className="flex-row flex-end signupButton">
-          <button
-            className="openModalBtn"
-            onClick={() => {
-              setOpenModal(true);
-            }}
-          >
-            Signup
-          </button>
-          {openModal && <Modal closeModal={setOpenModal} />}
-        </div>
+        <button
+          className="openModalBtn"
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          Signup
+        </button>
+        {openModal && <Modal closeModal={setOpenModal} />}
       </div>
     </section>
   );
