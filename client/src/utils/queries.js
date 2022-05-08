@@ -14,12 +14,6 @@ export const GET_MEARTIST = gql`
       email
       venues {
         _id
-        name
-        owner
-        city
-        description
-        occupancy
-        cost
       }
     }
   }
@@ -39,12 +33,6 @@ export const GET_ARTIST = gql`
       email
       venues {
         _id
-        name
-        owner
-        city
-        description
-        occupancy
-        cost
       }
     }
   }

@@ -178,7 +178,7 @@ const resolvers = {
     },
     updateVenue: async (parent, args, context) => {
       if (context.user) {
-        const updatedVenue = await Venue.findByIdAndUpdate(id, args, { new: true });
+        const updatedVenue = await Venue.findOneAndUpdate(args, { new: true });
 
         await Host.findByIdAndUpdate(
           { _id: context.user._id },

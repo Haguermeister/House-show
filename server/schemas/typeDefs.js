@@ -95,9 +95,9 @@ const typeDefs = gql`
     updateVenue(
       name: String
       description: String
-      occupancy: Int!
+      occupancy: Int
       city: String
-      pictures: [String]!
+      pictures: [String]
       owner: String
       cost: Int
     ): Venue
