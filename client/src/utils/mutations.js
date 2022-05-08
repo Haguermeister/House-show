@@ -173,14 +173,15 @@ export const DELETE_ARTIST = gql`
 `;
 
 export const BOOK_VENUE = gql`
-mutation bookVenue($venueId: ID!) {
-  bookVenue(venueId: $venueId) {
-    _id
-    name
-    venues {
+  mutation bookVenue($venueId: ID!) {
+    bookVenue(venueId: $venueId) {
       _id
       name
-      city
+      venues {
+        _id
+        name
+        city
+      }
     }
   }
 `;
