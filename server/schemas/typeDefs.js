@@ -65,7 +65,6 @@ const typeDefs = gql`
       firstName: String
       lastName: String
       email: String
-      password: String
     ): Host
     deleteHost(id: ID!): Host
     hireArtist(name: String!): Artist
@@ -89,7 +88,6 @@ const typeDefs = gql`
       rate: Int
       spotifyLink: String
       email: String
-      password: String
     ): Artist
     deleteArtist(id: ID!): Artist
     bookVenue(venueId: ID!): Venue
