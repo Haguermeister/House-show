@@ -176,13 +176,15 @@ export const GET_VENUE = gql`
 
 export const GET_VENUES = gql`
   query venues {
-    _id
-    name
-    owner
-    description
-    city
-    occupancy
-    pictures
-    const
+    venues {
+      _id
+      name
+      owner
+      description
+      city
+      occupancy
+      pictures
+      cost
+    }
   }
 `;
