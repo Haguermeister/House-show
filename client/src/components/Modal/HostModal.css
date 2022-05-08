@@ -1,4 +1,4 @@
-.modalBackground {
+.hostModalBackground {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.85);
@@ -10,7 +10,7 @@
     z-index: 1000;
   }
   
-  .modalContainer {
+  .hostModalContainer {
     width: 500px;
     height: 500px;
     border-radius: 12px;
@@ -19,25 +19,21 @@
     padding: 25px;
   }
   
-  .title {
+  .hostTitle {
     display: flex;
     justify-content: center;
     font-size: 3rem;
     color: #fd6258;
   }
 
- .footer {
-    display: flex;
- }
-
- .cancelBtnArtist {
+ .cancelBtnHost {
     position: absolute;
     top: 38rem;
     left: 1rem;
     background-color: #fd6258;
  }
 
- .continueBtnArtist {
+ .continueBtnHost {
     position: absolute;
     top: 38rem;
     left: 14rem;
@@ -47,7 +43,7 @@
     
  }
 
- .artistSignupForm {
+ .hostSignupForm {
     padding: 1.5rem;
     padding-bottom: 1.5rem;
  }
