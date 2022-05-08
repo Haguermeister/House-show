@@ -38,7 +38,7 @@ const LoginHost = () => {
     <section className="loginIn">
       <div className="media ">
         <img
-          className="backgroundImage"
+          className="backgroundImageHostLogin"
           src={Host}
           alt="folk singer"
           style={{ width: "100%", height: "100%" }}

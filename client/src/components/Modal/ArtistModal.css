@@ -1,0 +1,57 @@
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalContainer {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 25px;
+  }
+  
+  .title {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fd6258;
+  }
+
+ .footer {
+    display: flex;
+ }
+
+ .cancelBtnArtist {
+    position: absolute;
+    top: 38rem;
+    left: 1rem;
+    background-color: #fd6258;
+ }
+
+ .continueBtnArtist {
+    position: absolute;
+    top: 38rem;
+    left: 14rem;
+    color: #fd6258;
+    background-color: #fff;
+    border: 2px solid #fd6258;
+    
+ }
+
+ .artistSignupForm {
+    padding: 1.5rem;
+    padding-bottom: 1.5rem;
+ }
+  
+
+  
+  

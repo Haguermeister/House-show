@@ -1,7 +1,10 @@
-import React from "react";
-import auth from "../utils/auth";
+import React, { useState } from "react";
+import "./ArtistSignup.css";
+import Artist from "../assets/juanArtist.jpeg";
+import ArtistModal from "../components/Modal/ArtistModal";
+
 const ArtistSignup = () => {
-  const [userType, loggedIn] = auth.loggedIn();
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <section>
@@ -20,11 +23,15 @@ const ArtistSignup = () => {
           </p>
         </div>
 
-        <div className="flex-row flex-end signupButton">
-          <Link className="btn button mx-auto" to={{ pathname: "/explore" }}>
-            Sign up
-          </Link>
-        </div>
+        <button
+          className="openModalBtn"
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          Signup
+        </button>
+        {openModal && <ArtistModal closeModal={setOpenModal} />}
       </div>
     </section>
   );
