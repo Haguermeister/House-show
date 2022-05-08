@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_ARTIST } from "../utils/mutations";
+import { Link } from "react-router-dom";
+import Explore from "../pages/Explore";
+
 import { Form } from "react-bootstrap";
 import "./Modal.css";
 
@@ -89,11 +92,24 @@ function Modal({ closeModal }) {
           </Form>
         </div>
 
+        {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
+
         <div className="footer">
           <button className="cancelBtnArtist" onClick={() => closeModal(false)}>
             Cancel
           </button>
-          <button className="continueBtnArtist">Continue</button>
+          <Link>
+            <button
+              className="continueBtnArtist"
+              to={{ pathname: "../pages/explore" }}
+            >
+              Continue
+            </button>
+          </Link>
         </div>
       </div>
     </div>
