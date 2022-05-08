@@ -6,9 +6,9 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 const resolvers = {
   Query: {
     meArtist: async (parent, args, context) => {
-      console.log(context);
-      if (context.artist) {
-        const artistData = await Artist.findOne({ _id: context.artist._id })
+      console.log(context.user);
+      if (context.user) {
+        const artistData = await Artist.findOne({ _id: context.user._id })
           .select("-__v -password")
           .populate("venues");
 
@@ -26,9 +26,9 @@ const resolvers = {
       return Artist.find().select("-__v -password").populate("venues");
     },
     meHost: async (parent, args, context) => {
-      console.log(context.host);
-      if (context.host) {
-        const hostData = await Host.findOne({ _id: context.host._id })
+      console.log(context.user);
+      if (context.user) {
+        const hostData = await Host.findOne({ _id: context.user._id })
           .select("-__v -password")
           .populate("artists")
           .populate("venues");
@@ -80,25 +80,25 @@ const resolvers = {
       return { token, host };
     },
     updateHost: async (parent, args, context) => {
-      if (context.host) {
-        return await Host.findByIdAndUpdate(context.host._id, args, {
+      if (context.user) {
+        return await Host.findByIdAndUpdate(context.user._id, args, {
           new: true,
         });
       }
 
       throw new AuthenticationError("Not logged in");
     },
-    deleteHost: async (parent, context) => {
-      if (context.host) {
-        return await Host.findByIdAndDelete(context.host._id);
+    deleteHost: async (parent, { id }, context) => {
+      if (context) {
+        return await Host.findByIdAndDelete(id);
       }
 
       throw new AuthenticationError("Not logged in");
     },
     hireArtist: async (parent, { name }, context) => {
-      if (context.host) {
+      if (context.user) {
         const updatedHost = await Host.findOneAndUpdate(
-          { _id: context.host._id },
+          { _id: context.user._id },
           { $addToSet: { artists: name } },
           { new: true }
         ).populate("artists");
@@ -123,8 +123,6 @@ const resolvers = {
 
       const token = signToken(artist);
 
-      console.log(context);
-
       return { token, artist };
     },
     addArtist: async (parent, args) => {
@@ -134,25 +132,25 @@ const resolvers = {
       return { token, artist };
     },
     updateArtist: async (parent, args, context) => {
-      if (context.artist) {
-        return await Artist.findByIdAndUpdate(context.artist._id, args, {
+      if (context.user) {
+        return await Artist.findByIdAndUpdate(context.user._id, args, {
           new: true,
         });
       }
 
       throw new AuthenticationError("Not logged in");
     },
-    deleteArtist: async (parent, context) => {
-      if (context.Artist) {
-        return await Host.findByIdAndDelete(context.artist._id);
+    deleteArtist: async (parent, { id }, context) => {
+      if (context) {
+        return await Artist.findByIdAndDelete(id);
       }
 
       throw new AuthenticationError("Not logged in");
     },
     bookVenue: async (parent, { venueId }, context) => {
-      if (context.artist) {
+      if (context.user) {
         const updatedArtist = await Artist.findOneAndUpdate(
-          { _id: context.artist._id },
+          { _id: context.user._id },
           { $addToSet: { venues: venueId } },
           { new: true }
         ).populate("venues");
@@ -163,36 +161,36 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     addVenue: async (parent, args, context) => {
-      if (context.host) {
+      if (context.user) {
         const venue = await Venue.create({
           ...args,
-          hostId: context.host._id,
+          hostId: context.user._id,
         });
 
-        const updatedHost = await Host.findByIdAndUpdate(
-          { _id: context.host._id },
-          { $push: { venues: venue._id } },
+        await Host.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { venues: venue._id } },
           { new: true }
         );
 
-        return updatedHost;
+        return venue;
       }
     },
     updateVenue: async (parent, args, context) => {
-      if (context.host) {
-        const venue = await Venue.findByIdAndUpdate(id, args, { new: true });
+      if (context.user) {
+        const updatedVenue = await Venue.findByIdAndUpdate(id, args, { new: true });
 
-        const updatedHost = await Host.findByIdAndUpdate(
-          { _id: context.host._id },
-          { $push: { venues: venue._id } },
+        await Host.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { venues: updatedVenue._id } },
           { new: true }
         );
 
-        return updatedHost;
+        return updatedVenue;
       }
     },
     deleteVenue: async (parent, { name }, context) => {
-      if (context.host) {
+      if (context.user) {
         return await Venue.findOneAndDelete(name);
       }
 

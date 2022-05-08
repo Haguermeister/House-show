@@ -40,25 +40,20 @@ export const ADD_HOST = gql`
 
 export const UPDATE_HOST = gql`
   mutation updateHost(
-    $username: String!
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
+    $username: String
+    $firstName: String
+    $lastName: String
+    $email: String
   ) {
     updateHost(
       username: $username
       firstName: $firstName
       lastName: $lastName
       email: $email
-      password: $password
     ) {
-      token
-      host {
-        _id
-        firstName
-        lastName
-      }
+      _id
+      firstName
+      lastName
     }
   }
 `;
@@ -129,14 +124,13 @@ export const ADD_ARTIST = gql`
 
 export const UPDATE_ARTIST = gql`
   mutation updateArtist(
-    $username: String!
-    $name: String!
-    $musicType: String!
-    $pictures: [String]!
-    $bandSize: INT!
-    $rate: INT!
-    $email: String!
-    $password: String!
+    $username: String
+    $name: String
+    $musicType: String
+    $pictures: [String]
+    $bandSize: Int
+    $rate: Int
+    $email: String
   ) {
     updateArtist(
       username: $username
@@ -146,13 +140,9 @@ export const UPDATE_ARTIST = gql`
       bandSize: $bandSize
       rate: $rate
       email: $email
-      password: $password
     ) {
-      token
-      artist {
-        _id
-        name
-      }
+      _id
+      name
     }
   }
 `;
@@ -182,10 +172,11 @@ export const ADD_VENUE = gql`
   mutation addVenue(
     $name: String!
     $description: String!
-    $occupancy: INT!
+    $occupancy: Int!
     $city: String!
-    $pictures: [String]!
-    $cost: INT!
+    $pictures: [String]
+    $cost: Int!
+    $owner: String!
   ) {
     addVenue(
       name: $name
@@ -194,21 +185,28 @@ export const ADD_VENUE = gql`
       city: $city
       pictures: $pictures
       cost: $cost
-    )
-    host {
+      owner: $owner
+    ) {
       _id
+      name
+      description
+      occupancy
+      city
+      owner
+      cost
     }
   }
 `;
 
 export const UPDATE_VENUE = gql`
   mutation updateVenue(
-    $name: String!
-    $description: String!
-    $occupancy: INT!
-    $city: String!
-    $pictures: [String]!
-    $cost: INT!
+    $name: String
+    $description: String
+    $occupancy: Int
+    $city: String
+    $pictures: [String]
+    $owner: String
+    $cost: Int
   ) {
     updateVenue(
       name: $name
@@ -216,10 +214,17 @@ export const UPDATE_VENUE = gql`
       occupancy: $occupancy
       city: $city
       pictures: $pictures
+      owner: $owner
       cost: $cost
-    )
-    host {
+    ) {
       _id
+      name
+      description
+      occupancy
+      city
+      pictures
+      owner
+      cost
     }
   }
 `;

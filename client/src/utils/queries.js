@@ -148,12 +148,6 @@ export const GET_HOSTS = gql`
       }
       venues {
         _id
-        name
-        owner
-        city
-        description
-        occupancy
-        cost
       }
     }
   }
