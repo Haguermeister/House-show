@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./ArtistSignup.css";
 import Artist from "../assets/juanArtist.jpeg";
-import { Link } from "react-router-dom";
 import Modal from "../components/Modal";
 
 const ArtistSignup = () => {
