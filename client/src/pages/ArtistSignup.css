@@ -47,10 +47,21 @@
     align-items: center;
 }
 
-.signupButton {
+button {
+    background-color: #fd6258;
+    color: #fefbef;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    line-height: 2;
+    width: 10rem;
     position: absolute;
     z-index: 20;
     top: 43rem;
-    right: 7.5rem;
+    right: 10.5rem;
 }
+
+.button:hover {
+    background-color: white;
+    color: #fd6258;
+  }
 
