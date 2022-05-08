@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import Auth from "../utils/auth";
-import { ADD_ARTIST } from "../utils/mutations";
+import Auth from "../../utils/auth";
+import { ADD_ARTIST } from "../../utils/mutations";
 import { Link } from "react-router-dom";
-import Explore from "../pages/Explore";
+// import Explore from "../pages/Explore";
 import { Form } from "react-bootstrap";
-import "./ArtistModal.css";
+import "../../components/Modal/HostModal.css";
 
 function Modal({ closeModal }) {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -104,7 +104,7 @@ function Modal({ closeModal }) {
           <Link>
             <button
               className="continueBtnArtist"
-              to={{ pathname: "../pages/explore" }}
+              //   to={{ pathname: "../pages/explore" }}
             >
               Continue
             </button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../components/ArtistModal";
+import HostModal from "../components/Modal/HostModal";
 import Host from "../assets/davidHost.jpeg";
 import "./HostSignup.css";
 
@@ -35,7 +35,7 @@ const ArtistSignup = () => {
         >
           Signup
         </button>
-        {openModal && <Modal closeModal={setOpenModal} />}
+        {openModal && <HostModal closeModal={setOpenModal} />}
       </div>
     </section>
   );

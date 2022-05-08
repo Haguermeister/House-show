@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ArtistSignup.css";
 import Artist from "../assets/juanArtist.jpeg";
-import Modal from "../components/ArtistModal";
+import ArtistModal from "../components/Modal/ArtistModal";
 
 const ArtistSignup = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -31,7 +31,7 @@ const ArtistSignup = () => {
         >
           Signup
         </button>
-        {openModal && <Modal closeModal={setOpenModal} />}
+        {openModal && <ArtistModal closeModal={setOpenModal} />}
       </div>
     </section>
   );
