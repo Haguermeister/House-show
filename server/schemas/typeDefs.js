@@ -15,7 +15,7 @@ const typeDefs = gql`
   type Artist {
     _id: ID
     name: String
-    rating: Int
+    rating: String
     musicType: String
     bandSize: Int
     rate: Int
@@ -36,25 +36,25 @@ const typeDefs = gql`
 
   type Auth {
     token: ID
-    artist: [Artist]
-    host: [Host]
+    artist: Artist
+    host: Host
   }
 
   type Query {
     meArtist: Artist
     meHost: Host
-    artist: Artist
+    artist (name: String): Artist
     artists: [Artist]
-    host: Host
+    host (email: String): Host
     hosts: [Host]
-    venue: Venue
+    venue (name: String): Venue
     venues: [Venue]
   }
 
   type Mutation {
     loginHost(email: String!, password: String!): Auth
     addHost(
-      userName: String!
+      username: String!
       firstName: String!
       lastName: String!
       email: String!
@@ -68,13 +68,12 @@ const typeDefs = gql`
       password: String
     ): Host
     deleteHost(id: ID!): Host
-    hireArtist(artistId: ID!): Artist
+    hireArtist(name: String!): Artist
     loginArtist(email: String!, password: String): Auth
     addArtist(
       username: String!
       name: String!
       musicType: String!
-      pictures: [String]!
       bandSize: Int!
       rate: Int!
       spotifyLink: String!

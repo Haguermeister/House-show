@@ -6,6 +6,7 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 const resolvers = {
   Query: {
     meArtist: async (parent, args, context) => {
+      console.log(context);
       if (context.artist) {
         const artistData = await Artist.findOne({ _id: context.artist._id })
           .select("-__v -password")
@@ -25,6 +26,7 @@ const resolvers = {
       return Artist.find().select("-__v -password").populate("venues");
     },
     meHost: async (parent, args, context) => {
+      console.log(context.host);
       if (context.host) {
         const hostData = await Host.findOne({ _id: context.host._id })
           .select("-__v -password")
@@ -37,10 +39,7 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     host: async (parent, { email }) => {
-      return Host.findOne({ email })
-        .select("-__v -password")
-        .populate("artists")
-        .populate("venues");
+      return Host.findOne({ email }).select("-__v -password");
     },
     hosts: async () => {
       return Host.find()
@@ -64,7 +63,7 @@ const resolvers = {
         throw new AuthenticationError("Incorrect credentials");
       }
 
-      const correctPw = await Host.isCorrectPassword(password);
+      const correctPw = await host.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
@@ -72,7 +71,7 @@ const resolvers = {
 
       const token = signToken(host);
 
-      return { token, user };
+      return { token, host };
     },
     addHost: async (parent, args) => {
       const host = await Host.create(args);
@@ -96,11 +95,11 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    hireArtist: async (parent, { artistId }, context) => {
+    hireArtist: async (parent, { name }, context) => {
       if (context.host) {
         const updatedHost = await Host.findOneAndUpdate(
           { _id: context.host._id },
-          { $addToSet: { artists: artistId } },
+          { $addToSet: { artists: name } },
           { new: true }
         ).populate("artists");
 
@@ -109,20 +108,22 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    loginArtist: async (parent, { email, password }) => {
+    loginArtist: async (parent, { email, password }, context) => {
       const artist = await Artist.findOne({ email });
 
       if (!artist) {
         throw new AuthenticationError("Incorrect credentials");
       }
 
-      const correctPw = await Artist.isCorrectPassword(password);
+      const correctPw = await artist.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(artist);
+
+      console.log(context);
 
       return { token, artist };
     },

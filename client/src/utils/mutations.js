@@ -6,7 +6,8 @@ export const LOGIN_HOST = gql`
       token
       host {
         _id
-        username
+        firstName
+        lastName
       }
     }
   }
@@ -14,14 +15,14 @@ export const LOGIN_HOST = gql`
 
 export const ADD_HOST = gql`
   mutation addHost(
-    $username: String!
+    $userName: String!
     $firstName: String!
     $lastName: String!
     $email: String!
     $password: String!
   ) {
     addHost(
-      username: $username
+      userName: $userName
       firstName: $firstName
       lastName: $lastName
       email: $email
@@ -30,6 +31,8 @@ export const ADD_HOST = gql`
       token
       host {
         _id
+        firstName
+        lastName
       }
     }
   }
@@ -53,6 +56,8 @@ export const UPDATE_HOST = gql`
       token
       host {
         _id
+        firstName
+        lastName
       }
     }
   }
@@ -62,16 +67,16 @@ export const DELETE_HOST = gql`
   mutation deleteHost($id: ID!) {
     deleteHost(id: $id) {
       _id
-      username
+      firstName
+      lastName
     }
   }
 `;
 
 export const HIRE_ARTIST = gql`
-  mutation hireArtist($id: ID!) {
-    hireArtist(artistId: $id) {
+  mutation hireArtist($name: String!) {
+    hireArtist(name: $name) {
       _id
-      username
       artists {
         _id
         name
@@ -86,7 +91,7 @@ export const LOGIN_ARTIST = gql`
       token
       artist {
         _id
-        username
+        name
       }
     }
   }
@@ -97,9 +102,9 @@ export const ADD_ARTIST = gql`
     $username: String!
     $name: String!
     $musicType: String!
-    $pictures: [String]!
-    $bandSize: INT!
-    $rate: INT!
+    $bandSize: Int!
+    $rate: Int!
+    $spotifyLink: String!
     $email: String!
     $password: String!
   ) {
@@ -107,15 +112,16 @@ export const ADD_ARTIST = gql`
       username: $username
       name: $name
       musicType: $musicType
-      pictures: $pictures
       bandSize: $bandSize
       rate: $rate
+      spotifyLink: $spotifyLink
       email: $email
       password: $password
     ) {
       token
       artist {
         _id
+        name
       }
     }
   }
@@ -145,6 +151,7 @@ export const UPDATE_ARTIST = gql`
       token
       artist {
         _id
+        name
       }
     }
   }
@@ -154,7 +161,7 @@ export const DELETE_ARTIST = gql`
   mutation deleteArtst($id: ID!) {
     deleteArtist(id: $id) {
       _id
-      username
+      name
     }
   }
 `;
