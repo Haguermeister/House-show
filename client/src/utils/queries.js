@@ -14,6 +14,13 @@ export const GET_MEARTIST = gql`
       email
       venues {
         _id
+        name
+        owner
+        description
+        city
+        occupancy
+        pictures
+        cost
       }
     }
   }
@@ -33,6 +40,13 @@ export const GET_ARTIST = gql`
       email
       venues {
         _id
+        name
+        owner
+        description
+        city
+        occupancy
+        pictures
+        cost
       }
     }
   }
@@ -54,9 +68,10 @@ export const GET_ARTISTS = gql`
         _id
         name
         owner
-        city
         description
+        city
         occupancy
+        pictures
         cost
       }
     }
@@ -82,9 +97,10 @@ export const GET_MEHOST = gql`
         _id
         name
         owner
-        city
         description
+        city
         occupancy
+        pictures
         cost
       }
     }
@@ -110,9 +126,10 @@ export const GET_HOST = gql`
         _id
         name
         owner
-        city
         description
+        city
         occupancy
+        pictures
         cost
       }
     }
@@ -136,6 +153,13 @@ export const GET_HOSTS = gql`
       }
       venues {
         _id
+        name
+        owner
+        description
+        city
+        occupancy
+        pictures
+        cost
       }
     }
   }

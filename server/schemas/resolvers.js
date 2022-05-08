@@ -39,7 +39,10 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     host: async (parent, { email }) => {
-      return Host.findOne({ email }).select("-__v -password");
+      return Host.findOne({ email })
+        .select("-__v -password")
+        .populate("artists")
+        .populate("venues");
     },
     hosts: async () => {
       return Host.find()
@@ -95,11 +98,24 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    hireArtist: async (parent, { name }, context) => {
+    hireArtist: async (parent, { artistId }, context) => {
       if (context.user) {
         const updatedHost = await Host.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { artists: name } },
+          { $addToSet: { artists: artistId } },
+          { new: true }
+        ).populate("artists");
+
+        return updatedHost;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    fireArtist: async (parent, { artistId }, context) => {
+      if (context.user) {
+        const updatedHost = await Host.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { artists: artistId } },
           { new: true }
         ).populate("artists");
 
@@ -160,6 +176,19 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+    removeVenue: async (parent, { venueId }, context) => {
+      if (context.user) {
+        const updatedArtist = await Artist.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { venues: venueId } },
+          { new: true }
+        ).populate("venues");
+
+        return updatedArtist;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
     addVenue: async (parent, args, context) => {
       if (context.user) {
         const venue = await Venue.create({
@@ -175,23 +204,25 @@ const resolvers = {
 
         return venue;
       }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
     updateVenue: async (parent, args, context) => {
       if (context.user) {
-        const updatedVenue = await Venue.findOneAndUpdate(args, { new: true });
-
-        await Host.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { venues: updatedVenue._id } },
+        const updatedVenue = await Venue.findOneAndUpdate(
+          { name: args.nameInput },
+          { $set: args },
           { new: true }
         );
 
         return updatedVenue;
       }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
     deleteVenue: async (parent, { name }, context) => {
       if (context.user) {
-        return await Venue.findOneAndDelete(name);
+        return await Venue.findOneAndDelete({ name: name });
       }
 
       throw new AuthenticationError("Not logged in");
