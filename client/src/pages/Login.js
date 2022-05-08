@@ -5,9 +5,10 @@ import Musician from "../assets/music.jpg";
 import { LOGIN_ARTIST } from "../utils/mutations";
 import Auth from "../utils/auth";
 import "./Login.css";
+import { Redirect } from "react-router-dom";
 
 const Login = () => {
-  const [userType, loggedIn] = Auth.loggedIn();
+  const { loggedIn } = Auth.loggedIn();
 
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_ARTIST);
@@ -33,28 +34,27 @@ const Login = () => {
       [name]: value,
     });
   };
+  if (!loggedIn) {
+    return (
+      <section className="loginIn">
+        <div className="media ">
+          <img
+            className="backgroundImage"
+            src={Musician}
+            alt="folk singer"
+            style={{ width: "100%", height: "100%" }}
+          />
+          <h1 className="overlayText">Sign in</h1>
 
-  return (
-    <section className="loginIn">
-      <div className="media ">
-        <img
-          className="backgroundImage"
-          src={Musician}
-          alt="folk singer"
-          style={{ width: "100%", height: "100%" }}
-        />
-        <h1 className="overlayText">Sign in</h1>
-
-        <div className="userCheck">
-          {/* <Form>
+          <div className="userCheck">
+            {/* <Form>
             <Form.Check type="switch" id="hostSwitch" label="Im a Host" />
 
             <Form.Check type="switch" id="artistSwitch" label="Im an Artist" />
           </Form> */}
-        </div>
+          </div>
 
-        <div className="userLogin">
-          <>
+          <div className="userLogin">
             <Form onSubmit={handleFormSubmit}>
               <Form.Label htmlFor="loginEmail"></Form.Label>
               <Form.Control
@@ -74,9 +74,12 @@ const Login = () => {
                 onChange={handleChange}
                 aria-describedby="passwordHelpBlock"
               />
-              <btn className="btn button mx-auto" to={{ pathname: "/explore" }}>
+              <button
+                className="btn button mx-auto"
+                to={{ pathname: "/explore" }}
+              >
                 Sign in
-              </btn>
+              </button>
             </Form>
             {error ? (
               <div>
@@ -85,12 +88,13 @@ const Login = () => {
                 </p>
               </div>
             ) : null}
-            <div className="flex-row flex-end submitButton"></div>
-          </>
+          </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  } else {
+    <Redirect to={{ pathname: "/explore" }} />;
+  }
 };
 
 export default Login;

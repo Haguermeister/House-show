@@ -4,7 +4,6 @@ import { TagsMultiSelect } from "./TagsMultiSelect";
 import { Slider } from "@mui/material";
 const DropDownFilterArtist = () => {
   const handleChange = () => {};
-  const userState = "Host";
   return (
     <form className="w-100 p-2">
       <span>State : </span>)

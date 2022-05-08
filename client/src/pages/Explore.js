@@ -8,7 +8,8 @@ import DropDownFilterUserHost from "../components/DropDownFilter/DropDownFilterU
 import VenueCard from "../components/VenueCard/VenueCard";
 import ArtistCard from "../components/ArtistCard/ArtistCard";
 const Explore = () => {
-  const [userType, loggedIn] = auth.loggedIn();
+  const { userType } = auth.loggedIn();
+  console.log("User-Type:", userType);
   let artistTrue, hostTrue;
   if (userType === "artist") {
     artistTrue = true;
@@ -34,6 +35,5 @@ const Explore = () => {
       </div>
     );
   }
-  return;
 };
 export default Explore;

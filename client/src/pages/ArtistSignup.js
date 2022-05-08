@@ -2,11 +2,8 @@ import React from "react";
 import "./ArtistSignup.css";
 import Artist from "../assets/juanArtist.jpeg";
 import { Link } from "react-router-dom";
-import auth from "../utils/auth";
 
 const ArtistSignup = () => {
-  const [userType, loggedIn] = auth.loggedIn();
-
   return (
     <section>
       <div className="mainSection">
