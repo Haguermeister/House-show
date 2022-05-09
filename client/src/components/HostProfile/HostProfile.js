@@ -1,13 +1,10 @@
 import React from "react";
 import { Redirect, useParams } from 'react-router-dom';
-
-import VenueList from '../components/VenueList';
+import VenueList from './components/VenueList';
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_HOST, GET_MEHOST } from '../utils/queries';
-import { ADD_VENUE } from '../utils/mutations';
-import { DELETE_HOST } from '../utils/mutations';
-import { DELETE_VENUE } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { GET_HOST, GET_MEHOST } from '../../utils/queries';
+import { ADD_VENUE, DELETE_HOST, DELETE_VENUE } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const HostProfile = (props) => {
   const { username: userParam } = useParams();
@@ -83,13 +80,13 @@ const HostProfile = (props) => {
 
         {userParam && (
           <button className="btn ml-auto" onClick={clickDelHost}>
-            Add Venue
+            Delete Host
           </button>
         )}
 
         {userParam && (
           <button className="btn ml-auto" onClick={clickDelVenue}>
-            Add Venue
+            Delete Venue
           </button>
         )}
 

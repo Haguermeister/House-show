@@ -2,9 +2,9 @@ import React from "react";
 import { Redirect, useParams } from 'react-router-dom';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_ARTIST, GET_MEARTIST } from '../utils/queries';
-import { DELETE_ARTIST } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { GET_ARTIST, GET_MEARTIST } from '../../utils/queries';
+import { DELETE_ARTIST } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const ArtistProfile = (props) => {
   const { username: userParam } = useParams();
