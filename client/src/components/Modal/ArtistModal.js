@@ -12,7 +12,7 @@ function Modal({ closeModal }) {
   const [formStateEmail, setFormStateEmail] = useState();
   const [formStatePassword, setFormStatePassword] = useState();
   const [formStateName, setFormStateName] = useState();
-  const [formStateGenre, setFormStateGenre] = useState();
+  const [formStateMusicType, setFormStateMusicType] = useState();
 
   const [addArtist, { error }] = useMutation(ADD_ARTIST);
   let history = useHistory();
@@ -26,10 +26,10 @@ function Modal({ closeModal }) {
           email: formStateEmail,
           password: formStatePassword,
           name: formStateName,
-          musicType: formStateGenre,
+          musicType: formStateMusicType,
         },
       });
-      console.log("response", mutationResponse);
+      console.log("response");
       const token = mutationResponse.data.addArtist.token;
       Auth.login(token);
       history.push("/explore");
@@ -50,8 +50,8 @@ function Modal({ closeModal }) {
     setFormStateName(event.target.value);
   };
 
-  const handleChangeGenre = (event) => {
-    setFormStateGenre(event.target.value);
+  const handleChangeMusicType = (event) => {
+    setFormStateMusicType(event.target.value);
   };
 
   return (
@@ -103,9 +103,9 @@ function Modal({ closeModal }) {
               <Form.Label>Genre of Music</Form.Label>
               <Form.Control
                 type="text"
-                value={formStateGenre}
+                value={formStateMusicType}
                 placeholder="Genre"
-                onChange={handleChangeGenre}
+                onChange={handleChangeMusicType}
                 id="artistSignupGenre"
               />
             </Form.Group>
