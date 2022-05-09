@@ -69,9 +69,25 @@ export const DELETE_HOST = gql`
 `;
 
 export const HIRE_ARTIST = gql`
-  mutation hireArtist($name: String!) {
-    hireArtist(name: $name) {
+  mutation hireArtist($artistId: ID!) {
+    hireArtist(artistId: $artistId) {
       _id
+      firstName
+      lastName
+      artists {
+        _id
+        name
+      }
+    }
+  }
+`;
+
+export const FIRE_ARTIST = gql`
+  mutation fireArtist($artistId: ID!) {
+    fireArtist(artistId: $artistId) {
+      _id
+      firstName
+      lastName
       artists {
         _id
         name
@@ -157,12 +173,28 @@ export const DELETE_ARTIST = gql`
 `;
 
 export const BOOK_VENUE = gql`
-  mutation bookVenue($id: ID!) {
-    bookVenue(venueId: $id) {
+  mutation bookVenue($venueId: ID!) {
+    bookVenue(venueId: $venueId) {
       _id
-      venue {
+      name
+      venues {
         _id
         name
+        city
+      }
+    }
+  }
+`;
+
+export const REMOVE_VENUE = gql`
+  mutation removeVenue($venueName: String!) {
+    removeVenue(venueName: $venueName) {
+      _id
+      name
+      venues {
+        _id
+        name
+        city
       }
     }
   }
@@ -200,6 +232,7 @@ export const ADD_VENUE = gql`
 
 export const UPDATE_VENUE = gql`
   mutation updateVenue(
+    $nameInput: String
     $name: String
     $description: String
     $occupancy: Int
@@ -209,6 +242,7 @@ export const UPDATE_VENUE = gql`
     $cost: Int
   ) {
     updateVenue(
+      nameInput: $nameInput
       name: $name
       description: $description
       occupancy: $occupancy

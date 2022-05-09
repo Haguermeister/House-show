@@ -65,10 +65,10 @@ const typeDefs = gql`
       firstName: String
       lastName: String
       email: String
-      password: String
     ): Host
     deleteHost(id: ID!): Host
-    hireArtist(name: String!): Artist
+    hireArtist(artistId: ID!): Host
+    fireArtist(artistId: ID!): Host
     loginArtist(email: String!, password: String): Auth
     addArtist(
       username: String!
@@ -89,7 +89,6 @@ const typeDefs = gql`
       rate: Int
       spotifyLink: String
       email: String
-      password: String
     ): Artist
     deleteArtist(id: ID!): Artist
     bookVenue(venueId: ID!): Venue
@@ -103,11 +102,12 @@ const typeDefs = gql`
       owner: String!
     ): Venue
     updateVenue(
+      nameInput: String
       name: String
       description: String
-      occupancy: Int!
+      occupancy: Int
       city: String
-      pictures: [String]!
+      pictures: [String]
       owner: String
       cost: Int
     ): Venue
