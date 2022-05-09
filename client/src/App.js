@@ -54,7 +54,6 @@ function App() {
                 <Route exact path="/loginHost" component={LoginHost} />
                 <Route exact path="/artistSignup" component={ArtistSignup} />
                 <Route exact path="/hostSignup" component={HostSignup} />
-                <Route exact path="/Saved" component={Saved} />
               </Switch>
             </main>
 
