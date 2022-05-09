@@ -1,8 +1,15 @@
 import React from "react";
-import auth from "../utils/auth";
+import ArtistProfile from "../components/ArtistProfile/ArtistProfile";
+// import HostProfile from "../components/HostProfile/HostProfile";
+
 const Account = () => {
-  const [userType, loggedIn] = auth.loggedIn();
-  console.log("test", userType, loggedIn);
-  return <div className="">We are going to crush this!</div>;
+  return (
+    <div className="">
+      We are going to crush this
+      <ArtistProfile />
+      {/* <HostProfile /> */}
+    </div>
+  );
 };
+
 export default Account;
