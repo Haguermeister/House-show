@@ -141,8 +141,8 @@ const resolvers = {
 
       return { token, artist };
     },
-    addArtist: async (parent, args) => {
-      const artist = await Artist.create(args);
+    addArtist: async (parent, { username, email, password, name, musicType }) => {
+      const artist = await Artist.create({ username,email, password, name, musicType });
       const token = signToken(artist);
 
       return { token, artist };

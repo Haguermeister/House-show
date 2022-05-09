@@ -74,9 +74,6 @@ const typeDefs = gql`
       username: String!
       name: String!
       musicType: String!
-      bandSize: Int!
-      rate: Int!
-      spotifyLink: String!
       email: String!
       password: String!
     ): Auth
