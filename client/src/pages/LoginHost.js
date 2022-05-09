@@ -46,8 +46,19 @@ const LoginHost = () => {
           />
           <h1 className="overlayText">Sign in</h1>
 
-          <div className="userCheck">
-            {/* <Form>
+  return (
+    <section className="loginIn">
+      <div className="media ">
+        <img
+          className="backgroundImageHostLogin"
+          src={Host}
+          alt="folk singer"
+          style={{ width: "100%", height: "100%" }}
+        />
+        <h1 className="overlayText">Sign in</h1>
+
+        <div className="userCheck">
+          {/* <Form>
             <Form.Check type="switch" id="hostSwitch" label="Im a Host" />
 
             <Form.Check type="switch" id="artistSwitch" label="Im an Artist" />

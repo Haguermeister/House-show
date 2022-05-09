@@ -16,9 +16,10 @@ export const GET_MEARTIST = gql`
         _id
         name
         owner
-        city
         description
+        city
         occupancy
+        pictures
         cost
       }
     }
@@ -41,9 +42,10 @@ export const GET_ARTIST = gql`
         _id
         name
         owner
-        city
         description
+        city
         occupancy
+        pictures
         cost
       }
     }
@@ -66,9 +68,10 @@ export const GET_ARTISTS = gql`
         _id
         name
         owner
-        city
         description
+        city
         occupancy
+        pictures
         cost
       }
     }
@@ -94,9 +97,10 @@ export const GET_MEHOST = gql`
         _id
         name
         owner
-        city
         description
+        city
         occupancy
+        pictures
         cost
       }
     }
@@ -122,9 +126,10 @@ export const GET_HOST = gql`
         _id
         name
         owner
-        city
         description
+        city
         occupancy
+        pictures
         cost
       }
     }
@@ -150,9 +155,10 @@ export const GET_HOSTS = gql`
         _id
         name
         owner
-        city
         description
+        city
         occupancy
+        pictures
         cost
       }
     }
@@ -176,13 +182,15 @@ export const GET_VENUE = gql`
 
 export const GET_VENUES = gql`
   query venues {
-    _id
-    name
-    owner
-    description
-    city
-    occupancy
-    pictures
-    const
+    venues {
+      _id
+      name
+      owner
+      description
+      city
+      occupancy
+      pictures
+      cost
+    }
   }
 `;

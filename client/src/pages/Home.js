@@ -35,16 +35,13 @@ const Home = () => {
           </Link>
         </div>
       </div>
-    );
-  } else {
-    return (
-      <div className="w-100 d-flex flex-column align-items-center justify-content-center ">
-        <VideoLoop className="mb-5" />
-        <div className="w-100 d-flex flex-row align-items-center mb-4">
-          <button className="btn button mx-auto" to={{ pathname: "/explore" }}>
-            Explore
-          </button>
-        </div>
+      <div className="w-100 d-flex flex-row align-items-center mb-4">
+        <Link className="btn button mx-auto" to={{ pathname: "/hostSignup" }}>
+          I want to Host
+        </Link>
+        <Link className="btn button mx-auto" to={{ pathname: "/artistSignup" }}>
+          I want to Perform
+        </Link>
       </div>
     );
   }

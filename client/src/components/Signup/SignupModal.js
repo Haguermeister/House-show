@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Modal";
 
 function signInModal() {
   const [show, setShow] = useState(false);
@@ -49,4 +51,4 @@ function signInModal() {
   );
 }
 
-render(<signInModal />);
+export default signInModal;

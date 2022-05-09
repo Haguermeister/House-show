@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ArtistSignup.css";
 import Artist from "../assets/juanArtist.jpeg";
-import { Link } from "react-router-dom";
+import ArtistModal from "../components/Modal/ArtistModal";
+
+const ArtistSignup = () => {
+  const [openModal, setOpenModal] = useState(false);
 
 const ArtistSignup = () => {
   return (
@@ -21,11 +24,15 @@ const ArtistSignup = () => {
           </p>
         </div>
 
-        <div className="flex-row flex-end signupButton">
-          <Link className="btn button mx-auto" to={{ pathname: "/explore" }}>
-            Sign up
-          </Link>
-        </div>
+        <button
+          className="openModalBtn"
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          Signup
+        </button>
+        {openModal && <ArtistModal closeModal={setOpenModal} />}
       </div>
     </section>
   );

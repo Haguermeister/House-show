@@ -61,14 +61,14 @@ const typeDefs = gql`
       password: String!
     ): Auth
     updateHost(
-      username: String!
+      username: String
       firstName: String
       lastName: String
       email: String
-      password: String
     ): Host
     deleteHost(id: ID!): Host
-    hireArtist(name: String!): Artist
+    hireArtist(artistId: ID!): Host
+    fireArtist(artistId: ID!): Host
     loginArtist(email: String!, password: String): Auth
     addArtist(
       username: String!
@@ -81,25 +81,27 @@ const typeDefs = gql`
       password: String!
     ): Auth
     updateArtist(
-      username: String!
-      name: String!
-      musicType: String!
-      pictures: [String]!
-      bandSize: Int!
-      rate: Int!
-      spotifyLink: String!
-      email: String!
-      password: String!
+      username: String
+      name: String
+      musicType: String
+      pictures: [String]
+      bandSize: Int
+      rate: Int
+      spotifyLink: String
+      email: String
     ): Artist
     deleteArtist(id: ID!): Artist
-    bookVenue(venueId: ID!): Venue
-    addVenue(name: String, description: String, cost: Int): Auth
+    bookVenue(venueId: ID!): Artist
+    removeVenue(venueId: ID!): Artist
+    addVenue(name: String!, description: String!, occupancy: Int!, city: String!, pictures: [String], cost: Int!, owner: String!): Venue
     updateVenue(
+      nameInput: String
       name: String
       description: String
-      occupancy: Int!
+      occupancy: Int
       city: String
-      pictures: [String]!
+      pictures: [String]
+      owner: String
       cost: Int
     ): Venue
     deleteVenue(name: String!): Venue
