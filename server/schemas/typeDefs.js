@@ -71,6 +71,7 @@ const typeDefs = gql`
     hireArtist(name: String!): Artist
     loginArtist(email: String!, password: String): Auth
     addArtist(
+      username: String!
       name: String!
       musicType: String!
       bandSize: Int!
