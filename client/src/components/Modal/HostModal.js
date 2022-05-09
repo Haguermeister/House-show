@@ -101,13 +101,12 @@ function Modal({ closeModal }) {
           <button className="cancelBtnHost" onClick={() => closeModal(false)}>
             Cancel
           </button>
-          <Link>
-            <button
-              className="continueBtnHost"
-              to={{ pathname: "../pages/explore" }}
-            >
-              Continue
-            </button>
+          <Link
+            onClick={() => closeModal(true)}
+            className="continueBtnHost"
+            to={{ pathname: "/explore" }}
+          >
+            Continue
           </Link>
         </div>
       </div>

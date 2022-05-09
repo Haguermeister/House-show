@@ -43,11 +43,11 @@ const typeDefs = gql`
   type Query {
     meArtist: Artist
     meHost: Host
-    artist (name: String): Artist
+    artist(name: String): Artist
     artists: [Artist]
-    host (email: String): Host
+    host(email: String): Host
     hosts: [Host]
-    venue (name: String): Venue
+    venue(name: String): Venue
     venues: [Venue]
   }
 
@@ -71,7 +71,6 @@ const typeDefs = gql`
     hireArtist(name: String!): Artist
     loginArtist(email: String!, password: String): Auth
     addArtist(
-      username: String!
       name: String!
       musicType: String!
       bandSize: Int!
@@ -93,7 +92,15 @@ const typeDefs = gql`
     ): Artist
     deleteArtist(id: ID!): Artist
     bookVenue(venueId: ID!): Venue
-    addVenue(name: String!, description: String!, occupancy: Int!, city: String!, pictures: [String], cost: Int!, owner: String!): Venue
+    addVenue(
+      name: String!
+      description: String!
+      occupancy: Int!
+      city: String!
+      pictures: [String]
+      cost: Int!
+      owner: String!
+    ): Venue
     updateVenue(
       name: String
       description: String
