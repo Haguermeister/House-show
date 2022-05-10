@@ -8,7 +8,7 @@ const Venue = require("./Venue");
 const hostSchema = new Schema({
   username: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     trim: true,
   },
