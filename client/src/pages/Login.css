@@ -1,196 +1,184 @@
 .artistMedia {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto; 
-    width: 500px  
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
 }
 
 .backgroundImageArtistLogin {
-    background: no-repeat center center fixed;
-   
+  background: no-repeat center center fixed;
 }
 
 .artistOverlayText {
-    position: absolute;
-    top: 2rem;
-    left: 8rem;
-    font-weight: bold;
-    text-align: center;
-    font-size: 3rem;
-    color: #fff;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+  position: absolute;
+  top: 2rem;
+  left: 8rem;
+  font-weight: bold;
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 .artistLoginForm {
-    position: absolute;
-    bottom: 8rem;
-    left: 6.5rem;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.5rem;
-    color: #fff;
-    text-decoration: underline;
-    padding-bottom: 7rem;
+  position: absolute;
+  bottom: 8rem;
+  left: 6.5rem;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: underline;
+  padding-bottom: 7rem;
 }
 
 .artistLinkToSignup {
-    font-size: 1.5rem;
-    position: absolute;
-    color: #fff;
-    bottom: 5rem;
-    left: 5rem;
-    text-align: center;
+  font-size: 1.5rem;
+  position: absolute;
+  color: #fff;
+  bottom: 5rem;
+  left: 5rem;
+  text-align: center;
 }
 
 .artistPageLink {
-    color: #fd6258;
-    font-size: 1.5rem;
+  color: #fd6258;
+  font-size: 1.5rem;
 }
 
 .artistLoginButton {
-    color: #fff;
-    background-color: #fd6258;
-    border: 2px solid #fff;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    line-height: 1;
-    margin-top: 1.5rem;
-    width: 10rem;
-    border-radius: 5px;
-
+  color: #fff;
+  background-color: #fd6258;
+  border: 2px solid #fff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 1.5rem;
+  width: 10rem;
+  border-radius: 5px;
 }
 
 .artistLoginButton:hover {
-    background: #fff;
-    color: #fd6258;
-    border: 1px solid #eee;
-    border-radius: 20px;
-    box-shadow: 2px 2px 2px rgb(2, 2, 2);
-    text-shadow: none;
-
+  background: #fff;
+  color: #fd6258;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px rgb(2, 2, 2);
+  text-shadow: none;
 }
 
 .artistErrorText {
-    position: absolute;
-    font-size: 1rem;
-    margin-top: .5rem;
-    color: #fff;
-
+  position: absolute;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #fff;
 }
 
-@media screen and (min-width: 430px){
-    .backgroundImageArtistLogin {
-        min-width: 100%;
-        max-height: 100%;
-        width: 600px;
-    }
+@media screen and (min-width: 430px) {
+  .backgroundImageArtistLogin {
+    min-width: 100%;
+    max-height: 100%;
+    width: 600px;
+  }
 
-    .artistMedia {
-        position: none;
-        width: 550px;   
-    }
+  .artistMedia {
+    position: none;
+    width: 550px;
+  }
 
-    .backgroundImageArtistLogin {
-        background: no-repeat fixed center;
-       
-    }
+  .backgroundImageArtistLogin {
+    background: no-repeat fixed center;
+  }
 
-    .artistOverlayText {
-        position: absolute;
-        left: 10rem;
-    }
-    
-    .artistLoginForm {
-        position: absolute;
-        left: 10rem;
-    }
+  .artistOverlayText {
+    position: absolute;
+    left: 10rem;
+  }
+
+  .artistLoginForm {
+    position: absolute;
+    left: 10rem;
+  }
 }
 
 @media screen and (min-width: 500px) {
-    .backgroundImageArtistLogin {
-        min-width: 100%;
-        max-width: 100%;
-        width: 800px;
-    }
+  .backgroundImageArtistLogin {
+    min-width: 100%;
+    max-width: 100%;
+    width: 800px;
+  }
 
-    .artistMedia {
-        position: none;
-        width: 600px;   
-    }
+  .artistMedia {
+    position: none;
+    width: 600px;
+  }
 
-    .backgroundImageArtistLogin {
-        background: no-repeat fixed center;
-       
-    }
+  .backgroundImageArtistLogin {
+    background: no-repeat fixed center;
+  }
 
-    .artistOverlayText {
-        position: absolute;
-        left: 14rem;
-    }
+  .artistOverlayText {
+    position: absolute;
+    left: 14rem;
+  }
 
-    .artistLoginForm {
-        position: absolute;
-        left: 14rem;
-    }
+  .artistLoginForm {
+    position: absolute;
+    left: 14rem;
+  }
 }
 
 @media screen and (min-width: 800px) {
-    .backgroundImageArtistLogin {
-        min-width: 100%;
-        max-width: 100%;
-        width: 700px;
-    }
+  .backgroundImageArtistLogin {
+    min-width: 100%;
+    max-width: 100%;
+    width: 700px;
+  }
 
-    .artistMedia {
-        position: none;
-        width: 700px;   
-    }
+  .artistMedia {
+    position: none;
+    width: 700px;
+  }
 
-    .backgroundImageArtistLogin {
-        background: no-repeat fixed center;
-       
-    }
+  .backgroundImageArtistLogin {
+    background: no-repeat fixed center;
+  }
 
-    .artistOverlayText {
-        position: absolute;
-        left: 18rem;
-    }
+  .artistOverlayText {
+    position: absolute;
+    left: 18rem;
+  }
 
-    .artistLoginForm {
-        position: absolute;
-        left: 18rem;
-        width: 15rem;
-        
-
-    }
+  .artistLoginForm {
+    position: absolute;
+    left: 18rem;
+    width: 15rem;
+  }
 }
-
 
 @media screen and (min-width: 1000px) {
-    .backgroundImageArtistLogin {
-        min-width: 100%;
-        max-width: 100%;
-        width: 800px;
-    }
-    .artistMedia {
-        position: none;
-        width: 1000px;   
-    }
+  .backgroundImageArtistLogin {
+    min-width: 100%;
+    max-width: 100%;
+    width: 800px;
+  }
+  .artistMedia {
+    position: none;
+    width: 1000px;
+  }
 
-    .backgroundImageArtistLogin {
-        background: no-repeat fixed center;
-       
-    }
+  .backgroundImageArtistLogin {
+    background: no-repeat fixed center;
+  }
 
-    .artistOverlayText {
-        position: absolute;
-        left: 27rem;
-    }
+  .artistOverlayText {
+    position: absolute;
+    left: 27rem;
+  }
 
-    .artistLoginForm {
-        position: absolute;
-        left: 27rem;
-    }
+  .artistLoginForm {
+    position: absolute;
+    left: 27rem;
+  }
 }
-

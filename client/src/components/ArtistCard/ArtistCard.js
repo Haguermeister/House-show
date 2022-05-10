@@ -6,15 +6,15 @@ import { faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import "./ArtistCard.css";
 
-const ArtistCard = (props) => {
+const ArtistCard = ({ artists = [] }) => {
   const saveArtist = () => {};
   return (
     <div>
-      {props.artistsData.map((artist) => {
+      {artists.map((artist) => {
         return (
           <div
             className="d-flex justify-content-center flex-column aligin-items-center"
-            key={artist.id}
+            key={artist._id}
           >
             <FontAwesomeIcon
               onClick={saveArtist}
@@ -39,8 +39,8 @@ const ArtistCard = (props) => {
             </Carousel>
             <div className="d-flex justify-content-around pt-3 bookings-text">
               <div>
-                <h2 className="h2">{artist.Name}</h2>
-                <h3 className="h3">${artist.Rate}</h3>
+                <h2 className="h2">{artist.name}</h2>
+                <h3 className="h3">${artist.rate}</h3>
               </div>
 
               <div>

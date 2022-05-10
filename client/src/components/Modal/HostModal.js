@@ -34,7 +34,7 @@ function Modal({ closeModal }) {
       const mutationResponse = await addHost({ variables });
       console.log("response");
       const token = mutationResponse.data.addHost.token;
-      Auth.login(token);
+      Auth.login(token, "host");
       history.push("/explore");
     } catch (e) {
       console.log(e);

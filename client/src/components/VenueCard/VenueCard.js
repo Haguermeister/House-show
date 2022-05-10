@@ -4,10 +4,10 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import "./VenueCard.css";
 
-const VenueCard = (props) => {
+const VenueCard = ({ venuesData = [] }) => {
   return (
     <div>
-      {props.venuesData.map((venue) => {
+      {venuesData.map((venue) => {
         return (
           <div
             className="d-flex justify-content-center flex-column aligin-items-center pt-2"
