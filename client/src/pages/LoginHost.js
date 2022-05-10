@@ -83,14 +83,12 @@ const LoginHost = () => {
                   Sign in
                 </button>
               </div>
+              {error ? (
+                <div className="hostErrorText">
+                  <p>The provided credentials are incorrect</p>
+                </div>
+              ) : null}
             </Form>
-            {error ? (
-              <div>
-                <p className="error-text">
-                  The provided credentials are incorrect
-                </p>
-              </div>
-            ) : null}
           </>
         </div>
       </div>
