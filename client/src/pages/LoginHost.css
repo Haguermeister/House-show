@@ -43,7 +43,7 @@ background: no-repeat center center fixed;
 }
 
 .hostPageLink {
-    color: #fff
+    color: #fd6258
 }
 
 .hostLoginButton {
@@ -64,4 +64,12 @@ border: 1px solid #eee;
 border-radius: 20px;
 box-shadow: 2px 2px 2px rgb(2, 2, 2);
 text-shadow: none;
+}
+
+.hostErrorText {
+    position: absolute;
+    font-size: 1rem;
+    margin-top: .5rem;
+    color: black;
+
 }
