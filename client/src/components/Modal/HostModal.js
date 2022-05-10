@@ -15,21 +15,23 @@ function Modal({ closeModal }) {
   const [formStateUsername, setFormStateUsername] = useState();
 
   const [addHost, { error }] = useMutation(ADD_HOST);
-  let history = useHistory;
+  let history = useHistory();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    const variables = {
+      email: formStateEmail,
+      password: formStatePassword,
+      firstName: formStateFirstName,
+      lastName: formStateLastName,
+      username: formStateUsername,
+    };
+
     try {
-      const mutationResponse = await addHost({
-        variables: {
-          email: formStateEmail,
-          password: formStatePassword,
-          firstName: formStateFirstName,
-          lastName: formStateLastName,
-          username: formStateUsername,
-        },
-      });
-      console.log("response", mutationResponse);
+      console.log(variables);
+      const mutationResponse = await addHost({ variables });
+      console.log("response");
       const token = mutationResponse.data.addHost.token;
       Auth.login(token);
       history.push("/explore");
@@ -70,7 +72,8 @@ function Modal({ closeModal }) {
             <Form.Group className="mb-3">
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
+                value={formStateEmail}
                 placeholder="Enter email"
                 onChange={handleChangeEmail}
                 id="hostSignupEmail"
@@ -83,7 +86,8 @@ function Modal({ closeModal }) {
             <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
               <Form.Control
-                type="password"
+                type="text"
+                value={formStatePassword}
                 placeholder="Password"
                 onChange={handleChangePassword}
                 id="hostSignupPassword"
@@ -93,30 +97,33 @@ function Modal({ closeModal }) {
             <Form.Group className="mb-3">
               <Form.Label>First Name</Form.Label>
               <Form.Control
-                type="name"
-                placeholder="Enter Name"
+                type="text"
+                value={formStateFirstName}
+                placeholder="First Name"
                 onChange={handleChangeFirstName}
-                id="hostSignupName"
+                id="hostSignupFirstName"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
-                type="musicGenre"
-                placeholder="Genre"
+                type="text"
+                value={formStateLastName}
+                placeholder="Last Name"
                 onChange={handleChangeLastName}
-                id="hostSignupGenre"
+                id="hostSignupLastName"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Username</Form.Label>
               <Form.Control
-                type="musicGenre"
-                placeholder="Genre"
+                type="text"
+                value={formStateUsername}
+                placeholder="Username"
                 onChange={handleChangeUsername}
-                id="hostSignupGenre"
+                id="hostSignupUsername"
               />
             </Form.Group>
 
