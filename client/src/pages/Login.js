@@ -80,9 +80,9 @@ const Login = () => {
                 </p>
               </div>
             ) : null}
-            <div className="flex-row flex-end submitButton">
+            <div className="flex-row flex-end artistSubmitButton">
               <Link
-                className="btn button mx-auto"
+                className="btn artistButton mx-auto"
                 to={{ pathname: "/explore" }}
               >
                 Sign in

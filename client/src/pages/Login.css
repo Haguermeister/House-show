@@ -42,7 +42,7 @@ img {
     text-shadow: 10px;
 }
 
-button {
+.artistButton {
     background: #0089f9;
 color: #fff;
 border: 1px solid #eee;
@@ -52,7 +52,7 @@ text-shadow: none;
 
 }
 
-button:hover {
+.artistButton:hover {
     background: #75ccfe;
 color: #fff;
 border: 1px solid #eee;
