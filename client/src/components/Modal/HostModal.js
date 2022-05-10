@@ -6,6 +6,7 @@ import Explore from "../../pages/Explore";
 import { Form } from "react-bootstrap";
 import "../../components/Modal/HostModal.css";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Modal({ closeModal }) {
   const [formStateFirstName, setFormStateFirstName] = useState();
@@ -126,8 +127,7 @@ function Modal({ closeModal }) {
                 id="hostSignupUsername"
               />
             </Form.Group>
-
-            <div className="hostFooter">
+            <div className="hostFooter mt-5">
               <button
                 className="cancelBtnHost"
                 onClick={() => closeModal(false)}

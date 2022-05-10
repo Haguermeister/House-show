@@ -57,7 +57,10 @@
     position: absolute;
     z-index: 20;
     top: 43rem;
-    right: 10.5rem;
+    right: 7rem;
+    border-radius: 5px;
+    border: solid white 3px;
+
 }
 
 .artistSignupButton:hover {

@@ -1,63 +1,76 @@
-.media {
+.hostMedia {
     position: relative;
     margin-left: auto;
     margin-right: auto; 
     width: 500px  
 }
 
-img {
+.backgroundImageHostLogin {
 background: no-repeat center center fixed;
 }
 
-.media .overlayText {
+.hostOverlayText {
     position: absolute;
     top: 2rem;
-    right: center   ;
+    left: 8rem;
     font-weight: bold;
     text-align: center;
     font-size: 3rem;
-    color: white;
+    color: #fff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
-.userLogin {
+.hostLoginForm {
     position: absolute;
     bottom: 8rem;
-    right: 200px;
+    left: 6.5rem;
     font-weight: bold;
     text-align: center;
     font-size: 1.5rem;
-    color: white;
+    color: #fff;
     text-decoration: underline;
+    padding-bottom: 7rem;
 }
 
-.userCheck {
+.hostLinkToSignup {
+    font-size: 1.5rem;
     position: absolute;
-    top: 20rem;
-    right: 230px;
-    font-weight: bold;
+    color: #fff;
+    bottom: 5rem;
+    left: 5rem;
     text-align: center;
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: underline;
-    text-shadow: 10px;
 }
 
-button {
-    background: #0089f9;
-color: #fff;
-border: 1px solid #eee;
-border-radius: 20px;
-box-shadow: 5px 5px 5px #eee;
-text-shadow: none;
-margin-top: 1rem;
+.hostPageLink {
+    color: #fd6258
 }
 
-button:hover {
-    background: #75ccfe;
-color: #fff;
+.hostLoginButton {
+    color: #fff;
+    background-color: #fd6258;
+    border: 2px solid #fff;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    line-height: 1;
+    margin-top: 1.5rem;
+    width: 10rem;
+    border-radius: 5px;
+}
+
+.hostLoginButton:hover {
+background: #fff;
+color: #fd6258;
 border: 1px solid #eee;
 border-radius: 20px;
 box-shadow: 2px 2px 2px rgb(2, 2, 2);
 text-shadow: none;
+}
+
+.hostErrorText {
+    position: absolute;
+    font-size: 1rem;
+    margin-top: .5rem;
+    color: black;
 
 }

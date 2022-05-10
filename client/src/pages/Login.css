@@ -1,61 +1,76 @@
-.media {
+.artistMedia {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   width: 500px;
 }
 
-img {
+.backgroundImageArtistLogin {
   background: no-repeat center center fixed;
 }
 
-.media .overlayText {
+.artistOverlayText {
   position: absolute;
-  top: 6rem;
-  right: 230px;
+  top: 2rem;
+  left: 8rem;
   font-weight: bold;
   text-align: center;
   font-size: 3rem;
-  color: white;
+  color: #fff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
-.userLogin {
+.artistLoginForm {
   position: absolute;
+  bottom: 8rem;
+  left: 6.5rem;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: underline;
+  padding-bottom: 7rem;
+}
+
+.artistLinkToSignup {
+  font-size: 1.5rem;
+  position: absolute;
+  color: #fff;
   bottom: 5rem;
-  right: 230px;
-  font-weight: bold;
+  left: 5rem;
   text-align: center;
+}
+
+.artistPageLink {
+  color: #fd6258;
   font-size: 1.5rem;
-  color: white;
-  text-decoration: underline;
 }
 
-.userCheck {
-  position: absolute;
-  top: 20rem;
-  right: 230px;
-  font-weight: bold;
-  text-align: center;
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: underline;
-  text-shadow: 10px;
-}
-
-.artistButton {
-  background: #0089f9;
+.artistLoginButton {
   color: #fff;
-  border: 1px solid #eee;
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px #eee;
-  text-shadow: none;
+  background-color: #fd6258;
+  border: 2px solid #fff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 1.5rem;
+  width: 10rem;
+  border-radius: 5px;
 }
 
-.artistButton:hover {
-  background: #75ccfe;
-  color: #fff;
+.artistLoginButton:hover {
+  background: #fff;
+  color: #fd6258;
   border: 1px solid #eee;
   border-radius: 20px;
   box-shadow: 2px 2px 2px rgb(2, 2, 2);
   text-shadow: none;
+}
+
+.artistErrorText {
+  position: absolute;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #fff;
 }
