@@ -6,7 +6,7 @@ import { LOGIN_ARTIST } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
-import JUAN from "../assets/juanArtist.jpeg";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [formStateEmail, setFormStateEmail] = useState();
@@ -90,6 +90,12 @@ const Login = () => {
               ) : null}
             </Form>
           </>
+          <p className="artistLinkToSignup">
+            Don't have an account? <br></br>
+            <Link className="artistPageLink" to={{ pathname: "/artistSignup" }}>
+              Sign up
+            </Link>
+          </p>
         </div>
       </div>
     </section>

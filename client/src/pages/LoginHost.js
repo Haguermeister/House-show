@@ -92,9 +92,11 @@ const LoginHost = () => {
               ) : null}
             </Form>
           </>
-          <p className="linkToSignup">
+          <p className="hostLinkToSignup">
             Don't have an account? <br></br>
-            <Link className="pageLink" to={{ pathname: "/hostSignup" }}>Sign up</Link>
+            <Link className="hostPageLink" to={{ pathname: "/hostSignup" }}>
+              Sign up
+            </Link>
           </p>
         </div>
       </div>
