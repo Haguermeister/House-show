@@ -74,3 +74,111 @@
   margin-top: 0.5rem;
   color: #fff;
 }
+
+@media screen and (min-width: 430px) {
+  .backgroundImageArtistLogin {
+    min-width: 100%;
+    max-height: 100%;
+    width: 600px;
+  }
+
+  .artistMedia {
+    position: none;
+    width: 550px;
+  }
+
+  .backgroundImageArtistLogin {
+    background: no-repeat fixed center;
+  }
+
+  .artistOverlayText {
+    position: absolute;
+    left: 10rem;
+  }
+
+  .artistLoginForm {
+    position: absolute;
+    left: 10rem;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .backgroundImageArtistLogin {
+    min-width: 100%;
+    max-width: 100%;
+    width: 800px;
+  }
+
+  .artistMedia {
+    position: none;
+    width: 600px;
+  }
+
+  .backgroundImageArtistLogin {
+    background: no-repeat fixed center;
+  }
+
+  .artistOverlayText {
+    position: absolute;
+    left: 14rem;
+  }
+
+  .artistLoginForm {
+    position: absolute;
+    left: 14rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .backgroundImageArtistLogin {
+    min-width: 100%;
+    max-width: 100%;
+    width: 700px;
+  }
+
+  .artistMedia {
+    position: none;
+    width: 700px;
+  }
+
+  .backgroundImageArtistLogin {
+    background: no-repeat fixed center;
+  }
+
+  .artistOverlayText {
+    position: absolute;
+    left: 18rem;
+  }
+
+  .artistLoginForm {
+    position: absolute;
+    left: 18rem;
+    width: 15rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .backgroundImageArtistLogin {
+    min-width: 100%;
+    max-width: 100%;
+    width: 800px;
+  }
+  .artistMedia {
+    position: none;
+    width: 1000px;
+  }
+
+  .backgroundImageArtistLogin {
+    background: no-repeat fixed center;
+  }
+
+  .artistOverlayText {
+    position: absolute;
+    left: 27rem;
+  }
+
+  .artistLoginForm {
+    position: absolute;
+    left: 27rem;
+  }
+}
