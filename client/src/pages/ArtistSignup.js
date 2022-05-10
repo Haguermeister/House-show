@@ -6,7 +6,6 @@ import ArtistModal from "../components/Modal/ArtistModal";
 const ArtistSignup = () => {
   const [openModal, setOpenModal] = useState(false);
 
-const ArtistSignup = () => {
   return (
     <section>
       <div className="mainSection">

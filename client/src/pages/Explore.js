@@ -6,6 +6,7 @@ import { GET_ARTISTS, GET_HOSTS } from "../utils/queries";
 import DropDownFilterUserArtist from "../components/DropDownFilter/DropDownFilterUserArtist";
 import DropDownFilterUserHost from "../components/DropDownFilter/DropDownFilterUserHost";
 import VenueCard from "../components/VenueCard/VenueCard";
+import ArtistCard from "../components/ArtistCard/ArtistCard";
 const Explore = () => {
   const [userType, loggedIn] = auth.loggedIn();
   let artistTrue, hostTrue;
@@ -14,23 +15,25 @@ const Explore = () => {
   } else {
     hostTrue = true;
   }
-  const { data: artists } = useQuery(GET_ARTISTS, { enabled: hostTrue });
+  const { data: artists } = useQuery(GET_ARTISTS);
+  console.log(artists);
   const { data: hosts } = useQuery(GET_HOSTS, { enabled: artistTrue });
-  if (userType === "artist") {
+  /* if (userType === "artist") {
     return (
       <div>
         <DropDownFilterUserHost artists={artists} />
         <CalendarFilter />
+        <VenueCard venues={hosts.venues} />
       </div>
     );
-  } else {
-    return (
-      <div>
-        <DropDownFilterUserArtist hosts={hosts} />
-        <CalendarFilter />
-      </div>
-    );
-  }
-  return;
+  } else { */
+  return (
+    <div>
+      <DropDownFilterUserArtist hosts={hosts} />
+      <CalendarFilter />
+      <ArtistCard artists={artists?.artists} />
+    </div>
+  );
+  // }
 };
 export default Explore;

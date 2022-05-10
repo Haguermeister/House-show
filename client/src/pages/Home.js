@@ -24,24 +24,21 @@ const Home = () => {
           </Link>
         </div>
         <div className="w-100 d-flex flex-row align-items-center mb-4">
-          <Link className="btn button mx-auto" to={{ pathname: "/login" }}>
-            I want to Host
-          </Link>
-          <Link
-            className="btn button mx-auto"
-            to={{ pathname: "/artistSignup" }}
-          >
-            I want to Perform
-          </Link>
+          <div className="w-100 d-flex flex-row align-items-center mb-4">
+            <Link
+              className="btn button mx-auto"
+              to={{ pathname: "/hostSignup" }}
+            >
+              I want to Host
+            </Link>
+            <Link
+              className="btn button mx-auto"
+              to={{ pathname: "/artistSignup" }}
+            >
+              I want to Perform
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="w-100 d-flex flex-row align-items-center mb-4">
-        <Link className="btn button mx-auto" to={{ pathname: "/hostSignup" }}>
-          I want to Host
-        </Link>
-        <Link className="btn button mx-auto" to={{ pathname: "/artistSignup" }}>
-          I want to Perform
-        </Link>
       </div>
     );
   }

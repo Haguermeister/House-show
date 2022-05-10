@@ -39,26 +39,15 @@ const Login = () => {
       <section className="loginIn">
         <div className="media ">
           <img
-            className="backgroundImage"
+            className="backgroundImageLogin"
             src={Musician}
             alt="folk singer"
             style={{ width: "100%", height: "100%" }}
           />
           <h1 className="overlayText">Sign in</h1>
 
-  return (
-    <section className="loginIn">
-      <div className="media ">
-        <img
-          className="backgroundImageLogin"
-          src={Musician}
-          alt="folk singer"
-          style={{ width: "100%", height: "100%" }}
-        />
-        <h1 className="overlayText">Sign in</h1>
-
-        <div className="userCheck">
-          {/* <Form>
+          <div className="userCheck">
+            {/* <Form>
             <Form.Check type="switch" id="hostSwitch" label="Im a Host" />
 
             <Form.Check type="switch" id="artistSwitch" label="Im an Artist" />
@@ -104,7 +93,7 @@ const Login = () => {
       </section>
     );
   } else {
-    <Redirect to={{ pathname: "/explore" }} />;
+    return <Redirect to={{ pathname: "/explore" }} />;
   }
 };
 
