@@ -49,7 +49,7 @@ db.once("open", async () => {
       musicType: faker.music.genre(),
       bandSize: faker.datatype.number(),
       rate: faker.datatype.number(),
-      pictures: faker.image.imageUrl(),
+      pictures: faker.image.people(),
       spotifyLink: faker.internet.url(),
       email: faker.internet.email(),
       password: faker.internet.password(),
