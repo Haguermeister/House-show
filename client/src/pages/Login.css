@@ -105,6 +105,11 @@
         position: absolute;
         left: 10rem;
     }
+
+    .artistLinkToSignup {
+        position: absolute;
+        left: 10rem;
+    }
 }
 
 @media screen and (min-width: 500px) {
@@ -133,6 +138,13 @@
         position: absolute;
         left: 14rem;
     }
+
+    .artistLinkToSignup {
+        position: absolute;
+        left: 14rem;
+    }
+
+  
 }
 
 @media screen and (min-width: 800px) {
@@ -154,15 +166,18 @@
 
     .artistOverlayText {
         position: absolute;
-        left: 18rem;
+        left: 17rem;
     }
 
     .artistLoginForm {
         position: absolute;
-        left: 18rem;
+        left: 17rem;
         width: 15rem;
-        
+    }
 
+    .artistLinkToSignup {
+        position: absolute;
+        left: 17rem;
     }
 }
 
@@ -185,12 +200,18 @@
 
     .artistOverlayText {
         position: absolute;
-        left: 27rem;
+        left: 26rem;
     }
 
     .artistLoginForm {
         position: absolute;
-        left: 27rem;
+        left: 23rem;
+        top: 45rem;
+    }
+
+    .artistLinkToSignup {
+        position: absolute;
+        left: 23rem;
     }
 }
 
