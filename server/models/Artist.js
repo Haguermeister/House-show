@@ -7,7 +7,7 @@ const Venue = require("./Venue");
 const artistSchema = new Schema({
   username: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     trim: true,
   },
@@ -17,6 +17,10 @@ const artistSchema = new Schema({
     trim: true,
     unique: true,
   },
+  rating: {
+    type: String,
+    required: false,
+  },
   musicType: {
     type: String,
     required: true,
@@ -24,11 +28,11 @@ const artistSchema = new Schema({
   },
   bandSize: {
     type: Number,
-    required: true,
+    required: false,
   },
   rate: {
     type: Number,
-    required: true,
+    required: false,
   },
   pictures: {
     type: Array,
@@ -42,13 +46,19 @@ const artistSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+    match: [/.+@.+\..+/, "Must match an email address!"],
   },
   password: {
     type: String,
     required: true,
     minlength: 5,
   },
-  venues: [Venue.schema],
+  venues: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Venue",
+    },
+  ],
 });
 
 // set up pre-save middleware to create password

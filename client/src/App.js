@@ -16,6 +16,9 @@ import Bookings from "./pages/Bookings";
 import Explore from "./pages/Explore";
 import Saved from "./pages/Saved";
 import Login from "./pages/Login";
+import LoginHost from "./pages/LoginHost";
+import ArtistSignup from "./pages/ArtistSignup";
+import HostSignup from "./pages/HostSignup";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -49,6 +52,9 @@ function App() {
                 <Route exact path="/bookings" component={Bookings} />
                 <Route exact path="/explore" component={Explore} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/loginHost" component={LoginHost} />
+                <Route exact path="/artistSignup" component={ArtistSignup} />
+                <Route exact path="/hostSignup" component={HostSignup} />
                 <Route exact path="/Saved" component={Saved} />
               </Switch>
             </main>

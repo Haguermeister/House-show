@@ -26,13 +26,26 @@ db.once("open", async () => {
 
   const createdVenues = await Venue.collection.insertMany(venueData);
 
+  const randomRating = faker.datatype.number({
+    min: 1,
+    max: 5,
+    precision: 0.01,
+  });
+
   // // create artist data
   const artistData = [];
 
   for (let i = 0; i < 10; i += 1) {
+    const randomRating = faker.datatype.number({
+      min: 1,
+      max: 5,
+      precision: 0.01,
+    });
+
     const data = {
       username: faker.internet.userName(),
       name: faker.name.findName(),
+      rating: randomRating,
       musicType: faker.music.genre(),
       bandSize: faker.datatype.number(),
       rate: faker.datatype.number(),
@@ -66,6 +79,34 @@ db.once("open", async () => {
   }
 
   const createdHosts = await Host.collection.insertMany(hostData);
+
+  // create artists for host data
+  // for (let i = 0; i < 10; i += 1) {
+  //   const data = {
+  //     username: faker.internet.userName(),
+  //     name: faker.name.findName(),
+  //     musicType: faker.music.genre(),
+  //     bandSize: faker.datatype.number(),
+  //     rate: faker.datatype.number(),
+  //     pictures: faker.image.imageUrl(),
+  //     spotifyLink: faker.internet.url(),
+  //     email: faker.internet.email(),
+  //     password: faker.internet.password(),
+  //   };
+
+  //   const randomHostIndex = Math.floor(Math.random() * createdHosts.ops.length);
+  //   const { username, _id: hostId } = createdHosts.ops[randomHostIndex];
+
+  //   const createdArtist = await Artist.create({
+  //     data,
+  //     username,
+  //   });
+
+  //   const updatedHost = await Host.updateOne(
+  //     { _id: hostId },
+  //     { $push: { artists: createdArtist._id } }
+  //   );
+  // }
 
   console.log("All done!");
   process.exit(0);
