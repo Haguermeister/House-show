@@ -28,11 +28,11 @@ const artistSchema = new Schema({
   },
   bandSize: {
     type: Number,
-    required: true,
+    required: false,
   },
   rate: {
     type: Number,
-    required: true,
+    required: false,
   },
   pictures: {
     type: Array,
