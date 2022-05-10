@@ -1,63 +1,61 @@
 .media {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto; 
-    width: 500px  
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
 }
 
 img {
-    background: no-repeat center center fixed;
+  background: no-repeat center center fixed;
 }
 
 .media .overlayText {
-    position: absolute;
-    top: 6rem;
-    right: 230px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 3rem;
-    color: white;
+  position: absolute;
+  top: 6rem;
+  right: 230px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 3rem;
+  color: white;
 }
 
 .userLogin {
-    position: absolute;
-    bottom: 5rem;
-    right: 230px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: underline;
+  position: absolute;
+  bottom: 5rem;
+  right: 230px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: underline;
 }
 
 .userCheck {
-    position: absolute;
-    top: 20rem;
-    right: 230px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: underline;
-    text-shadow: 10px;
+  position: absolute;
+  top: 20rem;
+  right: 230px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: underline;
+  text-shadow: 10px;
 }
 
-button {
-    background: #0089f9;
-color: #fff;
-border: 1px solid #eee;
-border-radius: 20px;
-box-shadow: 5px 5px 5px #eee;
-text-shadow: none;
-
+.artistButton {
+  background: #0089f9;
+  color: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #eee;
+  text-shadow: none;
 }
 
-button:hover {
-    background: #75ccfe;
-color: #fff;
-border: 1px solid #eee;
-border-radius: 20px;
-box-shadow: 2px 2px 2px rgb(2, 2, 2);
-text-shadow: none;
-
+.artistButton:hover {
+  background: #75ccfe;
+  color: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px rgb(2, 2, 2);
+  text-shadow: none;
 }
