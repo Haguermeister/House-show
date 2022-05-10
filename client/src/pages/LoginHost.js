@@ -6,6 +6,7 @@ import { LOGIN_HOST } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { useHistory } from "react-router-dom";
 import "./LoginHost.css";
+import { Link } from "react-router-dom";
 
 const LoginHost = () => {
   const [formStateEmail, setFormStateEmail] = useState();
@@ -78,11 +79,12 @@ const LoginHost = () => {
               <div className="flex-row flex-end">
                 <button
                   className="btn hostLoginButton mx-auto"
-                  to={{ pathname: "/explore" }}
+                  to={{ pathname: "./explore" }}
                 >
                   Sign in
                 </button>
               </div>
+
               {error ? (
                 <div className="hostErrorText">
                   <p>The provided credentials are incorrect</p>
@@ -90,6 +92,10 @@ const LoginHost = () => {
               ) : null}
             </Form>
           </>
+          <p className="linkToSignup">
+            Don't have an account? <br></br>
+            <Link className="pageLink" to={{ pathname: "/hostSignup" }}>Sign up</Link>
+          </p>
         </div>
       </div>
     </section>

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Form from "react-bootstrap/Form";
-import Musician from "../assets/music.jpg";
+import Musician from "../assets/musician.jpeg";
 import { LOGIN_ARTIST } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
+import JUAN from "../assets/juanArtist.jpeg";
 
 const Login = () => {
   const [formStateEmail, setFormStateEmail] = useState();

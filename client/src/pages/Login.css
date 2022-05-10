@@ -7,9 +7,16 @@
 
 .backgroundImageArtistLogin {
     background: no-repeat center center fixed;
+    /* width: 100%;
+    height: 100vh;
+    height: auto;
+    background-size: cover; */
 }
 
-.artistMedia .artistOverlayText {
+/* @media screen (min-width: 415px) {
+    .backgroundImageArtistLogin 
+} */
+.artistOverlayText {
     position: absolute;
     top: 6rem;
     right: 230px;
@@ -54,4 +61,5 @@
 
 .artistErrorText {
     text-decoration: none;
+    
 }

@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="w-100 d-flex flex-column align-items-center justify-content-center ">
       <VideoLoop className="mb-5" />
-      {auth.loggedIn() && <Link to={{ pathname: "/explore" }}>Explore</Link>}
+      {auth.loggedIn() && <Link to={{ pathname: "/explore" }}></Link>}
       <Link className="mt-5 btn button" to={{ pathname: "/explore" }}>
         Explore
       </Link>
