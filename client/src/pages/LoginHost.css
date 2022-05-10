@@ -5,7 +5,7 @@
     width: 500px  
 }
 
-img {
+.backgroundImageHostLogin {
 background: no-repeat center center fixed;
 }
 
@@ -42,7 +42,7 @@ background: no-repeat center center fixed;
     text-shadow: 10px;
 }
 
-button {
+.hostLoginButton {
     background: #0089f9;
 color: #fff;
 border: 1px solid #eee;
@@ -52,7 +52,7 @@ text-shadow: none;
 margin-top: 1rem;
 }
 
-button:hover {
+.hostLoginButton:hover {
     background: #75ccfe;
 color: #fff;
 border: 1px solid #eee;
