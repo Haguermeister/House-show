@@ -15,25 +15,28 @@ const Explore = () => {
   } else {
     hostTrue = true;
   }
-  const { data: artists } = useQuery(GET_ARTISTS);
-  console.log(artists);
-  const { data: hosts } = useQuery(GET_HOSTS, { enabled: artistTrue });
-  /* if (userType === "artist") {
+  const { data: artists } = useQuery(GET_ARTISTS, { enabled: hostTrue });
+  const { data: hosts } = useQuery(GET_HOSTS);
+  console.log(hosts);
+
+  if (userType === "artist" && loggedIn) {
     return (
       <div>
         <DropDownFilterUserHost artists={artists} />
         <CalendarFilter />
-        <VenueCard venues={hosts.venues} />
+        <VenueCard venuesData={hosts?.hosts.venues} />
       </div>
     );
-  } else { */
-  return (
-    <div>
-      <DropDownFilterUserArtist hosts={hosts} />
-      <CalendarFilter />
-      <ArtistCard artists={artists?.artists} />
-    </div>
-  );
-  // }
+  } else if (userType === "hosts" && loggedIn) {
+    return (
+      <div>
+        <DropDownFilterUserArtist hosts={hosts} />
+        <CalendarFilter />
+        <ArtistCard artists={artists?.artists} />
+      </div>
+    );
+  } else {
+    return <p> Not Logged In</p>;
+  }
 };
 export default Explore;
