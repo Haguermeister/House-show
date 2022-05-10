@@ -71,14 +71,11 @@ const typeDefs = gql`
     fireArtist(artistId: ID!): Host
     loginArtist(email: String!, password: String): Auth
     addArtist(
-      username: String!
-      name: String!
-      musicType: String!
-      bandSize: Int!
-      rate: Int!
-      spotifyLink: String!
-      email: String!
-      password: String!
+      username: String
+      name: String
+      musicType: String
+      email: String
+      password: String
     ): Auth
     updateArtist(
       username: String

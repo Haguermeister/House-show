@@ -113,9 +113,6 @@ export const ADD_ARTIST = gql`
     $username: String
     $name: String!
     $musicType: String!
-    $bandSize: Int
-    $rate: Int
-    $spotifyLink: String
     $email: String!
     $password: String!
   ) {
@@ -123,9 +120,6 @@ export const ADD_ARTIST = gql`
       username: $username
       name: $name
       musicType: $musicType
-      bandSize: $bandSize
-      rate: $rate
-      spotifyLink: $spotifyLink
       email: $email
       password: $password
     ) {
