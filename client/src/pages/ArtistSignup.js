@@ -10,7 +10,11 @@ const ArtistSignup = () => {
     <section>
       <div className="mainSection">
         <div className="artistPhoto">
-          <img className="backgroundImage" src={Artist} alt="folk singer" />
+          <img
+            className="backgroundImage"
+            src={Artist}
+            alt="performer head shot"
+          />
         </div>
 
         <div className="coralBack"></div>
