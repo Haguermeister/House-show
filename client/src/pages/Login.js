@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Form from "react-bootstrap/Form";
 import Musician from "../assets/musician.jpeg";
+import Image from "react-bootstrap/Image";
 import { LOGIN_ARTIST } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { useHistory } from "react-router-dom";
@@ -46,8 +47,8 @@ const Login = () => {
   return (
     <section className="artistLogin">
       <div className="artistMedia ">
-        <img
-          className="backgroundImageArtistLogin"
+        <Image
+          className="backgroundImageArtistLogin fluid "
           src={Musician}
           alt="folk singer"
           style={{ width: "100%", height: "100%" }}
