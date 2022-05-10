@@ -1,15 +1,15 @@
-.media {
+.artistMedia {
     position: relative;
     margin-left: auto;
     margin-right: auto; 
     width: 500px  
 }
 
-img {
+.backgroundImageArtistLogin {
     background: no-repeat center center fixed;
 }
 
-.media .overlayText {
+.artistMedia .artistOverlayText {
     position: absolute;
     top: 6rem;
     right: 230px;
@@ -19,7 +19,7 @@ img {
     color: white;
 }
 
-.userLogin {
+.artistLoginForm {
     position: absolute;
     bottom: 5rem;
     right: 230px;
@@ -42,7 +42,7 @@ img {
     text-shadow: 10px;
 }
 
-.artistButton {
+.artistLoginButton {
     background: #0089f9;
 color: #fff;
 border: 1px solid #eee;
@@ -52,7 +52,7 @@ text-shadow: none;
 
 }
 
-.artistButton:hover {
+.artistLoginButton:hover {
     background: #75ccfe;
 color: #fff;
 border: 1px solid #eee;
@@ -60,4 +60,8 @@ border-radius: 20px;
 box-shadow: 2px 2px 2px rgb(2, 2, 2);
 text-shadow: none;
 
+}
+
+.artistErrorText {
+    text-decoration: none;
 }

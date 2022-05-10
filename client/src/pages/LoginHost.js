@@ -28,6 +28,7 @@ const LoginHost = () => {
       console.log("response");
       const token = mutationResponse.data.login.token;
       Auth.login(token);
+      history.push("/explore");
     } catch (e) {
       console.log(e);
     }
@@ -42,7 +43,7 @@ const LoginHost = () => {
   };
 
   return (
-    <section className="loginIn">
+    <section className="hostLogin">
       <div className="media ">
         <img
           className="backgroundImageHostLogin"
@@ -50,7 +51,7 @@ const LoginHost = () => {
           alt="host looking over venue"
           style={{ width: "100%", height: "100%" }}
         />
-        <h1 className="overlayText">Sign in</h1>
+        <h1 className="hostOverlayText">Sign in</h1>
 
         <div className="userCheck">
           {/* <Form>
@@ -60,7 +61,7 @@ const LoginHost = () => {
           </Form> */}
         </div>
 
-        <div className="userLogin">
+        <div className="hostLogin">
           <>
             <Form onSubmit={handleFormSubmit} className="hostLoginForm">
               <Form.Label htmlFor="loginEmail"></Form.Label>
