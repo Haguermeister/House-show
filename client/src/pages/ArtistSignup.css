@@ -47,6 +47,7 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
 button {
   background-color: #fd6258;
   color: #fefbef;
@@ -64,3 +65,26 @@ button {
   background-color: white;
   color: #fd6258;
 }
+=======
+.artistSignupButton {
+    background-color: #fd6258;
+    color: #fefbef;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    line-height: 2;
+    width: 10rem;
+    position: absolute;
+    z-index: 20;
+    top: 43rem;
+    right: 7rem;
+    border-radius: 5px;
+    border: solid white 3px;
+
+}
+
+.artistSignupButton:hover {
+    background-color: white;
+    color: #fd6258;
+  }
+
+>>>>>>> develop
