@@ -24,7 +24,7 @@ const ArtistSignup = () => {
         </div>
 
         <button
-          className="openModalBtn"
+          className="openModalBtn artistSignupButton"
           onClick={() => {
             setOpenModal(true);
           }}

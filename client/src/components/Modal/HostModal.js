@@ -1,40 +1,61 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
-import { ADD_ARTIST } from "../../utils/mutations";
-import { Link } from "react-router-dom";
+import { ADD_HOST } from "../../utils/mutations";
 import Explore from "../../pages/Explore";
 import { Form } from "react-bootstrap";
 import "../../components/Modal/HostModal.css";
+import { useHistory } from "react-router-dom";
 
 function Modal({ closeModal }) {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const [addArtist, { error }] = useMutation(ADD_ARTIST);
+  const [formStateFirstName, setFormStateFirstName] = useState();
+  const [formStateLastName, setFormStateLastName] = useState();
+  const [formStateEmail, setFormStateEmail] = useState();
+  const [formStatePassword, setFromStatePassword] = useState();
+  const [formStateUsername, setFormStateUsername] = useState();
+
+  const [addHost, { error }] = useMutation(ADD_HOST);
+  let history = useHistory;
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const mutationResponse = await addArtist({
+      const mutationResponse = await addHost({
         variables: {
-          email: formState.email,
-          password: formState.password,
-          name: formState.name,
-          genre: formState.genre,
+          email: formStateEmail,
+          password: formStatePassword,
+          firstName: formStateFirstName,
+          lastName: formStateLastName,
+          username: formStateUsername,
         },
       });
-      const token = mutationResponse.data.addArtist.token;
+      console.log("response", mutationResponse);
+      const token = mutationResponse.data.addHost.token;
       Auth.login(token);
+      history.push("/explore");
     } catch (e) {
       console.log(e);
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+  const handleChangeEmail = (event) => {
+    setFormStateEmail(event.target.value);
+  };
+
+  const handleChangePassword = (event) => {
+    setFromStatePassword(event.target.value);
+  };
+
+  const handleChangeFirstName = (event) => {
+    setFormStateFirstName(event.target.value);
+  };
+
+  const handleChangeLastName = (event) => {
+    setFormStateLastName(event.target.value);
+  };
+
+  const handleChangeUsername = (event) => {
+    setFormStateUsername(event.target.value);
   };
 
   return (
@@ -46,12 +67,12 @@ function Modal({ closeModal }) {
 
         <div className="hostBody">
           <Form onSubmit={handleFormSubmit} className="hostSignupForm">
-            <Form.Group className="mb-3" controlId="hostFormBasicEmail">
+            <Form.Group className="mb-3">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter email"
-                onChange={handleChange}
+                onChange={handleChangeEmail}
                 id="hostSignupEmail"
               />
               <Form.Text className="text-muted">
@@ -59,35 +80,61 @@ function Modal({ closeModal }) {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="hostFormBasicPassword">
+            <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
-                onChange={handleChange}
+                onChange={handleChangePassword}
                 id="hostSignupPassword"
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicVenueName">
-              <Form.Label>Venue Name</Form.Label>
+            <Form.Group className="mb-3">
+              <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="name"
                 placeholder="Enter Name"
-                onChange={handleChange}
+                onChange={handleChangeFirstName}
                 id="hostSignupName"
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="hostFormBasicMusic">
-              <Form.Label>Preferred Genre of Music</Form.Label>
+            <Form.Group className="mb-3">
+              <Form.Label>Last Name</Form.Label>
               <Form.Control
                 type="musicGenre"
                 placeholder="Genre"
-                onChange={handleChange}
+                onChange={handleChangeLastName}
                 id="hostSignupGenre"
               />
             </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="musicGenre"
+                placeholder="Genre"
+                onChange={handleChangeUsername}
+                id="hostSignupGenre"
+              />
+            </Form.Group>
+
+            <div className="hostFooter">
+              <button
+                className="cancelBtnHost"
+                onClick={() => closeModal(false)}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => closeModal(true)}
+                className="continueBtnHost"
+                to={{ pathname: "/explore" }}
+              >
+                Continue
+              </button>
+            </div>
           </Form>
         </div>
 
@@ -96,20 +143,6 @@ function Modal({ closeModal }) {
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-
-        <div className="hostFooter">
-          <button className="cancelBtnHost" onClick={() => closeModal(false)}>
-            Cancel
-          </button>
-          <Link>
-            <button
-              className="continueBtnHost"
-              to={{ pathname: "../pages/explore" }}
-            >
-              Continue
-            </button>
-          </Link>
-        </div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const Venue = require("./Venue");
 const artistSchema = new Schema({
   username: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     trim: true,
   },
