@@ -95,6 +95,16 @@
         background: no-repeat fixed center;
        
     }
+
+    .artistOverlayText {
+        position: absolute;
+        left: 10rem;
+    }
+    
+    .artistLoginForm {
+        position: absolute;
+        left: 10rem;
+    }
 }
 
 @media screen and (min-width: 500px) {
@@ -112,6 +122,16 @@
     .backgroundImageArtistLogin {
         background: no-repeat fixed center;
        
+    }
+
+    .artistOverlayText {
+        position: absolute;
+        left: 14rem;
+    }
+
+    .artistLoginForm {
+        position: absolute;
+        left: 14rem;
     }
 }
 
@@ -131,6 +151,19 @@
         background: no-repeat fixed center;
        
     }
+
+    .artistOverlayText {
+        position: absolute;
+        left: 18rem;
+    }
+
+    .artistLoginForm {
+        position: absolute;
+        left: 18rem;
+        width: 15rem;
+        
+
+    }
 }
 
 
@@ -148,6 +181,16 @@
     .backgroundImageArtistLogin {
         background: no-repeat fixed center;
        
+    }
+
+    .artistOverlayText {
+        position: absolute;
+        left: 27rem;
+    }
+
+    .artistLoginForm {
+        position: absolute;
+        left: 27rem;
     }
 }
 
