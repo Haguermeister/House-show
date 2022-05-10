@@ -74,3 +74,141 @@ text-shadow: none;
     color: black;
 
 }
+
+
+@media screen and (min-width: 430px){
+    .backgroundImageHostLogin {
+        min-width: 100%;
+        max-height: 100%;
+        width: 600px;
+    }
+
+    .hostMedia {
+        position: none;
+        width: 550px;   
+    }
+
+    .backgroundImageHostLogin {
+        background: no-repeat fixed center;
+       
+    }
+
+    .hostOverlayText {
+        position: absolute;
+        left: 10rem;
+    }
+    
+    .hostLoginForm {
+        position: absolute;
+        left: 10rem;
+    }
+
+    .hostLinkToSignup {
+        position: absolute;
+        left: 10rem;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .backgroundImageHostLogin {
+        min-width: 100%;
+        max-width: 100%;
+        width: 800px;
+    }
+
+    .hostMedia {
+        position: none;
+        width: 600px;   
+    }
+
+    .backgroundImageHostLogin {
+        background: no-repeat fixed center;
+       
+    }
+
+    .hostOverlayText {
+        position: absolute;
+        left: 14rem;
+    }
+
+    .hostLoginForm {
+        position: absolute;
+        left: 14rem;
+    }
+
+    .hostLinkToSignup {
+        position: absolute;
+        left: 14rem;
+    }
+
+  
+}
+
+@media screen and (min-width: 800px) {
+    .backgroundImageHostLogin {
+        min-width: 100%;
+        max-width: 100%;
+        width: 700px;
+        height: 1000px;
+    }
+
+    .hostMedia {
+        position: none;
+        width: 700px;   
+    }
+
+    .backgroundImageHostLogin {
+        background: no-repeat fixed center;
+       
+    }
+
+    .hostOverlayText {
+        position: absolute;
+        left: 17rem;
+    }
+
+    .hostLoginForm {
+        position: absolute;
+        left: 17rem;
+        width: 15rem;
+    }
+
+    .hostLinkToSignup {
+        position: absolute;
+        left: 17rem;
+    }
+}
+
+
+@media screen and (min-width: 1000px) {
+    .backgroundImageHostLogin {
+        min-width: 100%;
+        max-width: 100%;
+        width: 800px;
+    }
+    .hostMedia {
+        position: none;
+        width: 1000px;   
+    }
+
+    .backgroundImageHostLogin {
+        background: no-repeat fixed center;
+       
+    }
+
+    .hostOverlayText {
+        position: absolute;
+        left: 26rem;
+    }
+
+    .hostLoginForm {
+        position: absolute;
+        left: 23rem;
+        top: 45rem;
+    }
+
+    .hostLinkToSignup {
+        position: absolute;
+        left: 23rem;
+    }
+}
