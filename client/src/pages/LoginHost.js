@@ -4,19 +4,28 @@ import Form from "react-bootstrap/Form";
 import Host from "../assets/hostPic.jpeg";
 import { LOGIN_HOST } from "../utils/mutations";
 import Auth from "../utils/auth";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./LoginHost.css";
 
 const LoginHost = () => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formStateEmail, setFormStateEmail] = useState();
+  const [formStatePassword, setFormStatePassword] = useState();
+
   const [login, { error }] = useMutation(LOGIN_HOST);
+  let history = useHistory();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    const variables = {
+      email: formStateEmail,
+      password: formStatePassword,
+    };
+
     try {
-      const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
-      });
+      console.log(variables);
+      const mutationResponse = await login({ variables });
+      console.log("response");
       const token = mutationResponse.data.login.token;
       Auth.login(token);
     } catch (e) {
@@ -24,12 +33,12 @@ const LoginHost = () => {
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+  const handleChangeEmail = (event) => {
+    setFormStateEmail(event.target.value);
+  };
+
+  const handleChangePassword = (event) => {
+    setFormStatePassword(event.target.value);
   };
 
   return (
@@ -38,7 +47,7 @@ const LoginHost = () => {
         <img
           className="backgroundImageHostLogin"
           src={Host}
-          alt="folk singer"
+          alt="host looking over venue"
           style={{ width: "100%", height: "100%" }}
         />
         <h1 className="overlayText">Sign in</h1>
@@ -53,25 +62,34 @@ const LoginHost = () => {
 
         <div className="userLogin">
           <>
-            <Form onSubmit={handleFormSubmit}>
+            <Form onSubmit={handleFormSubmit} className="hostLoginForm">
               <Form.Label htmlFor="loginEmail"></Form.Label>
               <Form.Control
-                placeholder="yourname@email.com"
-                type="email"
-                id="inputEmail"
-                onChange={handleChange}
-                aria-describedby="passwordHelpBlock"
+                placeholder="host@email.com"
+                type="text"
+                id="hostLoginEmail"
+                onChange={handleChangeEmail}
+                value={formStateEmail}
               />
               <Form.Text id="passwordHelpBlock" muted></Form.Text>
 
-              <Form.Label htmlFor="loginPassword"></Form.Label>
+              <Form.Label htmlFor="hostLoginPassword"></Form.Label>
               <Form.Control
                 placeholder="******"
-                type="passworrd"
-                id="inputPassword"
-                onChange={handleChange}
-                aria-describedby="passwordHelpBlock"
+                type="text"
+                id="hostInputPassword"
+                onChange={handleChangePassword}
+                value={formStatePassword}
               />
+
+              <div className="flex-row flex-end">
+                <button
+                  className="btn hostLoginButton mx-auto"
+                  to={{ pathname: "/explore" }}
+                >
+                  Sign in
+                </button>
+              </div>
             </Form>
             {error ? (
               <div>
@@ -80,14 +98,6 @@ const LoginHost = () => {
                 </p>
               </div>
             ) : null}
-            <div className="flex-row flex-end submitButton">
-              <Link
-                className="btn hostLoginButton mx-auto"
-                to={{ pathname: "/explore" }}
-              >
-                Sign in
-              </Link>
-            </div>
           </>
         </div>
       </div>
