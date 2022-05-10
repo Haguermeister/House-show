@@ -8,7 +8,6 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Navigation from "./components/Nav/Navigation";
-import { StoreProvider } from "./utils/GlobalState";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 import Account from "./pages/Account";
@@ -41,25 +40,24 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <StoreProvider>
-          <div className="wrapper">
-            <Header />
-            <main className="main">
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/account" component={Account} />
-                <Route exact path="/bookings" component={Bookings} />
-                <Route exact path="/explore" component={Explore} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/loginHost" component={LoginHost} />
-                <Route exact path="/artistSignup" component={ArtistSignup} />
-                <Route exact path="/hostSignup" component={HostSignup} />
-              </Switch>
-            </main>
+        <div className="wrapper">
+          <Header />
+          <main className="main">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/account" component={Account} />
+              <Route exact path="/bookings" component={Bookings} />
+              <Route exact path="/explore" component={Explore} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/loginHost" component={LoginHost} />
+              <Route exact path="/artistSignup" component={ArtistSignup} />
+              <Route exact path="/hostSignup" component={HostSignup} />
+              <Route exact path="/Saved" component={Saved} />
+            </Switch>
+          </main>
 
-            <Navigation />
-          </div>
-        </StoreProvider>
+          <Navigation />
+        </div>
       </Router>
     </ApolloProvider>
   );
