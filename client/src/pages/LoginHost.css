@@ -49,12 +49,13 @@ background: no-repeat center center fixed;
 .hostLoginButton {
     color: #fff;
     background-color: #fd6258;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     line-height: 1;
     margin-top: 1.5rem;
     width: 10rem;
+    border-radius: 5px;
 }
 
 .hostLoginButton:hover {
