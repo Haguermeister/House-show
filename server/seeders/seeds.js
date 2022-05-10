@@ -10,7 +10,7 @@ db.once("open", async () => {
   // // create venue data
   let venueData = [];
   for (let i = 0; i < 10; i += 1) {
-    const randomPlace = faker.image.business(true);
+    const randomPlace = faker.image.business(640, 480, true);
 
     const data = {
       // _id: faker.database.mongodbObjectId(),
@@ -38,7 +38,7 @@ db.once("open", async () => {
       precision: 0.01,
     });
 
-    const randomPerson = faker.image.people(true);
+    const randomPerson = faker.image.people(640, 480, true);
 
     const data = {
       username: faker.internet.userName(),
