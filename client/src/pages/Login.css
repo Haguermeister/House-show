@@ -30,18 +30,6 @@
     text-decoration: underline;
 }
 
-.userCheck {
-    position: absolute;
-    top: 20rem;
-    right: 230px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: underline;
-    text-shadow: 10px;
-}
-
 .artistLoginButton {
     background: #0089f9;
 color: #fff;
@@ -53,7 +41,7 @@ text-shadow: none;
 }
 
 .artistLoginButton:hover {
-    background: #75ccfe;
+background: #75ccfe;
 color: #fff;
 border: 1px solid #eee;
 border-radius: 20px;

@@ -44,7 +44,7 @@ const LoginHost = () => {
 
   return (
     <section className="hostLogin">
-      <div className="media ">
+      <div className="hostMedia ">
         <img
           className="backgroundImageHostLogin"
           src={Host}
@@ -52,14 +52,6 @@ const LoginHost = () => {
           style={{ width: "100%", height: "100%" }}
         />
         <h1 className="hostOverlayText">Sign in</h1>
-
-        <div className="userCheck">
-          {/* <Form>
-            <Form.Check type="switch" id="hostSwitch" label="Im a Host" />
-
-            <Form.Check type="switch" id="artistSwitch" label="Im an Artist" />
-          </Form> */}
-        </div>
 
         <div className="hostLogin">
           <>

@@ -1,4 +1,4 @@
-.media {
+.hostMedia {
     position: relative;
     margin-left: auto;
     margin-right: auto; 
@@ -9,7 +9,7 @@
 background: no-repeat center center fixed;
 }
 
-.media .overlayText {
+.hostMedia .hostOverlayText {
     position: absolute;
     top: 2rem;
     right: center   ;
@@ -19,7 +19,7 @@ background: no-repeat center center fixed;
     color: white;
 }
 
-.userLogin {
+.hostLoginForm {
     position: absolute;
     bottom: 8rem;
     right: 200px;
@@ -30,20 +30,8 @@ background: no-repeat center center fixed;
     text-decoration: underline;
 }
 
-.userCheck {
-    position: absolute;
-    top: 20rem;
-    right: 230px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: underline;
-    text-shadow: 10px;
-}
-
 .hostLoginButton {
-    background: #0089f9;
+background: #0089f9;
 color: #fff;
 border: 1px solid #eee;
 border-radius: 20px;
@@ -53,11 +41,10 @@ margin-top: 1rem;
 }
 
 .hostLoginButton:hover {
-    background: #75ccfe;
+background: #75ccfe;
 color: #fff;
 border: 1px solid #eee;
 border-radius: 20px;
 box-shadow: 2px 2px 2px rgb(2, 2, 2);
 text-shadow: none;
-
 }
