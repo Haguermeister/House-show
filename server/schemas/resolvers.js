@@ -141,8 +141,13 @@ const resolvers = {
 
       return { token, artist };
     },
-    addArtist: async (parent, { username, email, password, name, musicType }) => {
-      const artist = await Artist.create({ username,email, password, name, musicType });
+    addArtist: async (parent, { email, password, name, musicType }) => {
+      const artist = await Artist.create({
+        email,
+        password,
+        name,
+        musicType,
+      });
       const token = signToken(artist);
 
       return { token, artist };
@@ -176,19 +181,19 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeVenue: async (parent, { venueId }, context) => {
-      if (context.user) {
-        const updatedArtist = await Artist.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { venues: venueId } },
-          { new: true }
-        ).populate("venues");
+    // removeVenue: async (parent, { venueId }, context) => {
+    //   if (context.user) {
+    //     const updatedArtist = await Artist.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { venues: venueId } },
+    //       { new: true }
+    //     ).populate("venues");
 
-        return updatedArtist;
-      }
+    //     return updatedArtist;
+    //   }
 
-      throw new AuthenticationError("You need to be logged in!");
-    },
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
     addVenue: async (parent, args, context) => {
       if (context.user) {
         const venue = await Venue.create({

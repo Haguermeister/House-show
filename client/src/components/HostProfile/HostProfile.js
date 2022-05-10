@@ -73,6 +73,12 @@ const HostProfile = (props) => {
         </h2>
 
         {userParam && (
+          <button className="btn ml-auto" onClick={clickDelVenue}>
+            Delete Venue
+          </button>
+        )}
+
+        {userParam && (
           <button className="btn ml-auto" onClick={clickVenue}>
             Add Venue
           </button>
@@ -83,13 +89,6 @@ const HostProfile = (props) => {
             Delete Host
           </button>
         )}
-
-        {userParam && (
-          <button className="btn ml-auto" onClick={clickDelVenue}>
-            Delete Venue
-          </button>
-        )}
-
 
       </div>
 

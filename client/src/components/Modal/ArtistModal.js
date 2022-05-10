@@ -6,35 +6,59 @@ import { Link } from "react-router-dom";
 import Explore from "../../pages/Explore";
 import { Form } from "react-bootstrap";
 import "../../components/Modal/ArtistModal.css";
+import { useHistory } from "react-router-dom";
 
 function Modal({ closeModal }) {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formStateEmail, setFormStateEmail] = useState();
+  const [formStatePassword, setFormStatePassword] = useState();
+  const [formStateName, setFormStateName] = useState();
+  const [formStateMusicType, setFormStateMusicType] = useState();
+  const [formStateUsername, setFormStateUsername] = useState();
+
   const [addArtist, { error }] = useMutation(ADD_ARTIST);
+  let history = useHistory();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    const variables = {
+      email: formStateEmail,
+      password: formStatePassword,
+      name: formStateName,
+      musicType: formStateMusicType,
+      username: formStateUsername,
+    };
+
     try {
-      const mutationResponse = await addArtist({
-        variables: {
-          email: formState.email,
-          password: formState.password,
-          name: formState.name,
-          genre: formState.genre,
-        },
-      });
+      console.log(variables);
+      const mutationResponse = await addArtist({ variables });
+      console.log("response");
       const token = mutationResponse.data.addArtist.token;
       Auth.login(token);
+      history.push("/explore");
     } catch (e) {
       console.log(e);
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+  const handleChangeEmail = (event) => {
+    setFormStateEmail(event.target.value);
+  };
+
+  const handleChangePassword = (event) => {
+    setFormStatePassword(event.target.value);
+  };
+
+  const handleChangeName = (event) => {
+    setFormStateName(event.target.value);
+  };
+
+  const handleChangeMusicType = (event) => {
+    setFormStateMusicType(event.target.value);
+  };
+
+  const handleChangeUsername = (event) => {
+    setFormStateUsername(event.target.value);
   };
 
   return (
@@ -46,12 +70,13 @@ function Modal({ closeModal }) {
 
         <div className="body">
           <Form onSubmit={handleFormSubmit} className="artistSignupForm">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3">
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
+                value={formStateEmail}
                 placeholder="Enter email"
-                onChange={handleChange}
+                onChange={handleChangeEmail}
                 id="artistSignupEmail"
               />
               <Form.Text className="text-muted">
@@ -59,35 +84,65 @@ function Modal({ closeModal }) {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
               <Form.Control
-                type="password"
+                type="text"
+                value={formStatePassword}
                 placeholder="Password"
-                onChange={handleChange}
+                onChange={handleChangePassword}
                 id="artistSignupPassword"
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPerformersName">
+            <Form.Group className="mb-3">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                value={formStateUsername}
+                placeholder=""
+                onChange={handleChangeUsername}
+                id="artistSignupUsername"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
               <Form.Label>Performers Name</Form.Label>
               <Form.Control
-                type="name"
+                type="text"
+                value={formStateName}
                 placeholder="Enter Name"
-                onChange={handleChange}
+                onChange={handleChangeName}
                 id="artistSignupName"
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicMusic">
+            <Form.Group className="mb-3">
               <Form.Label>Genre of Music</Form.Label>
               <Form.Control
-                type="musicGenre"
+                type="text"
+                value={formStateMusicType}
                 placeholder="Genre"
-                onChange={handleChange}
+                onChange={handleChangeMusicType}
                 id="artistSignupGenre"
               />
             </Form.Group>
+            <div className="footer">
+              <button
+                className="cancelBtnArtist"
+                onClick={() => closeModal(false)}
+              >
+                Cancel
+              </button>
+
+              <button
+                className="continueBtnArtist"
+                to={{ pathname: "../pages/explore" }}
+                type="submit"
+              >
+                Continue
+              </button>
+            </div>
           </Form>
         </div>
 
@@ -96,20 +151,6 @@ function Modal({ closeModal }) {
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-
-        <div className="footer">
-          <button className="cancelBtnArtist" onClick={() => closeModal(false)}>
-            Cancel
-          </button>
-          <Link>
-            <button
-              className="continueBtnArtist"
-              to={{ pathname: "../pages/explore" }}
-            >
-              Continue
-            </button>
-          </Link>
-        </div>
       </div>
     </div>
   );

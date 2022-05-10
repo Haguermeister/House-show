@@ -15,14 +15,14 @@ export const LOGIN_HOST = gql`
 
 export const ADD_HOST = gql`
   mutation addHost(
-    $userName: String!
+    $username: String!
     $firstName: String!
     $lastName: String!
     $email: String!
     $password: String!
   ) {
     addHost(
-      userName: $userName
+      username: $username
       firstName: $firstName
       lastName: $lastName
       email: $email

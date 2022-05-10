@@ -47,7 +47,7 @@
     align-items: center;
 }
 
-button {
+.artistSignupButton {
     background-color: #fd6258;
     color: #fefbef;
     font-family: "Open Sans", sans-serif;
@@ -57,10 +57,13 @@ button {
     position: absolute;
     z-index: 20;
     top: 43rem;
-    right: 10.5rem;
+    right: 7rem;
+    border-radius: 5px;
+    border: solid white 3px;
+
 }
 
-.button:hover {
+.artistSignupButton:hover {
     background-color: white;
     color: #fd6258;
   }

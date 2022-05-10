@@ -4,91 +4,100 @@ import Form from "react-bootstrap/Form";
 import Host from "../assets/hostPic.jpeg";
 import { LOGIN_HOST } from "../utils/mutations";
 import Auth from "../utils/auth";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./LoginHost.css";
+import { Link } from "react-router-dom";
 
 const LoginHost = () => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formStateEmail, setFormStateEmail] = useState();
+  const [formStatePassword, setFormStatePassword] = useState();
+
   const [login, { error }] = useMutation(LOGIN_HOST);
+  let history = useHistory();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    const variables = {
+      email: formStateEmail,
+      password: formStatePassword,
+    };
+
     try {
-      const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
-      });
+      console.log(variables);
+      const mutationResponse = await login({ variables });
+      console.log("response");
       const token = mutationResponse.data.login.token;
       Auth.login(token);
+      history.push("/explore");
     } catch (e) {
       console.log(e);
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+  const handleChangeEmail = (event) => {
+    setFormStateEmail(event.target.value);
+  };
+
+  const handleChangePassword = (event) => {
+    setFormStatePassword(event.target.value);
   };
 
   return (
-    <section className="loginIn">
-      <div className="media ">
+    <section className="hostLogin">
+      <div className="hostMedia ">
         <img
           className="backgroundImageHostLogin"
           src={Host}
-          alt="folk singer"
+          alt="host looking over venue"
           style={{ width: "100%", height: "100%" }}
         />
-        <h1 className="overlayText">Sign in</h1>
+        <h1 className="hostOverlayText">Sign in</h1>
 
-        <div className="userCheck">
-          {/* <Form>
-            <Form.Check type="switch" id="hostSwitch" label="Im a Host" />
-
-            <Form.Check type="switch" id="artistSwitch" label="Im an Artist" />
-          </Form> */}
-        </div>
-
-        <div className="userLogin">
+        <div className="hostLogin">
           <>
-            <Form onSubmit={handleFormSubmit}>
+            <Form onSubmit={handleFormSubmit} className="hostLoginForm">
               <Form.Label htmlFor="loginEmail"></Form.Label>
               <Form.Control
-                placeholder="yourname@email.com"
-                type="email"
-                id="inputEmail"
-                onChange={handleChange}
-                aria-describedby="passwordHelpBlock"
+                placeholder="host@email.com"
+                type="text"
+                id="hostLoginEmail"
+                onChange={handleChangeEmail}
+                value={formStateEmail}
               />
               <Form.Text id="passwordHelpBlock" muted></Form.Text>
 
-              <Form.Label htmlFor="loginPassword"></Form.Label>
+              <Form.Label htmlFor="hostLoginPassword"></Form.Label>
               <Form.Control
                 placeholder="******"
-                type="passworrd"
-                id="inputPassword"
-                onChange={handleChange}
-                aria-describedby="passwordHelpBlock"
+                type="text"
+                id="hostInputPassword"
+                onChange={handleChangePassword}
+                value={formStatePassword}
               />
-            </Form>
-            {error ? (
-              <div>
-                <p className="error-text">
-                  The provided credentials are incorrect
-                </p>
+
+              <div className="flex-row flex-end">
+                <button
+                  className="btn hostLoginButton mx-auto"
+                  to={{ pathname: "./explore" }}
+                >
+                  Sign in
+                </button>
               </div>
-            ) : null}
-            <div className="flex-row flex-end submitButton">
-              <Link
-                className="btn button mx-auto"
-                to={{ pathname: "/explore" }}
-              >
-                Sign in
-              </Link>
-            </div>
+
+              {error ? (
+                <div className="hostErrorText">
+                  <p>The provided credentials are incorrect</p>
+                </div>
+              ) : null}
+            </Form>
           </>
+          <p className="hostLinkToSignup">
+            Don't have an account? <br></br>
+            <Link className="hostPageLink" to={{ pathname: "/hostSignup" }}>
+              Sign up
+            </Link>
+          </p>
         </div>
       </div>
     </section>
