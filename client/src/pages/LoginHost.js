@@ -82,7 +82,7 @@ const LoginHost = () => {
             ) : null}
             <div className="flex-row flex-end submitButton">
               <Link
-                className="btn button mx-auto"
+                className="btn hostLoginButton mx-auto"
                 to={{ pathname: "/explore" }}
               >
                 Sign in
