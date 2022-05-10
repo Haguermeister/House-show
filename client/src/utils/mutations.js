@@ -110,7 +110,7 @@ export const LOGIN_ARTIST = gql`
 
 export const ADD_ARTIST = gql`
   mutation addArtist(
-    $username: String
+    $username: String!
     $name: String!
     $musicType: String!
     $email: String!

@@ -13,22 +13,25 @@ function Modal({ closeModal }) {
   const [formStatePassword, setFormStatePassword] = useState();
   const [formStateName, setFormStateName] = useState();
   const [formStateMusicType, setFormStateMusicType] = useState();
+  const [formStateUsername, setFormStateUsername] = useState();
 
   const [addArtist, { error }] = useMutation(ADD_ARTIST);
   let history = useHistory();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("email", formStateEmail);
+
+    const variables = {
+      email: formStateEmail,
+      password: formStatePassword,
+      name: formStateName,
+      musicType: formStateMusicType,
+      username: formStateUsername,
+    };
+
     try {
-      const mutationResponse = await addArtist({
-        variables: {
-          email: formStateEmail,
-          password: formStatePassword,
-          name: formStateName,
-          musicType: formStateMusicType,
-        },
-      });
+      console.log(variables);
+      const mutationResponse = await addArtist({ variables });
       console.log("response");
       const token = mutationResponse.data.addArtist.token;
       Auth.login(token);
@@ -52,6 +55,10 @@ function Modal({ closeModal }) {
 
   const handleChangeMusicType = (event) => {
     setFormStateMusicType(event.target.value);
+  };
+
+  const handleChangeUsername = (event) => {
+    setFormStateUsername(event.target.value);
   };
 
   return (
@@ -85,6 +92,17 @@ function Modal({ closeModal }) {
                 placeholder="Password"
                 onChange={handleChangePassword}
                 id="artistSignupPassword"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                value={formStateUsername}
+                placeholder=""
+                onChange={handleChangeUsername}
+                id="artistSignupUsername"
               />
             </Form.Group>
 
