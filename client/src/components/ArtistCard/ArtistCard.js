@@ -9,14 +9,13 @@ import { useState } from "react";
 import ArtistReservation from "../ArtistReservation/ArtistReservation";
 
 const ArtistCard = ({ setRenderParentState, artists = [] }) => {
-  const saveArtist = () => {};
   const [renderState, setRenderState] = useState("unclicked");
   const [artistProp, setArtistProp] = useState({});
 
   const clickReserve = (event) => {
     setArtistProp(artists[event.target.id]);
     setRenderState("clicked");
-    setRenderParentState("artist-reservation");
+    setRenderParentState("reservation");
   };
   let i = -1;
   if (renderState === "unclicked") {
@@ -30,7 +29,6 @@ const ArtistCard = ({ setRenderParentState, artists = [] }) => {
               key={artist._id}
             >
               <FontAwesomeIcon
-                onClick={saveArtist}
                 size="xs"
                 className="heartButton"
                 icon={faHeartCirclePlus}
