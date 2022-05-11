@@ -12,3 +12,11 @@
   width: 6rem;
   padding: 0.5rem;
 }
+.backButton {
+  color: #fd6258;
+  position: relative;
+  right: 175px;
+  top: 75px;
+  font-size: 50px;
+  z-index: 10;
+}

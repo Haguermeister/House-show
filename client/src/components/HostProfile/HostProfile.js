@@ -21,7 +21,7 @@ const HostProfile = (props) => {
     return <div>Loading...</div>;
   }
   if (!host?.name && userType === "host") {
-    return <h4>You must be logged in to see this.</h4>;
+    return <Redirect to={{ pathname: "/login" }} />;
   }
   const clickVenue = async () => {
     try {

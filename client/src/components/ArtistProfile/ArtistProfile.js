@@ -20,7 +20,7 @@ const ArtistProfile = (props) => {
     return <div>Loading...</div>;
   }
   if (!artist?.name) {
-    return <h4>You must be logged in to see this.</h4>;
+    return <Redirect to={{ pathname: "/login" }} />;
   }
   const handleClickDelete = async () => {
     try {
