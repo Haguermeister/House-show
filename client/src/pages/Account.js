@@ -18,13 +18,13 @@ const Account = () => {
       <nav className="text-center">
         {loggedIn ? (
           <>
-            <Link className="accLogout" onClick={logout} to="/home">
+            <Link className="btn accLogout" onClick={logout} to="/home">
               Logout
             </Link>
           </>
         ) : (
           <>
-            <Link className="btn accLogout" to="/login">
+            <Link className="mt-3 btn accLogout" to="/login">
               Login or Signup
             </Link>
           </>
