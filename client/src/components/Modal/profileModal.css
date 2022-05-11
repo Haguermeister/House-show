@@ -1,0 +1,46 @@
+.textProfile {
+  font-size: 20px;
+}
+
+.profileUpBtn {
+  color: #fff;
+  background-color: #6f48eb;
+  border-radius: 5px;
+  width: 10rem;
+  height: 2rem;
+}
+
+.profileDelBtn {
+  color: #fff;
+  background-color: #fd6258;
+  border-radius: 5px;
+  width: 10rem;
+  height: 2rem;
+}
+
+.profUpbg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.profUpcont {
+    width: 500px;
+    height: 580px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: #6f48eb 0px 5px 55px;
+    padding: 25px;
+}
+
+.accLogout {
+  color: #fd6258;
+  background-color: #fff;
+  border: 3px solid #fd6258;
+  border-radius: 5px;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
