@@ -1,5 +1,5 @@
 import React from "react";
-import ArtistCard from "../components/ArtistCard/ArtistCard";
+import ArtistCardBooking from "../components/ArtistCard/ArtistCardBooking";
 import auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
 import { GET_MEARTIST, GET_MEHOST } from "../utils/queries";
@@ -16,12 +16,8 @@ const Bookings = (props) => {
   const { data: host } = useQuery(GET_MEHOST, { enabled: hostTrue });
   return (
     <div className="">
-      {loggedIn && artist ? (
-        <VenueCard venuesData={artist.venues}></VenueCard>
-      ) : null}
-      {loggedIn && host ? (
-        <ArtistCard artistsData={host.artists}></ArtistCard>
-      ) : null}
+      <VenueCard></VenueCard>
+      <ArtistCardBooking artists={host?.meHost.artists}></ArtistCardBooking>
     </div>
   );
 };

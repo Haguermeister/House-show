@@ -10,16 +10,11 @@ import "../Modal/profileModal.css";
 const ArtistProfile = (props) => {
   const [userType] = auth.loggedIn();
 
-  console.log(userType);
-
   const { username: userParam } = useParams();
   const [deleteArtist] = useMutation(DELETE_ARTIST);
   const { loading, data } = useQuery(userParam ? GET_ARTIST : GET_MEARTIST, {
     variables: { username: userParam },
   });
-  console.log(data);
-
-  const [openModal, setOpenModal] = useState(false);
 
   const artist = data?.meArtist || {};
 
@@ -27,7 +22,7 @@ const ArtistProfile = (props) => {
     return <div>Loading...</div>;
   }
   if (!artist?.name) {
-    return <h4>You must be logged in to see this.</h4>;
+    return <Redirect to={{ pathname: "/login" }} />;
   }
   const handleClickDelete = async () => {
     try {

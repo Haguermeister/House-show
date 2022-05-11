@@ -9,8 +9,9 @@ import HPModal from "../Modal/HPModal";
 import "../Modal/profileModal.css";
 
 const HostProfile = (props) => {
-  const [userType] = auth.loggedIn;
-  
+
+  const [userType, loggedIn] = Auth.loggedIn();
+
   const { username: userParam } = useParams();
   const [deleteHost] = useMutation(DELETE_HOST);
 
@@ -23,12 +24,14 @@ const HostProfile = (props) => {
   const [openModal, setOpenModal] = useState(false);
 
   const host = data?.meHost || {};
-
+  console.log(host);
   if (loading) {
     return <div>Loading...</div>;
   }
-  if (!host?.name) {
-    return <h4>You must be logged in to see this.</h4>;
+
+  if (!host?.firstName) {
+    return "" /*  <Redirect to={{ pathname: "/loginHost" }} /> */;
+
   }
 
   const handleClickDelete = async () => {
@@ -101,15 +104,15 @@ const HostProfile = (props) => {
               Delete Venue
             </button>
           )}
-        </div> */}
- 
-        {/* <div className="flex-row justify-space-between mt-2">
-          <div className="col-12 col-lg-3">
-            <VenueList
+        </div>
+        <div className="flex-row justify-space-between mb-3">
+          <div className="col-12 col-lg-3 mb-3">
+             <VenueList
+
               username={host.username}
               venueCount={host.venueCount}
               hosts={host.venues}
-            />
+            /> 
           </div>
         </div> */}
       </div>

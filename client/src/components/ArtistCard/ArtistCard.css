@@ -11,7 +11,16 @@
   color: black;
   font-weight: bold;
 }
-
+.textBtn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #fd6258;
+  color: #fff;
+}
+.textBtn:hover {
+  background-color: #fff;
+  color: #fd6258;
+}
 .h3 {
   color: gray;
 }
