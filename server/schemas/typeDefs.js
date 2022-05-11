@@ -109,7 +109,7 @@ const typeDefs = gql`
       owner: String
       cost: Int
     ): Venue
-    deleteVenue(name: String!): Artist
+    deleteVenue(name: String!): Venue
   }
 `;
 
