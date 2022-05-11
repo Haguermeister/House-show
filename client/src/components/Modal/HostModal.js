@@ -127,7 +127,7 @@ function Modal({ closeModal }) {
                 id="hostSignupUsername"
               />
             </Form.Group>
-            <div className="hostFooter mt-5">
+            <div className="hostFooter">
               <button
                 className="cancelBtnHost"
                 onClick={() => closeModal(false)}
