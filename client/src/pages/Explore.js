@@ -16,22 +16,25 @@ const Explore = () => {
     hostTrue = true;
   }
   const { data: artists } = useQuery(GET_ARTISTS, { enabled: hostTrue });
-  const { data: hosts } = useQuery(GET_HOSTS);
-  console.log(hosts);
+  const { data: hosts } = useQuery(GET_HOSTS, { enabled: artistTrue });
 
   if (userType === "artist" && loggedIn) {
     return (
       <div>
-        <DropDownFilterUserHost artists={artists} />
-        <CalendarFilter />
+        <form>
+          <DropDownFilterUserArtist hosts={hosts} />
+          <CalendarFilter />
+        </form>
         <VenueCard venuesData={hosts?.hosts.venues} />
       </div>
     );
-  } else if (userType === "hosts" && loggedIn) {
+  } else if (userType === "host" && loggedIn) {
     return (
       <div>
-        <DropDownFilterUserArtist hosts={hosts} />
-        <CalendarFilter />
+        <form>
+          <DropDownFilterUserHost artists={artists} />
+          <CalendarFilter />
+        </form>
         <ArtistCard artists={artists?.artists} />
       </div>
     );
