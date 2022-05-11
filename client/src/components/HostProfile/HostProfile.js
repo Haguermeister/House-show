@@ -7,6 +7,7 @@ import { ADD_VENUE, DELETE_HOST, DELETE_VENUE } from "../../utils/mutations";
 import auth from "../../utils/auth";
 import HPModal from "../Modal/HPModal";
 import "../Modal/profileModal.css";
+import { Redirect } from "react-router-dom";
 
 const HostProfile = (props) => {
   const [userType, loggedIn] = auth.loggedIn();
@@ -29,7 +30,7 @@ const HostProfile = (props) => {
   }
 
   if (!host?.firstName) {
-    return "" /*  <Redirect to={{ pathname: "/loginHost" }} /> */;
+    return <Redirect to={{ pathname: "/loginHost" }} />;
   }
 
   const handleClickDelete = async () => {
