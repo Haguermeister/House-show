@@ -42,7 +42,7 @@ const Home = () => {
         </div>
       </div>
     );
-  } else {
+  } else if (userType === "host") {
     return (
       <div className="w-100 d-flex flex-column align-items-center justify-content-center ">
         <VideoLoop className="mb-5" />
@@ -52,6 +52,20 @@ const Home = () => {
             to={{ pathname: "/explore" }}
           >
             Start Booking Artists
+          </Link>
+        </div>
+      </div>
+    );
+  } else if (userType === "artist") {
+    return (
+      <div className="w-100 d-flex flex-column align-items-center justify-content-center ">
+        <VideoLoop className="mb-5" />
+        <div className="w-100 d-flex flex-row align-items-center">
+          <Link
+            className="signIn-Link col-6 p-3 exploreBtn btn mx-auto"
+            to={{ pathname: "/explore" }}
+          >
+            Find a Venue
           </Link>
         </div>
       </div>
