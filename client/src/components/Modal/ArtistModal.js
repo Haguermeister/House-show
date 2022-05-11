@@ -34,7 +34,7 @@ function Modal({ closeModal }) {
       const mutationResponse = await addArtist({ variables });
       console.log("response");
       const token = mutationResponse.data.addArtist.token;
-      Auth.login(token);
+      Auth.login(token, "artist");
       history.push("/explore");
     } catch (e) {
       console.log(e);

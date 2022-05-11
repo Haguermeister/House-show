@@ -12,7 +12,7 @@
   
   .modalContainer {
     width: 500px;
-    height: 500px;
+    height: 580px;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -31,21 +31,44 @@
  }
 
  .cancelBtnArtist {
-    position: absolute;
-    top: 38rem;
-    left: 1rem;
-    background-color: #fd6258;
- }
+   position: absolute;
+   top: 39rem;
+   left: 3rem;
+   background-color: #fd6258;
+ color: #fefbef;
+ font-family: "Open Sans", sans-serif;
+ font-weight: 600;
+ line-height: 1;
+ margin-top: 1.5rem;
+ width: 8rem;
+ height: 2rem;
+ border-radius: 5px;
+}
 
- .continueBtnArtist {
-    position: absolute;
-    top: 38rem;
-    left: 14rem;
-    color: #fd6258;
-    background-color: #fff;
-    border: 2px solid #fd6258;
-    
- }
+.cancelBtnArtist:hover {
+  color: #fff;
+  background-color: #fd6258;
+}
+
+.continueBtnArtist {
+   position: absolute;
+   top: 39rem;
+   left: 12rem;
+   background-color: #fd6258;
+   color: #fefbef;
+   font-family: "Open Sans", sans-serif;
+   font-weight: 600;
+   line-height: 1;
+   margin-top: 1.5rem;
+   width: 8rem;
+   height: 2rem;
+   border-radius: 5px;
+}
+
+.continueBtnArtist:hover {
+  color: #fff;
+  background-color: #fd6258;
+}
 
  .artistSignupForm {
     padding: 1.5rem;
@@ -53,5 +76,114 @@
  }
   
 
+
+ @media screen and (min-width: 500px) {
+  .continueBtnArtist {
+    left: 18rem;
+  }
+
+  .cancelBtnArtist {
+    left: 8rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+ .continueBtnArtist {
+   left: 22rem;
+ }
+
+ .cancelBtnArtist {
+   left: 12rem;
+ }
+}
+
+@media screen and (min-width: 650px) {
+ .continueBtnArtist {
+   left: 18rem;
+ }
+
+ .cancelBtnArtist {
+   left: 8rem;
+ }
+}
+
+
+
+@media screen and (min-width: 700px) {
+ .continueBtnArtist {
+   left: 28rem;
+ }
+
+ .cancelBtnArtist {
+   left: 18rem;
+   
+ }
+}
+
+@media screen and (min-width: 750px) {
+  .continueBtnArtist {
+    left: 28rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 18rem;
+    
+  }
+ }
+
+@media screen and (min-width: 800px) {
+  .continueBtnArtist {
+    left: 32rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 22rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 850px) {
+  .continueBtnArtist {
+    left: 30rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 20rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 900px) {
+  .continueBtnArtist {
+    left: 28rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 18rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 1000px) {
+  .continueBtnArtist {
+    left: 32rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 22rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 1200px) {
+  .continueBtnArtist {
+    left: 38rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 28rem;
+    
+  }
+ }
   
   

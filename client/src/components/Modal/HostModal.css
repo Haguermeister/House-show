@@ -12,7 +12,7 @@
   
   .hostModalContainer {
     width: 500px;
-    height: 500px;
+    height: 580px;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -28,26 +28,167 @@
 
  .cancelBtnHost {
     position: absolute;
-    top: 38rem;
-    left: 1rem;
+    top: 39rem;
+    left: 3rem;
     background-color: #fd6258;
+  color: #fefbef;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 1.5rem;
+  width: 8rem;
+  height: 2rem;
+  border-radius: 5px;
+ }
+ 
+ .cancelBtnHost:hover {
+   color: #fff;
+   background-color: #fd6258;
  }
 
  .continueBtnHost {
     position: absolute;
-    top: 38rem;
-    left: 14rem;
-    color: #fd6258;
-    background-color: #fff;
-    border: 2px solid #fd6258;
-    
+    top: 39rem;
+    left: 12rem;
+    background-color: #fd6258;
+    color: #fefbef;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    line-height: 1;
+    margin-top: 1.5rem;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 5px;
+ }
+
+ .continueBtnHost:hover {
+   color: #fff;
+   background-color: #fd6258;
  }
 
  .hostSignupForm {
     padding: 1.5rem;
     padding-bottom: 1.5rem;
  }
-  
 
-  
+
+ @media screen and (min-width: 500px) {
+  .continueBtnHost {
+    left: 18rem;
+  }
+
+  .cancelBtnHost {
+    left: 8rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+ .continueBtnHost {
+   left: 20rem;
+ }
+
+ .cancelBtnHost {
+   left: 10rem;
+ }
+}
+
+@media screen and (min-width: 650px) {
+ .continueBtnHost {
+   left: 18rem;
+ }
+
+ .cancelBtnHost {
+   left: 8rem;
+ }
+}
+
+
+
+@media screen and (min-width: 700px) {
+ .continueBtnHost {
+   left: 28rem;
+ }
+
+ .cancelBtnHost {
+   left: 18rem;
+   
+ }
+}
+
+@media screen and (min-width: 750px) {
+  .continueBtnHost {
+    left: 28rem;
+  }
+ 
+  .cancelBtnHost {
+    left: 18rem;
+    
+  }
+ }
+
+@media screen and (min-width: 800px) {
+  .continueBtnHost {
+    left: 32rem;
+  }
+ 
+  .cancelBtnHost {
+    left: 22rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 850px) {
+  .continueBtnHost {
+    left: 30rem;
+  }
+ 
+  .cancelBtnHost {
+    left: 20rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 900px) {
+  .continueBtnHost {
+    left: 28rem;
+  }
+ 
+  .cancelBtnHost {
+    left: 18rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 1000px) {
+  .continueBtnHost {
+    left: 32rem;
+  }
+ 
+  .cancelBtnHost {
+    left: 22rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 1100px) {
+  .continueBtnHost {
+    left: 36rem;
+  }
+ 
+  .cancelBtnHost {
+    left: 26rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 1200px) {
+  .continueBtnHost {
+    left: 38rem;
+  }
+ 
+  .cancelBtnHost {
+    left: 28rem;
+    
+  }
+ }
   
