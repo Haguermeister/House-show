@@ -89,6 +89,7 @@ const typeDefs = gql`
     ): Artist
     deleteArtist(id: ID!): Artist
     bookVenue(venueId: ID!): Artist
+    removeVenue(venueId: ID!): Artist
     addVenue(
       name: String!
       description: String!
