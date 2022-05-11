@@ -49,7 +49,6 @@ const ArtistProfile = (props) => {
           <button className="profileUpBtn" onClick={() => {}}>
             Update Profile
           </button>
-          {openModal && <APModal closeModal={setOpenModal} />}
         </div>
 
         <div className="d-flex justify-content-center mt-5 mb-5">
