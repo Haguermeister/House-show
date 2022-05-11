@@ -10,13 +10,15 @@ db.once("open", async () => {
   // // create venue data
   let venueData = [];
   for (let i = 0; i < 10; i += 1) {
+    const randomPlace = faker.image.business(640, 480, true);
+
     const data = {
       // _id: faker.database.mongodbObjectId(),
       name: faker.random.words(),
       owner: faker.name.findName(),
       description: faker.lorem.words(Math.round(Math.random() * 20) + 1),
       occupancy: faker.datatype.number(),
-      pictures: faker.image.imageUrl(),
+      pictures: randomPlace,
       city: faker.address.cityName(),
       cost: faker.datatype.number(),
     };
@@ -25,12 +27,6 @@ db.once("open", async () => {
   }
 
   const createdVenues = await Venue.collection.insertMany(venueData);
-
-  const randomRating = faker.datatype.number({
-    min: 1,
-    max: 5,
-    precision: 0.01,
-  });
 
   // // create artist data
   const artistData = [];
@@ -42,6 +38,8 @@ db.once("open", async () => {
       precision: 0.01,
     });
 
+    const randomPerson = faker.image.people(640, 480, true);
+
     const data = {
       username: faker.internet.userName(),
       name: faker.name.findName(),
@@ -49,7 +47,7 @@ db.once("open", async () => {
       musicType: faker.music.genre(),
       bandSize: faker.datatype.number(),
       rate: faker.datatype.number(),
-      pictures: faker.image.imageUrl(),
+      pictures: randomPerson,
       spotifyLink: faker.internet.url(),
       email: faker.internet.email(),
       password: faker.internet.password(),
