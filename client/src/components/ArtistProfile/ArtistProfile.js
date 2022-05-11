@@ -17,6 +17,8 @@ const ArtistProfile = (props) => {
     variables: { username: userParam },
   });
 
+  const [openModal, setOpenModal] = useState(false);
+
   const artist = data?.meArtist || {};
 
   if (loading) {
@@ -46,16 +48,23 @@ const ArtistProfile = (props) => {
         </div>
 
         <div className="d-flex justify-content-center mt-5">
-          <button className="profileUpBtn" onClick={() => {}}>
-            Update Profile
-          </button>
+        <button
+          className="profileUpBtn"
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          Update Profile
+        </button>
+        {openModal && <APModal closeModal={setOpenModal} />}
         </div>
 
         <div className="d-flex justify-content-center mt-5 mb-5">
-          <button className="profileDelBtn" onClick={handleClickDelete}>
+        <button className="profileDelBtn" onClick={handleClickDelete}>
             Delete Profile
-          </button>
+        </button>
         </div>
+
       </div>
     );
   }
