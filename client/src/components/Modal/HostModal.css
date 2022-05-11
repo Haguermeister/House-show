@@ -70,6 +70,47 @@
     padding: 1.5rem;
     padding-bottom: 1.5rem;
  }
+
+
+ @media screen and (min-width: 500px) {
+   .continueBtnHost {
+     left: 18rem;
+   }
+
+   .cancelBtnHost {
+     left: 8rem;
+   }
+ }
+
+ @media screen and (min-width: 600px) {
+  .continueBtnHost {
+    left: 22rem;
+  }
+
+  .cancelBtnHost {
+    left: 12rem;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .continueBtnHost {
+    left: 19rem;
+  }
+
+  .cancelBtnHost {
+    left: 8rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .continueBtnHost {
+    left: 28rem;
+  }
+
+  .cancelBtnHost {
+    left: 18rem;
+  }
+}
   
 
   

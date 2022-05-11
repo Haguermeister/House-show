@@ -89,6 +89,8 @@ This application provides performing artists with a platform for seeking out and
 - Mongoose ODM
 - Heroku
 - Faker
+- Web Manifest
+- Service Worker
 
 ---
 

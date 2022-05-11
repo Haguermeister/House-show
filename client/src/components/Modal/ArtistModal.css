@@ -76,5 +76,46 @@
  }
   
 
+ @media screen and (min-width: 500px) {
+  .continueBtnArtist {
+    left: 18rem;
+  }
+
+  .cancelBtnArtist {
+    left: 8rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+ .continueBtnArtist {
+   left: 22rem;
+ }
+
+ .cancelBtnArtist {
+   left: 12rem;
+ }
+}
+
+@media screen and (min-width: 650px) {
+ .continueBtnArtist {
+   left: 19rem;
+ }
+
+ .cancelBtnArtist {
+   left: 8rem;
+ }
+}
+
+@media screen and (min-width: 700px) {
+ .continueBtnArtist {
+   left: 28rem;
+ }
+
+ .cancelBtnArtist {
+   left: 18rem;
+   
+ }
+}
+
   
   

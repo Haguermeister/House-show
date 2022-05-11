@@ -2,12 +2,7 @@ import React from "react";
 import { Nav, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faBook,
-  faUser,
-  faHeart,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faBook, faUser } from "@fortawesome/free-solid-svg-icons";
 import "./navigation.css";
 
 const tabs = [
@@ -16,11 +11,11 @@ const tabs = [
     icon: faSearch,
     label: "Explore",
   },
-  {
+  /* {
     route: "/saved",
     icon: faHeart,
     label: "Saved",
-  },
+  }, */
   {
     route: "/bookings",
     icon: faBook,
