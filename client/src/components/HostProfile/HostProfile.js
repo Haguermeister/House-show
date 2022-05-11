@@ -1,10 +1,11 @@
-import React from "react";
-import { Redirect, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import VenueList from "../VenueList/VenueList";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_HOST, GET_MEHOST } from "../../utils/queries";
 import { ADD_VENUE, DELETE_HOST, DELETE_VENUE } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+// import HPModal from "../components/Modal/HPModal";
 
 const HostProfile = (props) => {
   const { userType } = Auth.loggedIn;
@@ -15,6 +16,9 @@ const HostProfile = (props) => {
   const { loading, data } = useQuery(userParam ? GET_HOST : GET_MEHOST, {
     variables: { username: userParam },
   });
+
+  const [openModal, setOpenModal] = useState(false);
+
   const host = data?.meHost || {};
 
   if (loading) {
@@ -50,11 +54,13 @@ const HostProfile = (props) => {
       console.error(e);
     }
   };
+
+
   if (userType === "host") {
     return (
       <div>
         <div className="flex-row mb-3">
-          <h2 className="bg-dark text-secondary p-3 display-inline-block">
+          <h2 className="text-dark p-3 display-inline-block">
             Viewing {userParam ? `${host.username}'s` : "your"} account.
           </h2>
           {userParam && (
@@ -82,6 +88,17 @@ const HostProfile = (props) => {
             />
           </div>
         </div>
+
+        {/* <button
+          className=""
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          Update your profile
+        </button>
+        {openModal && <HPModal closeModal={setOpenModal} />} */}
+
       </div>
     );
   }

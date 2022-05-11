@@ -1,11 +1,13 @@
-import React from "react";
-import { Redirect, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ARTIST, GET_MEARTIST } from "../../utils/queries";
 import { DELETE_ARTIST } from "../../utils/mutations";
 import auth from "../../utils/auth";
+import APModal from "../Modal/APModal";
+
 const ArtistProfile = (props) => {
-  const [userType, loggedIn] = auth.loggedIn();
+  const [userType] = auth.loggedIn();
 
   console.log(userType);
 
@@ -15,7 +17,11 @@ const ArtistProfile = (props) => {
     variables: { username: userParam },
   });
   console.log(data);
+
+  const [openModal, setOpenModal] = useState(false);
+
   const artist = data?.meArtist || {};
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -44,6 +50,17 @@ const ArtistProfile = (props) => {
             Delete Artist
           </button>
         </div>
+
+        <button
+          className=""
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          Update your profile
+        </button>
+        {openModal && <APModal closeModal={setOpenModal} />}
+
       </div>
     );
   }
