@@ -6,6 +6,7 @@ import { Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "../../components/Modal/profileModal.css";
 
+
 function Modal({ closeModal }) {
   const [formStateEmail, setFormStateEmail] = useState();
   const [formStatePassword, setFormStatePassword] = useState();
@@ -63,6 +64,7 @@ function Modal({ closeModal }) {
     <div className="profUpbg d-flex justify-content-center">
       <div className="profUpcont">
 
+
           <Form onSubmit={handleFormSubmit} className="">
             <Form.Group className="">
               <Form.Label>Email address</Form.Label>
@@ -76,28 +78,33 @@ function Modal({ closeModal }) {
             </Form.Group>
 
             <Form.Group className="pt-4">
+
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="text"
                 value={formStatePassword}
                 placeholder="********"
+
                 onChange={handleChangePassword}
                 id="artistProfilePassword"
               />
             </Form.Group>
 
             <Form.Group className="pt-4">
+
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
                 value={formStateUsername}
                 placeholder="Enter Username"
+
                 onChange={handleChangeUsername}
                 id="artistProfileUsername"
               />
             </Form.Group>
 
             <Form.Group className="pt-4">
+
               <Form.Label>Performers Name</Form.Label>
               <Form.Control
                 type="text"
@@ -109,6 +116,7 @@ function Modal({ closeModal }) {
             </Form.Group>
 
             <Form.Group className="pt-4">
+
               <Form.Label>Genre of Music</Form.Label>
               <Form.Control
                 type="text"
@@ -121,6 +129,7 @@ function Modal({ closeModal }) {
             <div className="d-flex justify-content-around pt-4">
               <button
                 className="profileDelBtn"
+
                 onClick={() => closeModal(false)}
               >
                 Cancel
@@ -135,6 +144,7 @@ function Modal({ closeModal }) {
               </button>
             </div>
           </Form>
+
 
         {error ? (
           <div>

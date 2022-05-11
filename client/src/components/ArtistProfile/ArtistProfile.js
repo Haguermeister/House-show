@@ -5,17 +5,22 @@ import { GET_ARTIST, GET_MEARTIST } from "../../utils/queries";
 import { DELETE_ARTIST } from "../../utils/mutations";
 import auth from "../../utils/auth";
 import APModal from "../Modal/APModal";
+
 import "../Modal/profileModal.css";
 import { Redirect } from "react-router-dom";
 
+
 const ArtistProfile = (props) => {
   const [userType] = auth.loggedIn();
+
 
   const { username: userParam } = useParams();
   const [deleteArtist] = useMutation(DELETE_ARTIST);
   const { loading, data } = useQuery(userParam ? GET_ARTIST : GET_MEARTIST, {
     variables: { username: userParam },
   });
+
+
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -47,9 +52,12 @@ const ArtistProfile = (props) => {
           </h2>
         </div>
 
+
         <div className="d-flex justify-content-center mt-5">
         <button
           className="profileUpBtn"
+
+
           onClick={() => {
             setOpenModal(true);
           }}

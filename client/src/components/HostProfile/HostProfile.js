@@ -9,6 +9,7 @@ import HPModal from "../Modal/HPModal";
 import "../Modal/profileModal.css";
 import { Redirect } from "react-router-dom";
 
+
 const HostProfile = (props) => {
   const [userType, loggedIn] = auth.loggedIn();
 
@@ -20,6 +21,7 @@ const HostProfile = (props) => {
   const { loading, data } = useQuery(userParam ? GET_HOST : GET_MEHOST, {
     variables: { username: userParam },
   });
+
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -45,25 +47,7 @@ const HostProfile = (props) => {
     }
   };
 
-  // const clickVenue = async () => {
-  //   try {
-  //     await addVenue({
-  //       variables: { id: host._id },
-  //     });
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // };
 
-  // const clickDelVenue = async () => {
-  //   try {
-  //     await deleteVenue({
-  //       variables: { id: host._id },
-  //     });
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // };
 
   if (userType === "host") {
     return (
@@ -71,6 +55,7 @@ const HostProfile = (props) => {
         <div className="d-flex justify-content-center pt-5">
           <h2 className="text-dark textProfile">
             Viewing {host.name ? `${host.name}'s` : "your"} account.
+
           </h2>
         </div>
 
@@ -114,6 +99,7 @@ const HostProfile = (props) => {
             /> 
           </div>
         </div> */}
+
       </div>
     );
   }
