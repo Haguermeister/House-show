@@ -86,6 +86,7 @@ export const GET_MEHOST = gql`
       lastName
       email
       artists {
+        pictures
         _id
         name
         rating

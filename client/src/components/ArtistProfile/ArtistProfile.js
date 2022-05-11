@@ -7,14 +7,11 @@ import auth from "../../utils/auth";
 const ArtistProfile = (props) => {
   const [userType, loggedIn] = auth.loggedIn();
 
-  console.log(userType);
-
   const { username: userParam } = useParams();
   const [deleteArtist] = useMutation(DELETE_ARTIST);
   const { loading, data } = useQuery(userParam ? GET_ARTIST : GET_MEARTIST, {
     variables: { username: userParam },
   });
-  console.log(data);
   const artist = data?.meArtist || {};
   if (loading) {
     return <div>Loading...</div>;

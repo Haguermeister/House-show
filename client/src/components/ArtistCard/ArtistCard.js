@@ -7,7 +7,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import "./ArtistCard.css";
 import { useState } from "react";
 import ArtistReservation from "../ArtistReservation/ArtistReservation";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 const ArtistCard = ({ setRenderParentState, artists = [] }) => {
   const saveArtist = () => {};

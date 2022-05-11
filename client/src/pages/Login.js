@@ -26,7 +26,6 @@ const Login = () => {
     };
 
     try {
-      console.log(variables);
       const mutationResponse = await login({ variables });
       const token = mutationResponse.data.loginArtist.token;
       Auth.login(token, "artist");

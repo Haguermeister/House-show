@@ -24,9 +24,7 @@ const LoginHost = () => {
     };
 
     try {
-      console.log(variables);
       const mutationResponse = await login({ variables });
-      console.log(mutationResponse);
       const token = mutationResponse.data.loginHost.token;
       Auth.login(token, "host");
       history.push("/explore");

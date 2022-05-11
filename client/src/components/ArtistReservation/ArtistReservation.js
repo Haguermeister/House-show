@@ -1,10 +1,12 @@
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-
+import { useMutation } from "@apollo/client";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import "./ArtistReservation.css";
+import { HIRE_ARTIST } from "../../utils/mutations";
+import { useHistory } from "react-router-dom";
 
 const ArtistReservation = (props) => {
   const sweetnur = "6wt5o8DcYlzA1nCyBb2rpf";
@@ -13,7 +15,21 @@ const ArtistReservation = (props) => {
     props.setRenderState("unclicked");
     props.setRenderParentState("explore");
   };
-  const handleReservation = () => {};
+  const [hireArtist, { error }] = useMutation(HIRE_ARTIST);
+  let history = useHistory();
+  const handleReservation = async (event) => {
+    event.preventDefault();
+    console.log("id", props.artist._id);
+    const variables = { artistId: props.artist._id };
+    try {
+      const mutationResponse = await hireArtist({ variables });
+      console.log(mutationResponse);
+      history.push("bookings");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div
       className="d-flex justify-content-center flex-column aligin-items-center "
@@ -64,6 +80,11 @@ const ArtistReservation = (props) => {
       >
         Reserve
       </button>
+      {error ? (
+        <div className="artistErrorText">
+          <p>The server is having issues</p>
+        </div>
+      ) : null}
       {/* //link to stripe */}
     </div>
   );

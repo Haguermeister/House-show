@@ -30,9 +30,7 @@ function Modal({ closeModal }) {
     };
 
     try {
-      console.log(variables);
       const mutationResponse = await addHost({ variables });
-      console.log("response");
       const token = mutationResponse.data.addHost.token;
       Auth.login(token, "host");
       history.push("/explore");

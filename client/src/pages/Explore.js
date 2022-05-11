@@ -23,9 +23,7 @@ const Explore = () => {
   const uniqueTags = [...new Set(tags)];
   const [selectedTags, setSelectedTags] = useState();
   const initialState = artists ? artists : [];
-  console.log("initial", initialState);
   const [artistsList, setArtistsList] = useState(initialState);
-  console.log(artistsList);
   const onChange = (event) => {
     setSelectedTags([...event.value]);
     /* console.log("Selected", selectedTags);

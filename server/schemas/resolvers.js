@@ -6,7 +6,6 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 const resolvers = {
   Query: {
     meArtist: async (parent, args, context) => {
-      console.log(context.user);
       if (context.user) {
         const artistData = await Artist.findOne({ _id: context.user._id })
           .select("-__v -password")

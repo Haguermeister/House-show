@@ -7,7 +7,7 @@ import { ADD_VENUE, DELETE_HOST, DELETE_VENUE } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const HostProfile = (props) => {
-  const { userType } = Auth.loggedIn;
+  const [userType, loggedIn] = Auth.loggedIn();
   const { username: userParam } = useParams();
   const [addVenue] = useMutation(ADD_VENUE);
   const [deleteHost] = useMutation(DELETE_HOST);
@@ -16,12 +16,12 @@ const HostProfile = (props) => {
     variables: { username: userParam },
   });
   const host = data?.meHost || {};
-
+  console.log(host);
   if (loading) {
     return <div>Loading...</div>;
   }
-  if (!host?.name && userType === "host") {
-    return <Redirect to={{ pathname: "/login" }} />;
+  if (!host?.firstName) {
+    return "" /*  <Redirect to={{ pathname: "/loginHost" }} /> */;
   }
   const clickVenue = async () => {
     try {
@@ -75,11 +75,11 @@ const HostProfile = (props) => {
         </div>
         <div className="flex-row justify-space-between mb-3">
           <div className="col-12 col-lg-3 mb-3">
-            <VenueList
+            {/* <VenueList
               username={host.username}
               venueCount={host.venueCount}
               hosts={host.venues}
-            />
+            /> */}
           </div>
         </div>
       </div>
