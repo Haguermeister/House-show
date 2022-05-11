@@ -74,8 +74,8 @@ function Modal({ closeModal }) {
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="text"
+                placeholder="yourname@email.com"
                 value={formStateEmail}
-                placeholder="Enter email"
                 onChange={handleChangeEmail}
                 id="hostSignupEmail"
               />
@@ -89,7 +89,7 @@ function Modal({ closeModal }) {
               <Form.Control
                 type="text"
                 value={formStatePassword}
-                placeholder="Password"
+                placeholder="********"
                 onChange={handleChangePassword}
                 id="hostSignupPassword"
               />
@@ -100,7 +100,6 @@ function Modal({ closeModal }) {
               <Form.Control
                 type="text"
                 value={formStateFirstName}
-                placeholder="First Name"
                 onChange={handleChangeFirstName}
                 id="hostSignupFirstName"
               />
@@ -111,7 +110,6 @@ function Modal({ closeModal }) {
               <Form.Control
                 type="text"
                 value={formStateLastName}
-                placeholder="Last Name"
                 onChange={handleChangeLastName}
                 id="hostSignupLastName"
               />
@@ -122,7 +120,6 @@ function Modal({ closeModal }) {
               <Form.Control
                 type="text"
                 value={formStateUsername}
-                placeholder="Username"
                 onChange={handleChangeUsername}
                 id="hostSignupUsername"
               />
