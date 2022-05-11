@@ -6,7 +6,6 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 const resolvers = {
   Query: {
     meArtist: async (parent, args, context) => {
-      console.log(context.user);
       if (context.user) {
         const artistData = await Artist.findOne({ _id: context.user._id })
           .select("-__v -password")
@@ -181,19 +180,19 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    // removeVenue: async (parent, { venueId }, context) => {
-    //   if (context.user) {
-    //     const updatedArtist = await Artist.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { venues: venueId } },
-    //       { new: true }
-    //     ).populate("venues");
+    removeVenue: async (parent, { venueId }, context) => {
+      if (context.user) {
+        const updatedArtist = await Artist.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { venues: venueId } },
+          { new: true }
+        ).populate("venues");
 
-    //     return updatedArtist;
-    //   }
+        return updatedArtist;
+      }
 
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+      throw new AuthenticationError("You need to be logged in!");
+    },
     addVenue: async (parent, args, context) => {
       if (context.user) {
         const venue = await Venue.create({

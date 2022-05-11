@@ -6,7 +6,6 @@ const DropDownFilterArtist = () => {
   const handleChange = () => {};
   return (
     <form className="w-100 p-2">
-      <span>State : </span>)
       <TagsMultiSelect />
       <span>Occupancy : </span>) min max here
       <input></input>
@@ -14,7 +13,7 @@ const DropDownFilterArtist = () => {
       <span>Budget : </span>
       <Slider
         getAriaLabel={() => "Temperature range"}
-        value={50}
+        value={20}
         onChange={handleChange}
         valueLabelDisplay="auto"
       />

@@ -1,9 +1,9 @@
 import React from "react";
-import ArtistCard from "../components/ArtistCard/ArtistCard";
+import ArtistCardBooking from "../components/ArtistCard/ArtistCardBooking";
+import VenueCardBooking from "../components/VenueCard/VenueCardBooking";
 import auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
 import { GET_MEARTIST, GET_MEHOST } from "../utils/queries";
-import VenueCard from "../components/VenueCard/VenueCard";
 const Bookings = (props) => {
   const [userType, loggedIn] = auth.loggedIn();
   let artistTrue, hostTrue;
@@ -12,17 +12,19 @@ const Bookings = (props) => {
   } else {
     hostTrue = true;
   }
-  const { data: artist } = useQuery(GET_MEARTIST, { enabled: artistTrue });
-  const { data: host } = useQuery(GET_MEHOST, { enabled: hostTrue });
-  return (
-    <div className="">
-      {loggedIn && artist ? (
-        <VenueCard venuesData={artist.venues}></VenueCard>
-      ) : null}
-      {loggedIn && host ? (
-        <ArtistCard artistsData={host.artists}></ArtistCard>
-      ) : null}
-    </div>
-  );
+  const { data: meArtist } = useQuery(GET_MEARTIST, { enabled: artistTrue });
+  const { data: meHost } = useQuery(GET_MEHOST, { enabled: hostTrue });
+  console.log("meHost -", meHost ? meHost : []);
+  console.log("meArtist -", meArtist ? meArtist : []);
+
+  if (artistTrue) {
+    return (
+      <div className="">
+        <VenueCardBooking venues={meArtist?.meArtist.venues} />
+      </div>
+    );
+  } else if (hostTrue) {
+    return <ArtistCardBooking artists={meHost?.meHost.artists} />;
+  }
 };
 export default Bookings;

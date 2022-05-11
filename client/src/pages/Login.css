@@ -87,10 +87,6 @@
     width: 550px;
   }
 
-  .backgroundImageArtistLogin {
-    background: no-repeat fixed center;
-  }
-
   .artistOverlayText {
     position: absolute;
     left: 10rem;
@@ -100,6 +96,11 @@
     position: absolute;
     left: 10rem;
   }
+
+  .artistLinkToSignup {
+    position: absolute;
+    left: 10rem;
+}
 }
 
 @media screen and (min-width: 500px) {

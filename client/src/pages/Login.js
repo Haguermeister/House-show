@@ -26,7 +26,6 @@ const Login = () => {
     };
 
     try {
-      console.log(variables);
       const mutationResponse = await login({ variables });
       const token = mutationResponse.data.loginArtist.token;
       Auth.login(token, "artist");
@@ -55,7 +54,15 @@ const Login = () => {
             style={{ width: "100%", height: "100%" }}
           />
           <h1 className="artistOverlayText">Sign in</h1>
-          <Form>
+          <Form onSubmit={handleFormSubmit} className="artistLoginForm">
+            <Form.Label htmlFor="artistLoginEmail"></Form.Label>
+            <Form.Control
+              placeholder="artist@email.com"
+              type="text"
+              id="artistInputEmail"
+              onChange={handleChangeEmail}
+              value={formStateEmail}
+            />
             <Form.Label htmlFor="artistLoginPassword"></Form.Label>
             <Form.Control
               placeholder="******"

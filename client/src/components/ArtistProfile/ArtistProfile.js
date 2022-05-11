@@ -6,17 +6,21 @@ import { DELETE_ARTIST } from "../../utils/mutations";
 import auth from "../../utils/auth";
 import APModal from "../Modal/APModal";
 
+import "../Modal/profileModal.css";
+import { Redirect } from "react-router-dom";
+
+
 const ArtistProfile = (props) => {
   const [userType] = auth.loggedIn();
 
-  console.log(userType);
 
   const { username: userParam } = useParams();
   const [deleteArtist] = useMutation(DELETE_ARTIST);
   const { loading, data } = useQuery(userParam ? GET_ARTIST : GET_MEARTIST, {
     variables: { username: userParam },
   });
-  console.log(data);
+
+
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -26,7 +30,7 @@ const ArtistProfile = (props) => {
     return <div>Loading...</div>;
   }
   if (!artist?.name) {
-    return <h4>You must be logged in to see this.</h4>;
+    return <Redirect to={{ pathname: "/login" }} />;
   }
   const handleClickDelete = async () => {
     try {
@@ -42,24 +46,32 @@ const ArtistProfile = (props) => {
   if (userType === "artist") {
     return (
       <div>
-        <div className="flex-row mb-3">
-          <h2 className="bg-dark text-secondary p-3 display-inline-block">
+        <div className="d-flex justify-content-center pt-5">
+          <h2 className="text-dark textProfile">
             Viewing {artist.name ? `${artist.name}'s` : "your"} account.
           </h2>
-          <button className="btn ml-auto" onClick={handleClickDelete}>
-            Delete Artist
-          </button>
         </div>
 
+
+        <div className="d-flex justify-content-center mt-5">
         <button
-          className=""
+          className="profileUpBtn"
+
+
           onClick={() => {
             setOpenModal(true);
           }}
         >
-          Update your profile
+          Update Profile
         </button>
         {openModal && <APModal closeModal={setOpenModal} />}
+        </div>
+
+        <div className="d-flex justify-content-center mt-5 mb-5">
+        <button className="profileDelBtn" onClick={handleClickDelete}>
+            Delete Profile
+        </button>
+        </div>
 
       </div>
     );

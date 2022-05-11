@@ -4,6 +4,8 @@ import Auth from "../../utils/auth";
 import { UPDATE_ARTIST } from "../../utils/mutations";
 import { Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import "../../components/Modal/profileModal.css";
+
 
 function Modal({ closeModal }) {
   const [formStateEmail, setFormStateEmail] = useState();
@@ -59,13 +61,10 @@ function Modal({ closeModal }) {
   };
 
   return (
-    <div className="">
-      <div className="">
-        <div className="">
-          <h1 className="">Update account</h1>
-        </div>
+    <div className="profUpbg d-flex justify-content-center">
+      <div className="profUpcont">
 
-        <div className="">
+
           <Form onSubmit={handleFormSubmit} className="">
             <Form.Group className="">
               <Form.Label>Email address</Form.Label>
@@ -76,34 +75,36 @@ function Modal({ closeModal }) {
                 onChange={handleChangeEmail}
                 id="artistProfileEmail"
               />
-              <Form.Text className="">
-                We'll never share your email with anyone else.
-              </Form.Text>
             </Form.Group>
 
-            <Form.Group className="">
+            <Form.Group className="pt-4">
+
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="text"
                 value={formStatePassword}
-                placeholder="Password"
+                placeholder="********"
+
                 onChange={handleChangePassword}
                 id="artistProfilePassword"
               />
             </Form.Group>
 
-            <Form.Group className="">
+            <Form.Group className="pt-4">
+
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
                 value={formStateUsername}
-                placeholder=""
+                placeholder="Enter Username"
+
                 onChange={handleChangeUsername}
                 id="artistProfileUsername"
               />
             </Form.Group>
 
-            <Form.Group className="">
+            <Form.Group className="pt-4">
+
               <Form.Label>Performers Name</Form.Label>
               <Form.Control
                 type="text"
@@ -114,7 +115,8 @@ function Modal({ closeModal }) {
               />
             </Form.Group>
 
-            <Form.Group className="">
+            <Form.Group className="pt-4">
+
               <Form.Label>Genre of Music</Form.Label>
               <Form.Control
                 type="text"
@@ -124,24 +126,25 @@ function Modal({ closeModal }) {
                 id="artistProfileGenre"
               />
             </Form.Group>
-            <div className="">
+            <div className="d-flex justify-content-around pt-4">
               <button
-                className=""
+                className="profileDelBtn"
+
                 onClick={() => closeModal(false)}
               >
                 Cancel
               </button>
 
               <button
-                className=""
+                className="profileUpBtn"
                 to={{ pathname: "../pages/account" }}
-                type="submit"
-              >
-                Continue
+                type="submit">
+                  
+                Update
               </button>
             </div>
           </Form>
-        </div>
+
 
         {error ? (
           <div>

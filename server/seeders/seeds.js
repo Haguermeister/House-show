@@ -10,7 +10,11 @@ db.once("open", async () => {
   // // create venue data
   let venueData = [];
   for (let i = 0; i < 10; i += 1) {
-    const randomPlace = faker.image.business(640, 480, true);
+    const randomPlaceOne = faker.image.business(640, 480, true);
+    const randomPlaceTwo = faker.image.business(640, 480, true);
+    const randomPlaceThree = faker.image.business(640, 480, true);
+    const randomPlaceFour = faker.image.business(640, 480, true);
+    const randomPlaceFive = faker.image.business(640, 480, true);
 
     const data = {
       // _id: faker.database.mongodbObjectId(),
@@ -18,7 +22,13 @@ db.once("open", async () => {
       owner: faker.name.findName(),
       description: faker.lorem.words(Math.round(Math.random() * 20) + 1),
       occupancy: faker.datatype.number(),
-      pictures: randomPlace,
+      pictures: [
+        randomPlaceOne,
+        randomPlaceTwo,
+        randomPlaceThree,
+        randomPlaceFour,
+        randomPlaceFive,
+      ],
       city: faker.address.cityName(),
       cost: faker.datatype.number(),
     };
@@ -38,7 +48,11 @@ db.once("open", async () => {
       precision: 0.01,
     });
 
-    const randomPerson = faker.image.people(640, 480, true);
+    const randomPersonOne = faker.image.people(640, 480, true);
+    const randomPersonTwo = faker.image.people(640, 480, true);
+    const randomPersonThree = faker.image.people(640, 480, true);
+    const randomPersonFour = faker.image.people(640, 480, true);
+    const randomPersonFive = faker.image.people(640, 480, true);
 
     const data = {
       username: faker.internet.userName(),
@@ -47,7 +61,13 @@ db.once("open", async () => {
       musicType: faker.music.genre(),
       bandSize: faker.datatype.number(),
       rate: faker.datatype.number(),
-      pictures: randomPerson,
+      pictures: [
+        randomPersonOne,
+        randomPersonTwo,
+        randomPersonThree,
+        randomPersonFour,
+        randomPersonFive,
+      ],
       spotifyLink: faker.internet.url(),
       email: faker.internet.email(),
       password: faker.internet.password(),

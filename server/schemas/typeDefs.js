@@ -88,7 +88,8 @@ const typeDefs = gql`
       email: String
     ): Artist
     deleteArtist(id: ID!): Artist
-    bookVenue(venueId: ID!): Venue
+    bookVenue(venueId: ID!): Artist
+    removeVenue(venueId: ID!): Artist
     addVenue(
       name: String!
       description: String!
