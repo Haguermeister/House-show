@@ -9,8 +9,7 @@ import HPModal from "../Modal/HPModal";
 import "../Modal/profileModal.css";
 
 const HostProfile = (props) => {
-
-  const [userType, loggedIn] = Auth.loggedIn();
+  const [userType, loggedIn] = auth.loggedIn();
 
   const { username: userParam } = useParams();
   const [deleteHost] = useMutation(DELETE_HOST);
@@ -31,7 +30,6 @@ const HostProfile = (props) => {
 
   if (!host?.firstName) {
     return "" /*  <Redirect to={{ pathname: "/loginHost" }} /> */;
-
   }
 
   const handleClickDelete = async () => {
@@ -76,21 +74,21 @@ const HostProfile = (props) => {
         </div>
 
         <div className="d-flex justify-content-center mt-5">
-        <button
-          className="profileUpBtn"
-          onClick={() => {
-            setOpenModal(true);
-          }}
-        >
-          Update Profile
-        </button>
-        {openModal && <HPModal closeModal={setOpenModal} />}
+          <button
+            className="profileUpBtn"
+            onClick={() => {
+              setOpenModal(true);
+            }}
+          >
+            Update Profile
+          </button>
+          {openModal && <HPModal closeModal={setOpenModal} />}
         </div>
 
         <div className="d-flex justify-content-center mt-5 mb-5">
-        <button className="profileDelBtn" onClick={handleClickDelete}>
+          <button className="profileDelBtn" onClick={handleClickDelete}>
             Delete Profile
-        </button>
+          </button>
         </div>
 
         {/* <div>
