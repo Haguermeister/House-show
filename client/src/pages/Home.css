@@ -11,6 +11,7 @@
   background-color: #fff;
   color: #fd6258;
 }
+
 .signIn-Link {
   color: #fd6258;
   background-color: #fff;
@@ -24,4 +25,9 @@
 .signIn-Link:hover {
   color: #fff;
   background-color: #fd6258;
+}
+
+.exploreBtn {
+  font-size: 2rem;
+  width: 20rem;
 }

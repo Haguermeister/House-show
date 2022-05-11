@@ -4,7 +4,8 @@ import VideoLoop from "../components/VideoLoop/VideoLoop";
 import "./Home.css";
 import auth from "../utils/auth";
 const Home = () => {
-  const { loggedIn } = auth.loggedIn();
+  const [userType, loggedIn] = auth.loggedIn();
+  console.log(loggedIn);
   if (!loggedIn) {
     return (
       <div className="w-100 d-flex flex-column align-items-center justify-content-center ">
@@ -38,6 +39,20 @@ const Home = () => {
               I want to Perform
             </Link>
           </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="w-100 d-flex flex-column align-items-center justify-content-center ">
+        <VideoLoop className="mb-5" />
+        <div className="w-100 d-flex flex-row align-items-center">
+          <Link
+            className="signIn-Link col-6 p-3 exploreBtn btn mx-auto"
+            to={{ pathname: "/explore" }}
+          >
+            Start Booking Artists
+          </Link>
         </div>
       </div>
     );
