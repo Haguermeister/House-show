@@ -14,6 +14,7 @@ const VenueCardBooking = ({ venues = [] }) => {
   const clickCancel = async (event) => {
     event.preventDefault();
     const variables = { venueId: venues[event.target.id]._id };
+    console.log(variables);
     try {
       const mutationResponse = await removeVenue({ variables });
       console.log(mutationResponse);
