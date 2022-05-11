@@ -181,8 +181,8 @@ export const BOOK_VENUE = gql`
 `;
 
 export const REMOVE_VENUE = gql`
-  mutation removeVenue($venueName: String!) {
-    removeVenue(venueName: $venueName) {
+  mutation removeVenue($venueId: ID!) {
+    removeVenue(venueId: $venueId) {
       _id
       name
       venues {
