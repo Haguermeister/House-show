@@ -10,22 +10,23 @@ const Account = () => {
     event.preventDefault();
     Auth.logout();
   };
-  const [userType] = auth.loggedIn();
+  const [userType, loggedIn] = auth.loggedIn();
   return (
     <div className="">
       {userType === "artist" ? <ArtistProfile /> : ""}
       {userType === "host" ? <HostProfile /> : ""}
       <nav className="text-center">
-        {Auth.loggedIn() ? (
+        {loggedIn ? (
           <>
-            <Link to="/account"></Link>
-            <a className="accLogout" href="/" onClick={logout}>
+            <Link className="btn accLogout" onClick={logout} to="/home">
               Logout
-            </a>
+            </Link>
           </>
         ) : (
           <>
-            <Link to="/">Login or Signup</Link>
+            <Link className="mt-3 btn accLogout" to="/login">
+              Login or Signup
+            </Link>
           </>
         )}
       </nav>

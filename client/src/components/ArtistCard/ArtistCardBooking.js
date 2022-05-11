@@ -60,7 +60,7 @@ const ArtistCardBooking = ({ artists = [] }) => {
                 <button
                   onClick={clickCancel}
                   id={i}
-                  className="col-8 btn p-2 textBtn"
+                  className="col-8 btn p-3 m-2 textBtn"
                 >
                   Cancel Reservation
                 </button>
