@@ -1,11 +1,14 @@
-import React from "react";
-import { Redirect, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ARTIST, GET_MEARTIST } from "../../utils/queries";
 import { DELETE_ARTIST } from "../../utils/mutations";
 import auth from "../../utils/auth";
+import APModal from "../Modal/APModal";
+import "../Modal/profileModal.css";
+
 const ArtistProfile = (props) => {
-  const [userType, loggedIn] = auth.loggedIn();
+  const [userType] = auth.loggedIn();
 
   console.log(userType);
 
@@ -15,7 +18,11 @@ const ArtistProfile = (props) => {
     variables: { username: userParam },
   });
   console.log(data);
+
+  const [openModal, setOpenModal] = useState(false);
+
   const artist = data?.meArtist || {};
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -36,14 +43,30 @@ const ArtistProfile = (props) => {
   if (userType === "artist") {
     return (
       <div>
-        <div className="flex-row mb-3">
-          <h2 className="bg-dark text-secondary p-3 display-inline-block">
+        <div className="d-flex justify-content-center pt-5">
+          <h2 className="text-dark textProfile">
             Viewing {artist.name ? `${artist.name}'s` : "your"} account.
           </h2>
-          <button className="btn ml-auto" onClick={handleClickDelete}>
-            Delete Artist
-          </button>
         </div>
+
+        <div className="d-flex justify-content-center mt-5">
+        <button
+          className="profileUpBtn"
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          Update Profile
+        </button>
+        {openModal && <APModal closeModal={setOpenModal} />}
+        </div>
+
+        <div className="d-flex justify-content-center mt-5 mb-5">
+        <button className="profileDelBtn" onClick={handleClickDelete}>
+            Delete Profile
+        </button>
+        </div>
+
       </div>
     );
   }
