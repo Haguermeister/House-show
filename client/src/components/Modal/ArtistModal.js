@@ -75,7 +75,7 @@ function Modal({ closeModal }) {
               <Form.Control
                 type="text"
                 value={formStateEmail}
-                placeholder="Enter email"
+                placeholder="yourname@email.com"
                 onChange={handleChangeEmail}
                 id="artistSignupEmail"
               />
