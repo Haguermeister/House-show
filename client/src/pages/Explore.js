@@ -19,7 +19,6 @@ const Explore = () => {
   }
   const { data: artists } = useQuery(GET_ARTISTS, { enabled: hostTrue });
   const { data: venues } = useQuery(GET_VENUES, { enabled: artistTrue });
-  console.log(venues);
   const tags = artists ? artists.artists.map((artist) => artist.musicType) : [];
   const uniqueTags = [...new Set(tags)];
   const [selectedTags, setSelectedTags] = useState();

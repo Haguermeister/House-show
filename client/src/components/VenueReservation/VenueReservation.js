@@ -4,23 +4,22 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { HIRE_ARTIST } from "../../utils/mutations";
+import { BOOK_VENUE, HIRE_ARTIST } from "../../utils/mutations";
 import { useHistory } from "react-router-dom";
 
 const VenueReservation = (props) => {
-  const sweetnur = "6wt5o8DcYlzA1nCyBb2rpf";
   const handleBack = () => {
     props.setRenderState("unclicked");
     props.setRenderParentState("explore");
   };
-  const [hireArtist, { error }] = useMutation(HIRE_ARTIST);
+  const [bookVenue, { error }] = useMutation(BOOK_VENUE);
   let history = useHistory();
   const handleReservation = async (event) => {
     event.preventDefault();
-    console.log("id", props.venue._id);
-    const variables = { artistId: props.venue._id };
+    const variables = { venueId: props.venue._id };
+    console.log(variables);
     try {
-      const mutationResponse = await hireArtist({ variables });
+      const mutationResponse = await bookVenue({ variables });
       console.log(mutationResponse);
       history.push("bookings");
     } catch (e) {
