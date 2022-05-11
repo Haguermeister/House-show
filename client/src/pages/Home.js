@@ -5,7 +5,6 @@ import "./Home.css";
 import auth from "../utils/auth";
 const Home = () => {
   const [userType, loggedIn] = auth.loggedIn();
-  console.log(loggedIn);
   if (!loggedIn) {
     return (
       <div className="w-100 d-flex flex-column align-items-center justify-content-center ">
