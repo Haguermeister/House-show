@@ -7,9 +7,10 @@ import { useState } from "react";
 import ArtistReservation from "../ArtistReservation/ArtistReservation";
 import { FIRE_ARTIST } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
+
 import { useHistory } from "react-router-dom";
 
-const ArtistCard = ({ setRenderParentState, artists = [] }) => {
+const ArtistCardBooking = ({ artists = [] }) => {
   let history = useHistory();
   const [fireArtist, { error }] = useMutation(FIRE_ARTIST);
   const clickCancel = async (event) => {
@@ -72,4 +73,4 @@ const ArtistCard = ({ setRenderParentState, artists = [] }) => {
   );
 };
 
-export default ArtistCard;
+export default ArtistCardBooking;

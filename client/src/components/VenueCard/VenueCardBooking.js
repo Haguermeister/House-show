@@ -8,7 +8,7 @@ import { REMOVE_VENUE } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 
-const ArtistCard = ({ setRenderParentState, venues = [] }) => {
+const VenueCardBooking = ({ venues = [] }) => {
   let history = useHistory();
   const [removeVenue, { error }] = useMutation(REMOVE_VENUE);
   const clickCancel = async (event) => {
@@ -71,4 +71,4 @@ const ArtistCard = ({ setRenderParentState, venues = [] }) => {
   );
 };
 
-export default ArtistCard;
+export default VenueCardBooking;

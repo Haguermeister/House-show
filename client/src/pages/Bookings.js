@@ -12,13 +12,19 @@ const Bookings = (props) => {
   } else {
     hostTrue = true;
   }
-  const { data: artist } = useQuery(GET_MEARTIST, { enabled: artistTrue });
-  const { data: host } = useQuery(GET_MEHOST, { enabled: hostTrue });
-  return (
-    <div className="">
-      <VenueCardBooking venues={artist?.meArtist.venues}></VenueCardBooking>
-      <ArtistCardBooking artists={host?.meHost.artists}></ArtistCardBooking>
-    </div>
-  );
+  const { data: meArtist } = useQuery(GET_MEARTIST, { enabled: artistTrue });
+  const { data: meHost } = useQuery(GET_MEHOST, { enabled: hostTrue });
+  console.log("meHost -", meHost ? meHost : []);
+  console.log("meArtist -", meArtist ? meArtist : []);
+
+  if (artistTrue) {
+    return (
+      <div className="">
+        <VenueCardBooking venues={meArtist?.meArtist.venues} />
+      </div>
+    );
+  } else if (hostTrue) {
+    return <ArtistCardBooking artists={meHost?.meHost.artists} />;
+  }
 };
 export default Bookings;
