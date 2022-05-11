@@ -76,5 +76,114 @@
  }
   
 
+
+ @media screen and (min-width: 500px) {
+  .continueBtnArtist {
+    left: 18rem;
+  }
+
+  .cancelBtnArtist {
+    left: 8rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+ .continueBtnArtist {
+   left: 22rem;
+ }
+
+ .cancelBtnArtist {
+   left: 12rem;
+ }
+}
+
+@media screen and (min-width: 650px) {
+ .continueBtnArtist {
+   left: 18rem;
+ }
+
+ .cancelBtnArtist {
+   left: 8rem;
+ }
+}
+
+
+
+@media screen and (min-width: 700px) {
+ .continueBtnArtist {
+   left: 28rem;
+ }
+
+ .cancelBtnArtist {
+   left: 18rem;
+   
+ }
+}
+
+@media screen and (min-width: 750px) {
+  .continueBtnArtist {
+    left: 28rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 18rem;
+    
+  }
+ }
+
+@media screen and (min-width: 800px) {
+  .continueBtnArtist {
+    left: 32rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 22rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 850px) {
+  .continueBtnArtist {
+    left: 30rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 20rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 900px) {
+  .continueBtnArtist {
+    left: 28rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 18rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 1000px) {
+  .continueBtnArtist {
+    left: 32rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 22rem;
+    
+  }
+ }
+
+ @media screen and (min-width: 1200px) {
+  .continueBtnArtist {
+    left: 38rem;
+  }
+ 
+  .cancelBtnArtist {
+    left: 28rem;
+    
+  }
+ }
   
   

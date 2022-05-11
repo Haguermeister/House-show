@@ -75,7 +75,7 @@ function Modal({ closeModal }) {
               <Form.Control
                 type="text"
                 value={formStateEmail}
-                placeholder="Enter email"
+                placeholder="yourname@email.com"
                 onChange={handleChangeEmail}
                 id="artistSignupEmail"
               />
@@ -89,7 +89,7 @@ function Modal({ closeModal }) {
               <Form.Control
                 type="text"
                 value={formStatePassword}
-                placeholder="Password"
+                placeholder="********"
                 onChange={handleChangePassword}
                 id="artistSignupPassword"
               />
@@ -111,7 +111,6 @@ function Modal({ closeModal }) {
               <Form.Control
                 type="text"
                 value={formStateName}
-                placeholder="Enter Name"
                 onChange={handleChangeName}
                 id="artistSignupName"
               />
@@ -122,7 +121,6 @@ function Modal({ closeModal }) {
               <Form.Control
                 type="text"
                 value={formStateMusicType}
-                placeholder="Genre"
                 onChange={handleChangeMusicType}
                 id="artistSignupGenre"
               />
