@@ -55,7 +55,7 @@ const Login = () => {
             style={{ width: "100%", height: "100%" }}
           />
           <h1 className="artistOverlayText">Sign in</h1>
-          <Form>
+          <Form className="artistLoginForm">
             <Form.Label htmlFor="artistLoginPassword"></Form.Label>
             <Form.Control
               placeholder="******"
